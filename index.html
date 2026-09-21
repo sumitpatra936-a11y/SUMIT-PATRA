@@ -7,31 +7,66 @@
 <title>SUMIT PATRA | Online Services</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+:root{
+  --primary:#2563eb;
+  --secondary:#7c3aed;
+  --dark:#0f172a;
+  --text:#1e293b;
+  --muted:#64748b;
+  --light:#f8fafc;
+  --white:#fff;
+  --border:#e2e8f0;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --shadow:0 10px 30px rgba(15,23,42,.10);
 }
 
-html{
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
   scroll-behavior:smooth;
 }
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f5f7fb;
-  color:#172033;
+  background:var(--light);
+  color:var(--text);
   line-height:1.6;
   transition:.3s;
 }
 
 body.dark{
-  background:#111827;
-  color:#f3f4f6;
+  --light:#020617;
+  --white:#0f172a;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+  --border:#1e293b;
+  background:#020617;
 }
 
 a{
   text-decoration:none;
+  color:inherit;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.container{
+  width:92%;
+  max-width:1200px;
+  margin:auto;
+}
+
+section{
+  padding:80px 0;
+}
+
+h1,h2,h3{
+  line-height:1.2;
 }
 
 button,
@@ -41,350 +76,447 @@ textarea{
   font:inherit;
 }
 
-.container{
-  width:92%;
-  max-width:1150px;
-  margin:auto;
-}
-
-section{
-  padding:70px 0;
-}
-
-/* ================= LOADER ================= */
+/* LOADER */
 
 #loader{
   position:fixed;
   inset:0;
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  background:#fff;
   z-index:99999;
-  color:white;
-  font-size:25px;
-  font-weight:bold;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.spinner{
-  width:50px;
-  height:50px;
-  border:5px solid rgba(255,255,255,.3);
-  border-top:5px solid white;
+.loader-circle{
+  width:55px;
+  height:55px;
+  border:6px solid #ddd;
+  border-top-color:var(--primary);
   border-radius:50%;
   animation:spin 1s linear infinite;
-  margin-right:15px;
 }
 
 @keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
+  to{transform:rotate(360deg);}
 }
 
-/* ================= ANNOUNCEMENT ================= */
+/* TOP BAR */
 
-.announcement{
-  background:#f59e0b;
-  color:#111;
+.topbar{
+  background:var(--dark);
+  color:white;
   text-align:center;
-  padding:10px;
-  font-weight:bold;
+  padding:8px;
+  font-size:14px;
 }
 
-/* ================= NAVBAR ================= */
-
-nav{
-  position:sticky;
-  top:0;
-  z-index:2000;
-  background:white;
-  box-shadow:0 3px 15px rgba(0,0,0,.08);
-}
-
-body.dark nav{
-  background:#1f2937;
-}
+/* NAVBAR */
 
 .navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+
+body.dark .navbar{
+  background:rgba(15,23,42,.95);
+}
+
+.nav-inner{
   min-height:72px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
+  gap:20px;
 }
 
 .logo{
   display:flex;
   align-items:center;
   gap:10px;
-  color:#172033;
-  font-size:20px;
-  font-weight:bold;
-}
-
-body.dark .logo{
-  color:white;
+  font-weight:800;
+  font-size:18px;
 }
 
 .logo-mark{
-  width:45px;
-  height:45px;
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
-  color:white;
+  width:42px;
+  height:42px;
   border-radius:12px;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
+  color:#fff;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
 }
 
 .nav-links{
   display:flex;
-  gap:15px;
   align-items:center;
+  gap:18px;
 }
 
 .nav-links a{
-  color:#374151;
-  font-weight:bold;
   font-size:14px;
+  font-weight:600;
 }
 
-body.dark .nav-links a{
-  color:#e5e7eb;
+.nav-links a:hover{
+  color:var(--primary);
+}
+
+.menu-btn,
+.theme-btn{
+  border:0;
+  cursor:pointer;
+  background:#eef2ff;
+  color:#1e3a8a;
+  border-radius:10px;
+  padding:9px 12px;
 }
 
 .menu-btn{
   display:none;
-  border:0;
-  background:#2563eb;
-  color:white;
-  padding:9px 12px;
-  border-radius:8px;
-  cursor:pointer;
 }
 
-.dark-toggle{
-  border:0;
-  background:#111827;
-  color:white;
-  padding:9px 12px;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
-  background:linear-gradient(135deg,#1d4ed8,#7c3aed);
-  color:white;
   padding:90px 0;
+  background:
+  radial-gradient(circle at top right,rgba(124,58,237,.25),transparent 35%),
+  linear-gradient(135deg,#eff6ff,#f8fafc);
+}
+
+body.dark .hero{
+  background:linear-gradient(135deg,#020617,#111827);
 }
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:40px;
+  grid-template-columns:1.1fr .9fr;
+  gap:50px;
   align-items:center;
 }
 
+.badge{
+  display:inline-block;
+  background:#dbeafe;
+  color:#1d4ed8;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
 .hero h1{
-  font-size:52px;
+  font-size:clamp(42px,6vw,72px);
   margin-bottom:15px;
 }
 
-.hero p{
-  font-size:19px;
-  margin-bottom:25px;
+.hero h1 span{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
-.hero-img{
-  width:100%;
-  max-width:380px;
-  height:380px;
-  object-fit:cover;
-  border-radius:30px;
-  border:5px solid rgba(255,255,255,.5);
-  box-shadow:0 20px 50px rgba(0,0,0,.25);
+.hero p{
+  color:var(--muted);
+  font-size:18px;
+  max-width:650px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
 }
 
 .btn{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:13px 20px;
-  border-radius:10px;
-  margin:5px;
-  font-weight:bold;
+  border-radius:12px;
   border:0;
   cursor:pointer;
+  font-weight:700;
+  transition:.2s;
 }
 
-.btn-white{
-  background:white;
-  color:#1d4ed8;
+.btn:hover{
+  transform:translateY(-2px);
 }
 
-.btn-green{
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
+}
+
+.btn-success{
   background:#16a34a;
-  color:white;
-}
-
-.btn-blue{
-  background:#2563eb;
-  color:white;
+  color:#fff;
 }
 
 .btn-dark{
-  background:#111827;
-  color:white;
+  background:#0f172a;
+  color:#fff;
 }
 
-/* ================= HEADINGS ================= */
+.btn-light{
+  background:#fff;
+  color:#0f172a;
+  border:1px solid var(--border);
+}
+
+.hero-photo{
+  background:#fff;
+  padding:12px;
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+.hero-photo img{
+  width:100%;
+  height:430px;
+  object-fit:cover;
+  border-radius:18px;
+}
+
+/* SECTION */
 
 .section-heading{
   text-align:center;
-  margin-bottom:35px;
+  margin-bottom:40px;
 }
 
 .eyebrow{
-  color:#2563eb;
-  font-weight:bold;
+  color:var(--primary);
   font-size:13px;
+  font-weight:800;
   letter-spacing:2px;
 }
 
 .section-heading h2{
-  font-size:34px;
+  font-size:38px;
   margin-top:8px;
 }
 
-/* ================= CARDS ================= */
-
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
+.section-heading p{
+  color:var(--muted);
+  margin-top:10px;
 }
 
-.card{
-  background:white;
+/* ABOUT */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.info-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+
+.info-card h3{
+  margin-bottom:15px;
+}
+
+.info-card p{
+  color:var(--muted);
+}
+
+/* WHY */
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.feature{
+  background:var(--white);
   padding:25px;
   border-radius:18px;
-  box-shadow:0 8px 25px rgba(15,23,42,.08);
+  text-align:center;
+  border:1px solid var(--border);
 }
 
-body.dark .card{
-  background:#1f2937;
-  color:#f3f4f6;
-}
-
-.card h3{
-  margin:10px 0;
-}
-
-.icon{
+.feature-icon{
   font-size:35px;
+  margin-bottom:10px;
 }
 
-/* ================= ABOUT ================= */
-
-.about-box{
-  font-size:17px;
+.feature p{
+  color:var(--muted);
+  font-size:14px;
 }
 
-/* ================= SERVICES ================= */
+/* STATS */
 
-.search-box{
-  max-width:600px;
-  margin:0 auto 30px;
+.stats{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
 }
 
-.search-box input{
-  width:100%;
-  padding:15px;
-  border:1px solid #ddd;
-  border-radius:12px;
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
-.service-card{
-  position:relative;
+.stat{
+  text-align:center;
 }
 
-.service-card .whatsapp{
-  display:inline-block;
-  background:#16a34a;
-  color:white;
-  padding:9px 13px;
-  border-radius:8px;
-  margin-top:12px;
-  font-weight:bold;
+.stat h3{
+  font-size:38px;
 }
 
-/* ================= NOTICE ================= */
+.stat p{
+  opacity:.9;
+}
+
+/* NOTICE */
 
 .notice{
   background:#fff7ed;
   border-left:5px solid #f97316;
   padding:20px;
-  border-radius:10px;
+  border-radius:12px;
 }
 
 body.dark .notice{
-  background:#292524;
+  background:#1c1917;
 }
 
-/* ================= PRICE ================= */
+.notice strong{
+  color:#ea580c;
+}
+
+/* SERVICES */
+
+.service-search{
+  max-width:600px;
+  margin:0 auto 35px;
+}
+
+.service-search input{
+  width:100%;
+  padding:15px 18px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--white);
+  color:var(--text);
+  outline:none;
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.service-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+}
+
+.service-icon{
+  font-size:35px;
+  margin-bottom:12px;
+}
+
+.service-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin:10px 0 18px;
+}
+
+.service-card .btn{
+  margin-top:auto;
+}
+
+/* PAN */
+
+.pan-box{
+  background:linear-gradient(135deg,#dbeafe,#ede9fe);
+  padding:35px;
+  border-radius:25px;
+}
+
+body.dark .pan-box{
+  background:linear-gradient(135deg,#172554,#2e1065);
+}
+
+.pan-links{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+/* PRICE */
 
 .price-table{
   width:100%;
   border-collapse:collapse;
-  background:white;
-  border-radius:15px;
+  background:var(--white);
+  border-radius:18px;
   overflow:hidden;
-}
-
-body.dark .price-table{
-  background:#1f2937;
+  box-shadow:var(--shadow);
 }
 
 .price-table th,
 .price-table td{
-  padding:15px;
-  border-bottom:1px solid #ddd;
+  padding:16px;
+  border-bottom:1px solid var(--border);
   text-align:left;
 }
 
 .price-table th{
-  background:#2563eb;
-  color:white;
+  background:#eff6ff;
+  color:#1d4ed8;
 }
 
-/* ================= FORMS ================= */
+body.dark .price-table th{
+  background:#172554;
+}
 
-.form-box{
-  background:white;
+/* CALCULATOR */
+
+.calc-box{
+  max-width:650px;
+  margin:auto;
+  background:var(--white);
   padding:30px;
   border-radius:20px;
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
-}
-
-body.dark .form-box{
-  background:#1f2937;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
+  box-shadow:var(--shadow);
 }
 
 .form-group{
-  margin-bottom:15px;
+  margin-bottom:18px;
 }
 
 .form-group label{
   display:block;
-  font-weight:bold;
   margin-bottom:7px;
+  font-weight:700;
 }
 
 .form-group input,
@@ -392,43 +524,42 @@ body.dark .form-box{
 .form-group textarea{
   width:100%;
   padding:13px;
-  border:1px solid #d1d5db;
-  border-radius:9px;
-  background:white;
-  color:#111;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--white);
+  color:var(--text);
 }
 
-.form-group textarea{
-  min-height:120px;
-}
-
-/* ================= STATUS ================= */
-
-.status-box{
+.result{
+  margin-top:20px;
+  padding:20px;
+  background:#ecfdf5;
+  border-radius:12px;
+  color:#166534;
+  font-size:22px;
+  font-weight:bold;
   text-align:center;
-  padding:25px;
-  border-radius:15px;
-  background:white;
-  box-shadow:0 8px 25px rgba(0,0,0,.07);
 }
 
-body.dark .status-box{
-  background:#1f2937;
+/* APPOINTMENT */
+
+.appointment{
+  background:#eef6ff;
 }
 
-.open{
-  color:#16a34a;
-  font-weight:bold;
-  font-size:20px;
+body.dark .appointment{
+  background:#0c1a2e;
 }
 
-.closed{
-  color:#dc2626;
-  font-weight:bold;
-  font-size:20px;
+/* ENQUIRY */
+
+.enquiry-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
 }
 
-/* ================= TEAM ================= */
+/* TEAM */
 
 .team-grid{
   display:grid;
@@ -437,15 +568,12 @@ body.dark .status-box{
 }
 
 .team-card{
-  background:white;
+  background:var(--white);
   padding:15px;
   border-radius:20px;
   text-align:center;
-  box-shadow:0 8px 25px rgba(0,0,0,.1);
-}
-
-body.dark .team-card{
-  background:#1f2937;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
 }
 
 .team-card img{
@@ -453,7 +581,6 @@ body.dark .team-card{
   height:280px;
   object-fit:cover;
   border-radius:15px;
-  cursor:pointer;
 }
 
 .team-card h3{
@@ -461,59 +588,62 @@ body.dark .team-card{
 }
 
 .team-card p{
-  color:#2563eb;
+  color:var(--primary);
   font-weight:bold;
 }
 
-/* ================= REVIEWS ================= */
+/* REVIEWS */
+
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
 
 .review{
-  text-align:center;
+  background:var(--white);
+  padding:25px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
 }
 
 .stars{
   color:#f59e0b;
-  font-size:22px;
+  font-size:20px;
 }
 
-/* ================= FAQ ================= */
+.review p{
+  color:var(--muted);
+  margin-top:10px;
+}
+
+/* FAQ */
 
 .faq{
-  margin-bottom:12px;
+  max-width:850px;
+  margin:auto;
 }
 
-.faq button{
-  width:100%;
-  padding:17px;
-  text-align:left;
-  border:0;
-  background:white;
-  border-radius:10px;
+details{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  margin-bottom:12px;
+  padding:18px;
+}
+
+summary{
   cursor:pointer;
   font-weight:bold;
 }
 
-body.dark .faq button{
-  background:#1f2937;
-  color:white;
-}
-
-.answer{
-  display:none;
-  background:#f1f5f9;
-  padding:15px;
-}
-
-body.dark .answer{
-  background:#374151;
-}
-
-/* ================= GALLERY ================= */
+/* GALLERY */
 
 .gallery{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:20px;
 }
 
 .gallery img{
@@ -522,148 +652,246 @@ body.dark .answer{
   object-fit:cover;
   border-radius:18px;
   cursor:pointer;
-  transition:.3s;
+  box-shadow:var(--shadow);
+  transition:.2s;
 }
 
 .gallery img:hover{
-  transform:scale(1.03);
+  transform:scale(1.02);
 }
 
-/* ================= MAP ================= */
+/* MAP */
 
-.map iframe{
-  width:100%;
-  height:350px;
-  border:0;
+.map-box{
   border-radius:20px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
 }
 
-/* ================= QR ================= */
+.map-box iframe{
+  width:100%;
+  height:400px;
+  border:0;
+}
 
-.qr{
+/* CONTACT */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.contact-card{
+  background:var(--white);
+  padding:25px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.contact-card h3{
+  margin-bottom:8px;
+}
+
+.contact-card p{
+  color:var(--muted);
+}
+
+/* FORMS */
+
+.forms-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.form-download{
+  background:var(--white);
+  padding:25px;
+  border-radius:18px;
+  border:1px solid var(--border);
+}
+
+/* QR */
+
+.qr-box{
   text-align:center;
-}
-
-.qr img{
-  width:220px;
-  max-width:100%;
-  border-radius:10px;
-}
-
-/* ================= POPUP ================= */
-
-.popup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:5000;
-  align-items:center;
-  justify-content:center;
-}
-
-.popup-box{
-  background:white;
-  color:#111;
+  background:var(--white);
   padding:30px;
   border-radius:20px;
-  max-width:450px;
-  width:90%;
-  text-align:center;
+  box-shadow:var(--shadow);
 }
 
-.popup-box button{
-  margin-top:15px;
+.qr-box img{
+  width:200px;
+  margin:20px auto;
 }
 
-/* ================= FULLSCREEN ================= */
+/* POPUP */
 
-.viewer{
-  display:none;
+.popup{
   position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  z-index:6000;
-  align-items:center;
-  justify-content:center;
+  right:20px;
+  bottom:90px;
+  width:320px;
+  background:var(--white);
+  border:1px solid var(--border);
+  box-shadow:0 15px 50px rgba(0,0,0,.2);
+  border-radius:18px;
+  padding:22px;
+  z-index:5000;
+  display:none;
 }
 
-.viewer img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:10px;
+.popup.show{
+  display:block;
 }
 
-.viewer span{
+.popup-close{
   position:absolute;
-  top:20px;
-  right:30px;
-  color:white;
-  font-size:40px;
+  right:12px;
+  top:8px;
+  border:0;
+  background:none;
+  font-size:20px;
   cursor:pointer;
 }
 
-/* ================= FOOTER ================= */
+/* FULLSCREEN IMAGE */
 
-footer{
-  background:#111827;
-  color:white;
-  text-align:center;
-  padding:35px 0;
+.image-viewer{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  padding:30px;
 }
 
-.footer-links{
-  margin:15px 0;
+.image-viewer.show{
+  display:flex;
 }
 
-.footer-links a{
-  color:white;
-  margin:0 8px;
+.image-viewer img{
+  max-width:95%;
+  max-height:90%;
+  object-fit:contain;
 }
 
-/* ================= FLOATING WHATSAPP ================= */
+.viewer-close{
+  position:absolute;
+  top:20px;
+  right:25px;
+  color:#fff;
+  font-size:35px;
+  cursor:pointer;
+}
 
-.floating-wa{
+/* FLOAT WHATSAPP */
+
+.whatsapp-float{
   position:fixed;
   right:20px;
-  bottom:85px;
+  bottom:20px;
   width:58px;
   height:58px;
-  background:#16a34a;
-  color:white;
+  background:#25d366;
+  color:#fff;
   border-radius:50%;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   font-size:28px;
   z-index:3000;
-  box-shadow:0 5px 20px rgba(0,0,0,.2);
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
 
-/* ================= MOBILE BAR ================= */
+/* MOBILE BAR */
 
 .mobile-bar{
   display:none;
 }
 
-/* ================= RESPONSIVE ================= */
+/* BACK TOP */
 
-@media(max-width:950px){
+.back-top{
+  position:fixed;
+  right:20px;
+  bottom:90px;
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  cursor:pointer;
+  z-index:2000;
+}
 
-  .hero-grid{
-    grid-template-columns:1fr;
+/* FOOTER */
+
+footer{
+  background:#020617;
+  color:#cbd5e1;
+  padding:45px 0;
+  text-align:center;
+}
+
+footer p{
+  margin:6px 0;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  margin:15px 0;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+  .services-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .card-grid{
-    grid-template-columns:1fr 1fr;
+  .feature-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stats-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
   .team-grid{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .gallery{
-    grid-template-columns:1fr 1fr;
+  .review-grid{
+    grid-template-columns:1fr;
+  }
+
+  .forms-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:800px){
+
+  .hero-grid,
+  .about-grid,
+  .enquiry-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
   }
 
   .nav-links{
@@ -672,47 +900,50 @@ footer{
     top:72px;
     left:0;
     right:0;
-    background:white;
+    background:var(--white);
     padding:20px;
     flex-direction:column;
+    border-bottom:1px solid var(--border);
   }
 
-  body.dark .nav-links{
-    background:#1f2937;
-  }
-
-  .nav-links.active{
+  .nav-links.show{
     display:flex;
   }
 
   .menu-btn{
-    display:inline-block;
+    display:block;
   }
+
+  .hero-photo img{
+    height:350px;
+  }
+
 }
 
 @media(max-width:600px){
 
   section{
-    padding:50px 0;
-  }
-
-  .hero{
     padding:60px 0;
   }
 
+  .hero{
+    padding:65px 0;
+  }
+
   .hero h1{
-    font-size:38px;
+    font-size:43px;
   }
 
-  .hero-img{
-    height:300px;
-  }
-
-  .card-grid,
+  .services-grid,
+  .feature-grid,
+  .stats-grid,
   .team-grid,
-  .gallery,
-  .form-grid{
+  .gallery{
     grid-template-columns:1fr;
+  }
+
+  .gallery img{
+    height:300px;
   }
 
   .mobile-bar{
@@ -721,76 +952,90 @@ footer{
     bottom:0;
     left:0;
     right:0;
-    background:white;
+    background:#fff;
     z-index:2500;
-    box-shadow:0 -3px 15px rgba(0,0,0,.15);
+    border-top:1px solid #ddd;
   }
 
   body.dark .mobile-bar{
-    background:#1f2937;
+    background:#0f172a;
+    border-color:#1e293b;
   }
 
   .mobile-bar a{
     flex:1;
     text-align:center;
-    padding:10px 3px;
-    color:#2563eb;
+    padding:10px 5px;
     font-size:12px;
+    font-weight:bold;
   }
 
-  .floating-wa{
-    bottom:75px;
+  .mobile-bar a:first-child{
+    color:#16a34a;
   }
+
+  .mobile-bar a:last-child{
+    color:var(--primary);
+  }
+
+  .whatsapp-float{
+    bottom:70px;
+  }
+
+  .back-top{
+    bottom:135px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= LOADER ================= -->
+<!-- LOADER -->
 
 <div id="loader">
-  <div class="spinner"></div>
-  Loading...
+  <div class="loader-circle"></div>
 </div>
 
-<!-- ================= ANNOUNCEMENT ================= -->
+<!-- TOP BAR -->
 
-<div class="announcement">
-📢 Welcome to SUMIT PATRA Online Services | Fast & Reliable Digital Services
+<div class="topbar">
+  📢 SUMIT PATRA Online Services — Digital & Government Services
 </div>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 
-<nav>
-<div class="container navbar">
+<nav class="navbar">
+
+<div class="container nav-inner">
 
 <a href="#home" class="logo">
-<span class="logo-mark">SP</span>
-<span>SUMIT PATRA</span>
+  <span class="logo-mark">SP</span>
+  <span>SUMIT PATRA</span>
 </a>
 
 <div class="nav-links" id="navLinks">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#price">Price</a>
-<a href="#appointment">Appointment</a>
-<a href="#team">Team</a>
-<a href="#reviews">Reviews</a>
-<a href="#faq">FAQ</a>
-<a href="#contact">Contact</a>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#price">Price</a>
+  <a href="#team">Team</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
 </div>
 
-<div>
-<button class="dark-toggle" onclick="toggleDark()">🌙</button>
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<div style="display:flex;gap:8px;align-items:center;">
+  <button class="theme-btn" onclick="toggleDark()">🌙</button>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
 </div>
 
 </div>
+
 </nav>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -798,41 +1043,46 @@ footer{
 
 <div>
 
-<h1>SUMIT PATRA</h1>
+<span class="badge">ONLINE SERVICE CENTER</span>
+
+<h1>
+  SUMIT <span>PATRA</span>
+</h1>
 
 <p>
-Online Services • Digital Solutions • Government Services
+Digital Solutions • Government Services • Online Applications
 </p>
 
-<a class="btn btn-white" href="#services">
-View Services
+<div class="hero-buttons">
+
+<a href="#services" class="btn btn-primary">
+  🔎 View Services
 </a>
 
-<a class="btn btn-green"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20your%20service.">
-💬 WhatsApp
+<a
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20your%20online%20service."
+target="_blank"
+class="btn btn-success">
+  💬 WhatsApp
 </a>
 
-<a class="btn btn-white" href="tel:7001689925">
-📞 Call Now
+<a href="tel:7001689925" class="btn btn-dark">
+  📞 Call Now
 </a>
 
 </div>
 
-<div>
+</div>
 
-<img
-class="hero-img"
-src="sumit-photo.jpeg"
-alt="Sumit Patra">
-
+<div class="hero-photo">
+<img src="sumit-photo.jpeg" alt="Sumit Patra">
 </div>
 
 </div>
 
 </section>
 
-<!-- ================= ABOUT ================= -->
+<!-- ABOUT -->
 
 <section id="about">
 
@@ -840,22 +1090,37 @@ alt="Sumit Patra">
 
 <div class="section-heading">
 <span class="eyebrow">ABOUT US</span>
-<h2>Welcome to SUMIT PATRA</h2>
+<h2>Trusted Online Service</h2>
+<p>Simple, fast and helpful digital service assistance.</p>
 </div>
 
-<div class="card about-box">
+<div class="about-grid">
+
+<div class="info-card">
+
+<h3>👨‍💼 About Sumit Patra</h3>
 
 <p>
-We provide reliable online and digital services including PAN Card,
-Aadhaar related assistance, Voter Card, Ration Card, Government Forms,
-Online Applications and other digital services.
+SUMIT PATRA provides online and digital service assistance
+for PAN Card, Aadhaar, Voter Card, Ration Card,
+Government Forms, Online Applications and other digital services.
 </p>
 
-<br>
+</div>
+
+<div class="info-card">
+
+<h3>📍 Service Location</h3>
 
 <p>
-Our goal is to provide simple, fast and convenient online service support.
+Swarup Beria,<br>
+PO Iswaripur,<br>
+PS Bhangar,<br>
+South 24 Parganas,<br>
+West Bengal
 </p>
+
+</div>
 
 </div>
 
@@ -863,35 +1128,41 @@ Our goal is to provide simple, fast and convenient online service support.
 
 </section>
 
-<!-- ================= WHY CHOOSE US ================= -->
+<!-- WHY CHOOSE -->
 
 <section>
 
 <div class="container">
 
 <div class="section-heading">
-<span class="eyebrow">WHY CHOOSE US</span>
-<h2>Our Features</h2>
+<span class="eyebrow">WHY US</span>
+<h2>Why Choose Us?</h2>
 </div>
 
-<div class="card-grid">
+<div class="feature-grid">
 
-<div class="card">
-<div class="icon">⚡</div>
+<div class="feature">
+<div class="feature-icon">⚡</div>
 <h3>Fast Service</h3>
-<p>Quick assistance for your online service requirements.</p>
+<p>Quick assistance for online applications.</p>
 </div>
 
-<div class="card">
-<div class="icon">🔒</div>
-<h3>Reliable</h3>
-<p>Simple and convenient service support.</p>
-</div>
-
-<div class="card">
-<div class="icon">📱</div>
+<div class="feature">
+<div class="feature-icon">📱</div>
 <h3>WhatsApp Support</h3>
-<p>Contact us easily through WhatsApp.</p>
+<p>Easy communication through WhatsApp.</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">💻</div>
+<h3>Digital Services</h3>
+<p>Multiple online services in one place.</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">🤝</div>
+<h3>Customer Support</h3>
+<p>Helpful service and guidance.</p>
 </div>
 
 </div>
@@ -900,53 +1171,49 @@ Our goal is to provide simple, fast and convenient online service support.
 
 </section>
 
-<!-- ================= LIVE STATUS ================= -->
+<!-- STATS -->
 
-<section>
+<section class="stats">
 
-<div class="container">
+<div class="container stats-grid">
 
-<div class="status-box">
+<div class="stat">
+<h3>12+</h3>
+<p>Services</p>
+</div>
 
-<h2>🕐 Business Status</h2>
+<div class="stat">
+<h3>5</h3>
+<p>Team Members</p>
+</div>
 
-<p id="businessStatus">
-Checking...
-</p>
+<div class="stat">
+<h3>24/7</h3>
+<p>WhatsApp Enquiry</p>
+</div>
 
-<p>
-Monday - Saturday: 9:00 AM - 8:00 PM
-</p>
-
-<p>
-Sunday: Closed
-</p>
-
+<div class="stat">
+<h3>100%</h3>
+<p>Digital Support</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- ================= NOTICE ================= -->
+<!-- NOTICE -->
 
 <section>
 
 <div class="container">
-
-<div class="section-heading">
-<span class="eyebrow">LATEST UPDATE</span>
-<h2>📢 Notice Board</h2>
-</div>
 
 <div class="notice">
 
-<h3>Important Notice</h3>
+<strong>📢 Notice:</strong>
 
-<p>
-For service enquiry, appointment or document assistance,
-please contact us through WhatsApp or Call.
-</p>
+Online service fees may vary depending on the
+service/application requirements. Please confirm
+the applicable fee before submitting an application.
 
 </div>
 
@@ -954,7 +1221,7 @@ please contact us through WhatsApp or Call.
 
 </section>
 
-<!-- ================= SERVICES ================= -->
+<!-- SERVICES -->
 
 <section id="services">
 
@@ -962,33 +1229,34 @@ please contact us through WhatsApp or Call.
 
 <div class="section-heading">
 
-<span class="eyebrow">
-OUR SERVICES
-</span>
+<span class="eyebrow">OUR SERVICES</span>
 
-<h2>
-Online Services
-</h2>
+<h2>Online Services</h2>
+
+<p>
+Choose a service and contact us directly on WhatsApp.
+</p>
 
 </div>
 
-<div class="search-box">
+<div class="service-search">
 
 <input
 type="text"
 id="serviceSearch"
-placeholder="🔍 Search service..."
-onkeyup="searchServices()">
+placeholder="🔎 Search service..."
+onkeyup="searchServices()"
+>
 
 </div>
 
-<div class="card-grid" id="serviceList">
+<div class="services-grid" id="serviceGrid">
 
 <!-- PAN -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">🪪</div>
+<div class="service-icon">🪪</div>
 
 <h3>PAN Card Services</h3>
 
@@ -996,56 +1264,65 @@ onkeyup="searchServices()">
 New PAN, correction, reprint and e-PAN assistance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20PAN%20Card%20service.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20PAN%20Card%20service."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
 <!-- AADHAAR -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">🆔</div>
+<div class="service-icon">🆔</div>
 
 <h3>Aadhaar Services</h3>
 
 <p>
-Aadhaar related online assistance.
+Aadhaar related online assistance and guidance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Aadhaar%20service.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Aadhaar%20service."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
 <!-- VOTER -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">🗳️</div>
+<div class="service-icon">🗳️</div>
 
 <h3>Voter Card Services</h3>
 
 <p>
-Voter related online application assistance.
+Voter registration and online application assistance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Voter%20Card%20service.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Voter%20Card%20service."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
 <!-- RATION -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">🍚</div>
+<div class="service-icon">🍚</div>
 
 <h3>Ration Card Services</h3>
 
@@ -1053,161 +1330,188 @@ WhatsApp
 Ration card related online assistance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Ration%20Card%20service.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Ration%20Card%20service."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
 <!-- CASTE -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">📜</div>
+<div class="service-icon">📄</div>
 
 <h3>Caste Certificate</h3>
 
 <p>
-Online application assistance.
+Online caste certificate application assistance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Caste%20Certificate.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Caste%20Certificate%20service."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
-<!-- GOVERNMENT FORMS -->
+<!-- GOVERNMENT -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">📄</div>
+<div class="service-icon">🏛️</div>
 
 <h3>Government Forms</h3>
 
 <p>
-Government form filling assistance.
+Government form filling and online assistance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Government%20Forms.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Government%20Forms."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
 <!-- ONLINE APPLICATION -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">💻</div>
+<div class="service-icon">🌐</div>
 
 <h3>Online Applications</h3>
 
 <p>
-Online application support.
+Online application submission assistance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20an%20Online%20Application.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20an%20Online%20Application."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
 <!-- DIGITAL -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">🌐</div>
+<div class="service-icon">💻</div>
 
 <h3>Digital Services</h3>
 
 <p>
-Various digital online services.
+Various digital service assistance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Services.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Services."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
 <!-- PRINT -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">🖨️</div>
+<div class="service-icon">🖨️</div>
 
 <h3>Print & Scan</h3>
 
 <p>
-Print and document scanning assistance.
+Printing, scanning and document support.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20Print%20and%20Scan%20service.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Print%20and%20Scan."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
 <!-- PHOTO -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">📸</div>
+<div class="service-icon">📷</div>
 
 <h3>Photo & Document Resize</h3>
 
 <p>
-Photo and document size adjustment.
+Photo resize and document formatting assistance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20Photo%20and%20Document%20Resize%20service.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Photo%20and%20Document%20Resize."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
 <!-- PASSPORT -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">🛂</div>
+<div class="service-icon">🛂</div>
 
 <h3>Passport Assistance</h3>
 
 <p>
-Passport application assistance.
+Passport application assistance and guidance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20Passport%20Assistance.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Passport%20Assistance."
+>
+💬 WhatsApp
 </a>
 
 </div>
 
 <!-- PAYMENT -->
 
-<div class="card service-card">
+<div class="service-card">
 
-<div class="icon">💳</div>
+<div class="service-icon">💳</div>
 
 <h3>Digital Payment Assistance</h3>
 
 <p>
-Digital payment related assistance.
+Digital payment and online transaction assistance.
 </p>
 
-<a class="whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20Digital%20Payment%20Assistance.">
-WhatsApp
+<a
+class="btn btn-success"
+target="_blank"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Payment%20Assistance."
+>
+💬 WhatsApp
 </a>
 
 </div>
@@ -1218,43 +1522,53 @@ WhatsApp
 
 </section>
 
-<!-- ================= PAN LINKS ================= -->
+<!-- PAN OFFICIAL -->
 
 <section>
 
 <div class="container">
 
-<div class="card">
+<div class="pan-box">
 
-<h2>🇮🇳 PAN Card Official Links</h2>
+<span class="eyebrow">PAN CARD</span>
 
-<br>
+<h2>Official PAN Services</h2>
+
+<p>
+Use the official PAN service websites for PAN related applications.
+</p>
+
+<div class="pan-links">
 
 <a
-class="btn btn-blue"
+class="btn btn-primary"
 href="https://www.pan.utiitsl.com/"
-target="_blank">
+target="_blank"
+>
 New PAN
 </a>
 
 <a
-class="btn btn-blue"
+class="btn btn-primary"
 href="https://www.pan.utiitsl.com/"
-target="_blank">
+target="_blank"
+>
 PAN Correction
 </a>
 
 <a
-class="btn btn-blue"
+class="btn btn-primary"
 href="https://www.pan.utiitsl.com/PAN_ONLINE/regenPANHomereprint"
-target="_blank">
+target="_blank"
+>
 PAN Reprint
 </a>
 
 <a
-class="btn btn-blue"
+class="btn btn-primary"
 href="https://www.pan.utiitsl.com/PAN_ONLINE/ePANCardHome"
-target="_blank">
+target="_blank"
+>
 e-PAN Download
 </a>
 
@@ -1262,9 +1576,11 @@ e-PAN Download
 
 </div>
 
+</div>
+
 </section>
 
-<!-- ================= PRICE CALCULATOR ================= -->
+<!-- PRICE LIST -->
 
 <section id="price">
 
@@ -1272,116 +1588,35 @@ e-PAN Download
 
 <div class="section-heading">
 
-<span class="eyebrow">
-PRICE
-</span>
+<span class="eyebrow">PRICE</span>
 
-<h2>
-🧮 Service Fee Calculator
-</h2>
+<h2>Service Price List</h2>
 
-</div>
-
-<div class="form-box">
-
-<div class="form-group">
-
-<label>
-Select Service
-</label>
-
-<select
-id="calcService"
-onchange="calculateFee()">
-
-<option value="0">
-Select Service
-</option>
-
-<option value="100">
-PAN Card - ₹100
-</option>
-
-<option value="100">
-Aadhaar Assistance - ₹100
-</option>
-
-<option value="100">
-Voter Card - ₹100
-</option>
-
-<option value="100">
-Ration Card - ₹100
-</option>
-
-<option value="150">
-Caste Certificate - ₹150
-</option>
-
-<option value="50">
-Government Forms - ₹50
-</option>
-
-<option value="100">
-Online Application - ₹100
-</option>
-
-<option value="50">
-Digital Services - ₹50
-</option>
-
-</select>
-
-</div>
-
-<h2>
-Total Estimated Fee:
-₹<span id="fee">0</span>
-</h2>
-
-<p>
-* Final charges may vary depending on the service/application.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= PRICE LIST ================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-heading">
-
-<span class="eyebrow">
-PRICE LIST
-</span>
-
-<h2>
-Basic Service Charges
-</h2>
+<p>Indicative service assistance charges.</p>
 
 </div>
 
 <table class="price-table">
 
+<thead>
+
 <tr>
 <th>Service</th>
-<th>Starting Fee</th>
+<th>Fee</th>
 </tr>
+
+</thead>
+
+<tbody>
 
 <tr>
 <td>PAN Card</td>
-<td>₹100</td>
+<td>₹200</td>
 </tr>
 
 <tr>
 <td>Aadhaar Assistance</td>
-<td>₹100</td>
+<td>₹200</td>
 </tr>
 
 <tr>
@@ -1401,8 +1636,10 @@ Basic Service Charges
 
 <tr>
 <td>Government Forms</td>
-<td>₹50</td>
+<td>₹150</td>
 </tr>
+
+</tbody>
 
 </table>
 
@@ -1410,116 +1647,7 @@ Basic Service Charges
 
 </section>
 
-<!-- ================= APPOINTMENT ================= -->
-
-<section id="appointment">
-
-<div class="container">
-
-<div class="section-heading">
-
-<span class="eyebrow">
-BOOKING
-</span>
-
-<h2>
-📅 Online Appointment
-</h2>
-
-</div>
-
-<div class="form-box">
-
-<div class="form-grid">
-
-<div class="form-group">
-
-<label>
-Your Name
-</label>
-
-<input
-id="appName"
-type="text"
-placeholder="Enter your name">
-
-</div>
-
-<div class="form-group">
-
-<label>
-Mobile Number
-</label>
-
-<input
-id="appMobile"
-type="tel"
-placeholder="Enter mobile number">
-
-</div>
-
-<div class="form-group">
-
-<label>
-Select Service
-</label>
-
-<select id="appService">
-
-<option>PAN Card Services</option>
-<option>Aadhaar Services</option>
-<option>Voter Card Services</option>
-<option>Ration Card Services</option>
-<option>Caste Certificate</option>
-<option>Government Forms</option>
-<option>Online Applications</option>
-<option>Digital Services</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-
-<label>
-Preferred Date
-</label>
-
-<input
-id="appDate"
-type="date">
-
-</div>
-
-<div class="form-group">
-
-<label>
-Preferred Time
-</label>
-
-<input
-id="appTime"
-type="time">
-
-</div>
-
-</div>
-
-<button
-class="btn btn-green"
-onclick="bookAppointment()">
-
-📅 Book Appointment on WhatsApp
-
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= ENQUIRY ================= -->
+<!-- FEE CALCULATOR -->
 
 <section>
 
@@ -1527,54 +1655,116 @@ onclick="bookAppointment()">
 
 <div class="section-heading">
 
-<span class="eyebrow">
-ENQUIRY
-</span>
+<span class="eyebrow">CALCULATOR</span>
 
-<h2>
-Online Enquiry
-</h2>
+<h2>Service Fee Calculator</h2>
 
 </div>
 
-<div class="form-box">
-
-<div class="form-grid">
+<div class="calc-box">
 
 <div class="form-group">
 
-<label>
-Name
-</label>
+<label>Select Service</label>
+
+<select id="feeService" onchange="calculateFee()">
+
+<option value="200">
+PAN Card - ₹200
+</option>
+
+<option value="200">
+Aadhaar Assistance - ₹200
+</option>
+
+<option value="100">
+Voter Card - ₹100
+</option>
+
+<option value="100">
+Ration Card - ₹100
+</option>
+
+<option value="150">
+Caste Certificate - ₹150
+</option>
+
+<option value="150">
+Government Forms - ₹150
+</option>
+
+<option value="100">
+Online Application - ₹100
+</option>
+
+<option value="50">
+Digital Services - ₹50
+</option>
+
+</select>
+
+</div>
+
+<div class="result" id="feeResult">
+Estimated Fee: ₹200
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- APPOINTMENT -->
+
+<section class="appointment">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="eyebrow">APPOINTMENT</span>
+
+<h2>Book an Appointment</h2>
+
+<p>Send your appointment details directly through WhatsApp.</p>
+
+</div>
+
+<div class="calc-box">
+
+<div class="form-group">
+
+<label>Your Name</label>
 
 <input
-id="eqName"
-type="text">
+type="text"
+id="appName"
+placeholder="Enter your name"
+>
 
 </div>
 
 <div class="form-group">
 
-<label>
-Mobile
-</label>
+<label>Mobile Number</label>
 
 <input
-id="eqMobile"
-type="tel">
+type="tel"
+id="appPhone"
+placeholder="Enter mobile number"
+>
 
 </div>
 
 <div class="form-group">
 
-<label>
-Service
-</label>
+<label>Select Service</label>
 
-<select id="eqService">
+<select id="appService">
 
 <option>PAN Card</option>
-<option>Aadhaar</option>
+<option>Aadhaar Assistance</option>
 <option>Voter Card</option>
 <option>Ration Card</option>
 <option>Caste Certificate</option>
@@ -1588,29 +1778,15 @@ Service
 
 <div class="form-group">
 
-<label>
-Message
-</label>
+<label>Preferred Date</label>
 
-<textarea
-id="eqMessage"></textarea>
+<input type="date" id="appDate">
 
 </div>
 
-</div>
-
-<button
-class="btn btn-green"
-onclick="sendEnquiry()">
-
-💬 Send Enquiry on WhatsApp
-
+<button class="btn btn-success" onclick="bookAppointment()">
+📲 Book via WhatsApp
 </button>
-
-<p
-id="enquiryNumber"
-style="margin-top:15px;font-weight:bold">
-</p>
 
 </div>
 
@@ -1618,7 +1794,7 @@ style="margin-top:15px;font-weight:bold">
 
 </section>
 
-<!-- ================= TRACKING ================= -->
+<!-- ENQUIRY -->
 
 <section>
 
@@ -1626,39 +1802,98 @@ style="margin-top:15px;font-weight:bold">
 
 <div class="section-heading">
 
-<span class="eyebrow">
-TRACKING
-</span>
+<span class="eyebrow">ENQUIRY</span>
 
-<h2>
-🔎 Enquiry Tracking
-</h2>
+<h2>Online Enquiry</h2>
+
+<p>Send your enquiry directly to WhatsApp.</p>
 
 </div>
 
-<div class="form-box">
+<div class="enquiry-grid">
+
+<div class="info-card">
+
+<h3>📌 Enquiry Tracking</h3>
 
 <p>
-Enter your enquiry number:
+Every enquiry can receive a simple enquiry number.
+Keep your number for future reference.
 </p>
+
+<br>
+
+<h3 id="enquiryNumber">
+Your Enquiry No: -
+</h3>
+
+</div>
+
+<div class="calc-box">
+
+<div class="form-group">
+
+<label>Name</label>
 
 <input
-id="trackNumber"
-style="width:100%;padding:13px;margin:10px 0;border:1px solid #ddd;border-radius:8px"
-placeholder="Example: SP20260001">
+type="text"
+id="enqName"
+placeholder="Your name"
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Mobile</label>
+
+<input
+type="tel"
+id="enqPhone"
+placeholder="Mobile number"
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Service</label>
+
+<select id="enqService">
+
+<option>PAN Card</option>
+<option>Aadhaar Assistance</option>
+<option>Voter Card</option>
+<option>Ration Card</option>
+<option>Caste Certificate</option>
+<option>Government Forms</option>
+<option>Online Application</option>
+<option>Digital Services</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Message</label>
+
+<textarea
+id="enqMessage"
+rows="4"
+placeholder="Write your enquiry"
+></textarea>
+
+</div>
 
 <button
-class="btn btn-blue"
-onclick="trackEnquiry()">
-
-🔎 Check Status
-
+class="btn btn-success"
+onclick="sendEnquiry()"
+>
+💬 Send Enquiry
 </button>
 
-<h3
-id="trackResult"
-style="margin-top:20px">
-</h3>
+</div>
 
 </div>
 
@@ -1666,7 +1901,7 @@ style="margin-top:20px">
 
 </section>
 
-<!-- ================= DOWNLOAD FORMS ================= -->
+<!-- FORMS -->
 
 <section>
 
@@ -1674,76 +1909,61 @@ style="margin-top:20px">
 
 <div class="section-heading">
 
-<span class="eyebrow">
-DOWNLOAD
-</span>
+<span class="eyebrow">DOWNLOAD</span>
 
-<h2>
-📥 Forms & Documents
-</h2>
+<h2>Useful Forms</h2>
+
+<p>Downloadable forms can be added here.</p>
 
 </div>
 
-<div class="card-grid">
+<div class="forms-grid">
 
-<div class="card">
+<div class="form-download">
 
-<h3>
-📄 PAN Form
-</h3>
+<h3>📄 PAN Form</h3>
 
-<p>
-PAN related official information.
-</p>
+<p>Use the official PAN website for the latest form.</p>
 
 <a
-class="btn btn-blue"
 href="https://www.pan.utiitsl.com/"
-target="_blank">
-
+target="_blank"
+class="btn btn-primary"
+>
 Open PAN Website
-
 </a>
 
 </div>
 
-<div class="card">
+<div class="form-download">
 
-<h3>
-📄 Government Forms
-</h3>
+<h3>📄 Government Forms</h3>
 
-<p>
-Government form information can be added here.
-</p>
+<p>Contact us for the required government form.</p>
 
-<button
-class="btn btn-blue"
-onclick="alert('Government form download link can be added here.')">
-
-Download
-
-</button>
+<a
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20a%20Government%20Form."
+target="_blank"
+class="btn btn-success"
+>
+Request Form
+</a>
 
 </div>
 
-<div class="card">
+<div class="form-download">
 
-<h3>
-📄 Application Documents
-</h3>
+<h3>📄 Online Application</h3>
 
-<p>
-Required document information.
-</p>
+<p>Contact us for application assistance.</p>
 
-<button
-class="btn btn-blue"
-onclick="alert('Document list can be added here.')">
-
-View
-
-</button>
+<a
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20Online%20Application%20assistance."
+target="_blank"
+class="btn btn-success"
+>
+Request Assistance
+</a>
 
 </div>
 
@@ -1753,7 +1973,7 @@ View
 
 </section>
 
-<!-- ================= TEAM ================= -->
+<!-- TEAM -->
 
 <section id="team">
 
@@ -1761,13 +1981,11 @@ View
 
 <div class="section-heading">
 
-<span class="eyebrow">
-OUR TEAM
-</span>
+<span class="eyebrow">OUR TEAM</span>
 
-<h2>
-👥 Meet Our Team
-</h2>
+<h2>Meet Our Team</h2>
+
+<p>Our dedicated team members.</p>
 
 </div>
 
@@ -1778,15 +1996,11 @@ OUR TEAM
 <img
 src="owner.jpeg"
 alt="Sumit Patra"
-onclick="openViewer(this.src)">
+>
 
-<h3>
-Sumit Patra
-</h3>
+<h3>Sumit Patra</h3>
 
-<p>
-Owner
-</p>
+<p>Owner</p>
 
 </div>
 
@@ -1795,15 +2009,11 @@ Owner
 <img
 src="ceo-manager.jpeg"
 alt="Avijit Patra"
-onclick="openViewer(this.src)">
+>
 
-<h3>
-Avijit Patra
-</h3>
+<h3>Avijit Patra</h3>
 
-<p>
-CEO / Manager
-</p>
+<p>CEO / Manager</p>
 
 </div>
 
@@ -1812,15 +2022,11 @@ CEO / Manager
 <img
 src="team-manager.jpeg"
 alt="Godadhar Jana"
-onclick="openViewer(this.src)">
+>
 
-<h3>
-Godadhar Jana
-</h3>
+<h3>Godadhar Jana</h3>
 
-<p>
-Team Manager
-</p>
+<p>Team Manager</p>
 
 </div>
 
@@ -1829,15 +2035,11 @@ Team Manager
 <img
 src="team-leader.jpeg"
 alt="Manotosh Dalui"
-onclick="openViewer(this.src)">
+>
 
-<h3>
-Manotosh Dalui
-</h3>
+<h3>Manotosh Dalui</h3>
 
-<p>
-Team Leader
-</p>
+<p>Team Leader</p>
 
 </div>
 
@@ -1846,15 +2048,11 @@ Team Leader
 <img
 src="team-member.jpeg"
 alt="Santanu Patra"
-onclick="openViewer(this.src)">
+>
 
-<h3>
-Santanu Patra
-</h3>
+<h3>Santanu Patra</h3>
 
-<p>
-Team Member
-</p>
+<p>Team Member</p>
 
 </div>
 
@@ -1864,7 +2062,7 @@ Team Member
 
 </section>
 
-<!-- ================= REVIEWS ================= -->
+<!-- REVIEWS -->
 
 <section id="reviews">
 
@@ -1872,75 +2070,47 @@ Team Member
 
 <div class="section-heading">
 
-<span class="eyebrow">
-REVIEWS
-</span>
+<span class="eyebrow">REVIEWS</span>
 
-<h2>
-⭐ Customer Reviews
-</h2>
+<h2>Customer Reviews</h2>
 
 </div>
 
-<div class="card-grid">
+<div class="review-grid">
 
-<div class="card review">
+<div class="review">
 
-<div class="stars">
-★★★★★
-</div>
-
-<h3>
-Helpful Service
-</h3>
+<div class="stars">★★★★★</div>
 
 <p>
-“Very helpful and easy online service.”
+Good service and helpful communication.
 </p>
 
-<strong>
-Customer
-</strong>
+<strong>— Customer</strong>
 
 </div>
 
-<div class="card review">
+<div class="review">
 
-<div class="stars">
-★★★★★
-</div>
-
-<h3>
-Good Support
-</h3>
+<div class="stars">★★★★★</div>
 
 <p>
-“Quick response and good communication.”
+Online service assistance was easy and convenient.
 </p>
 
-<strong>
-Customer
-</strong>
+<strong>— Customer</strong>
 
 </div>
 
-<div class="card review">
+<div class="review">
 
-<div class="stars">
-★★★★★
-</div>
-
-<h3>
-Good Experience
-</h3>
+<div class="stars">★★★★★</div>
 
 <p>
-“Service process was simple.”
+Quick response through WhatsApp.
 </p>
 
-<strong>
-Customer
-</strong>
+<strong>— Customer</strong>
 
 </div>
 
@@ -1950,7 +2120,7 @@ Customer
 
 </section>
 
-<!-- ================= FAQ ================= -->
+<!-- FAQ -->
 
 <section id="faq">
 
@@ -1958,65 +2128,55 @@ Customer
 
 <div class="section-heading">
 
-<span class="eyebrow">
-FAQ
-</span>
+<span class="eyebrow">FAQ</span>
 
-<h2>
-❓ Frequently Asked Questions
-</h2>
+<h2>Frequently Asked Questions</h2>
 
 </div>
 
 <div class="faq">
 
-<button onclick="toggleFAQ(this)">
-What services do you provide?
-</button>
+<details>
 
-<div class="answer">
-We provide PAN, Aadhaar assistance, Voter Card,
-Ration Card, Government Forms, Online Applications
-and other digital services.
-</div>
+<summary>What services do you provide?</summary>
 
-</div>
+<p>
+PAN, Aadhaar assistance, Voter Card, Ration Card,
+Government Forms, Online Applications and other digital services.
+</p>
 
-<div class="faq">
+</details>
 
-<button onclick="toggleFAQ(this)">
-How can I contact you?
-</button>
+<details>
 
-<div class="answer">
-You can contact us by Call, WhatsApp or Email.
-</div>
+<summary>How can I contact you?</summary>
 
-</div>
+<p>
+You can call, email or WhatsApp us.
+</p>
 
-<div class="faq">
+</details>
 
-<button onclick="toggleFAQ(this)">
-How can I book an appointment?
-</button>
+<details>
 
-<div class="answer">
-Use the Online Appointment section and send the
-appointment details through WhatsApp.
-</div>
+<summary>Can I book an appointment?</summary>
 
-</div>
+<p>
+Yes. Use the appointment section and send the details through WhatsApp.
+</p>
 
-<div class="faq">
+</details>
 
-<button onclick="toggleFAQ(this)">
-Can I check my enquiry number?
-</button>
+<details>
 
-<div class="answer">
-Yes. Use the Enquiry Tracking section and enter your
-generated enquiry number.
-</div>
+<summary>Are the fees fixed?</summary>
+
+<p>
+Displayed fees are service assistance charges and may vary depending
+on application requirements.
+</p>
+
+</details>
 
 </div>
 
@@ -2024,7 +2184,7 @@ generated enquiry number.
 
 </section>
 
-<!-- ================= GALLERY ================= -->
+<!-- GALLERY -->
 
 <section>
 
@@ -2032,17 +2192,11 @@ generated enquiry number.
 
 <div class="section-heading">
 
-<span class="eyebrow">
-GALLERY
-</span>
+<span class="eyebrow">GALLERY</span>
 
-<h2>
-🖼️ Photo Gallery
-</h2>
+<h2>Photo Gallery</h2>
 
-<p>
-Click any photo to view fullscreen.
-</p>
+<p>Click any image to view full screen.</p>
 
 </div>
 
@@ -2051,32 +2205,38 @@ Click any photo to view fullscreen.
 <img
 src="sumit-photo.jpeg"
 alt="Sumit Patra"
-onclick="openViewer(this.src)">
+onclick="openViewer(this.src)"
+>
 
 <img
 src="owner.jpeg"
-alt="Sumit Patra Owner"
-onclick="openViewer(this.src)">
+alt="Owner"
+onclick="openViewer(this.src)"
+>
 
 <img
 src="ceo-manager.jpeg"
-alt="Avijit Patra"
-onclick="openViewer(this.src)">
+alt="CEO Manager"
+onclick="openViewer(this.src)"
+>
 
 <img
 src="team-manager.jpeg"
-alt="Godadhar Jana"
-onclick="openViewer(this.src)">
+alt="Team Manager"
+onclick="openViewer(this.src)"
+>
 
 <img
 src="team-leader.jpeg"
-alt="Manotosh Dalui"
-onclick="openViewer(this.src)">
+alt="Team Leader"
+onclick="openViewer(this.src)"
+>
 
 <img
 src="team-member.jpeg"
-alt="Santanu Patra"
-onclick="openViewer(this.src)">
+alt="Team Member"
+onclick="openViewer(this.src)"
+>
 
 </div>
 
@@ -2084,45 +2244,35 @@ onclick="openViewer(this.src)">
 
 </section>
 
-<!-- ================= QR CODE ================= -->
+<!-- QR -->
 
 <section>
 
 <div class="container">
 
-<div class="card qr">
-
 <div class="section-heading">
 
-<span class="eyebrow">
-SCAN & VISIT
-</span>
+<span class="eyebrow">QR CODE</span>
 
-<h2>
-📱 Website QR Code
-</h2>
+<h2>Scan Our Website</h2>
 
 </div>
 
-<p>
-Scan this QR code to open SUMIT PATRA website.
-</p>
+<div class="qr-box">
 
-<br>
+<p>Scan this QR code to open the website.</p>
 
 <img
-src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://sumitpatra936-a11y.github.io/SUMIT-PATRA/"
-alt="Website QR Code">
-
-<br>
+src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://sumitpatra936-a11y.github.io/SUMIT-PATRA/"
+alt="Website QR Code"
+>
 
 <a
-class="btn btn-blue"
 href="https://sumitpatra936-a11y.github.io/SUMIT-PATRA/"
-target="_blank">
-
+target="_blank"
+class="btn btn-primary"
+>
 Open Website
-
 </a>
 
 </div>
@@ -2131,7 +2281,7 @@ Open Website
 
 </section>
 
-<!-- ================= BUSINESS HOURS ================= -->
+<!-- BUSINESS HOURS -->
 
 <section>
 
@@ -2139,32 +2289,23 @@ Open Website
 
 <div class="section-heading">
 
-<span class="eyebrow">
-BUSINESS HOURS
-</span>
+<span class="eyebrow">STATUS</span>
 
-<h2>
-🕐 Opening Hours
+<h2>Business Status</h2>
+
+</div>
+
+<div class="info-card" style="text-align:center;">
+
+<h2 id="businessStatus">
+Checking...
 </h2>
 
-</div>
-
-<div class="card-grid">
-
-<div class="card">
-<h3>Monday - Saturday</h3>
-<p>9:00 AM - 8:00 PM</p>
-</div>
-
-<div class="card">
-<h3>Sunday</h3>
-<p>Closed</p>
-</div>
-
-<div class="card">
-<h3>WhatsApp Support</h3>
-<p>Contact for service enquiry.</p>
-</div>
+<p>
+Monday - Saturday: 9:00 AM - 8:00 PM
+<br>
+Sunday: Closed
+</p>
 
 </div>
 
@@ -2172,7 +2313,7 @@ BUSINESS HOURS
 
 </section>
 
-<!-- ================= MAP ================= -->
+<!-- MAP -->
 
 <section>
 
@@ -2180,17 +2321,13 @@ BUSINESS HOURS
 
 <div class="section-heading">
 
-<span class="eyebrow">
-LOCATION
-</span>
+<span class="eyebrow">LOCATION</span>
 
-<h2>
-📍 Find Us
-</h2>
+<h2>Find Us</h2>
 
 </div>
 
-<div class="map">
+<div class="map-box">
 
 <iframe
 src="https://www.google.com/maps?q=Swarup%20Beria%2C%20Iswaripur%2C%20Bhangar%2C%20South%2024%20Parganas%2C%20West%20Bengal&output=embed"
@@ -2201,15 +2338,14 @@ loading="lazy">
 
 <br>
 
-<div style="text-align:center">
+<div style="text-align:center;">
 
 <a
-class="btn btn-blue"
+href="https://www.google.com/maps/search/?api=1&query=Swarup%20Beria%2C%20Iswaripur%2C%20Bhangar%2C%20South%2024%20Parganas%2C%20West%20Bengal"
 target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=Swarup+Beria,+Iswaripur,+Bhangar,+South+24+Parganas,+West+Bengal">
-
+class="btn btn-primary"
+>
 📍 Get Directions
-
 </a>
 
 </div>
@@ -2218,7 +2354,7 @@ href="https://www.google.com/maps/search/?api=1&query=Swarup+Beria,+Iswaripur,+B
 
 </section>
 
-<!-- ================= CONTACT ================= -->
+<!-- CONTACT -->
 
 <section id="contact">
 
@@ -2226,224 +2362,92 @@ href="https://www.google.com/maps/search/?api=1&query=Swarup+Beria,+Iswaripur,+B
 
 <div class="section-heading">
 
-<span class="eyebrow">
-CONTACT
-</span>
+<span class="eyebrow">CONTACT</span>
 
-<h2>
-📞 Contact SUMIT PATRA
-</h2>
+<h2>Contact Us</h2>
 
 </div>
 
-<div class="card-grid">
+<div class="contact-grid">
 
-<div class="card">
+<div class="contact-card">
 
-<div class="icon">📞</div>
+<h3>📞 Call</h3>
 
-<h3>
-Call
-</h3>
+<p>7001689925</p>
 
-<p>
-7001689925
-</p>
+<br>
 
 <a
-class="btn btn-blue"
-href="tel:7001689925">
-
+href="tel:7001689925"
+class="btn btn-primary"
+>
 Call Now
-
 </a>
 
 </div>
 
-<div class="card">
+<div class="contact-card">
 
-<div class="icon">💬</div>
+<h3>💬 WhatsApp</h3>
 
-<h3>
-WhatsApp
-</h3>
+<p>Chat with us directly.</p>
 
-<p>
-Chat with us on WhatsApp.
-</p>
+<br>
 
 <a
-class="btn btn-green"
 href="https://wa.me/917001689925"
-target="_blank">
-
-WhatsApp
-
-</a>
-
-</div>
-
-<div class="card">
-
-<div class="icon">📧</div>
-
-<h3>
-Email
-</h3>
-
-<p>
-sumitpatra936@gmail.com
-</p>
-
-<a
-class="btn btn-blue"
-href="mailto:sumitpatra936@gmail.com">
-
-Email
-
-</a>
-
-</div>
-
-</div>
-
-<br>
-
-<div class="card">
-
-<h3>
-📍 Address
-</h3>
-
-<p>
-Swarup Beria, PO Iswaripur,
-PS Bhangar, South 24 Parganas,
-West Bengal
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= PRIVACY ================= -->
-
-<section>
-
-<div class="container">
-
-<div class="card">
-
-<h2>
-🔒 Privacy & Disclaimer
-</h2>
-
-<br>
-
-<p>
-We respect customer privacy. Please do not share sensitive
-documents or personal information publicly.
-</p>
-
-<br>
-
-<p>
-SUMIT PATRA provides online service assistance.
-Official government services and final approvals are controlled
-by the respective government authorities.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= POPUP ================= -->
-
-<div class="popup" id="popup">
-
-<div class="popup-box">
-
-<h2>
-🔔 Important Notice
-</h2>
-
-<br>
-
-<p>
-For quick service assistance, contact us through WhatsApp
-or Call.
-</p>
-
-<button
-class="btn btn-blue"
-onclick="closePopup()">
-
-Close
-
-</button>
-
-</div>
-
-</div>
-
-<!-- ================= IMAGE VIEWER ================= -->
-
-<div class="viewer" id="viewer">
-
-<span onclick="closeViewer()">
-&times;
-</span>
-
-<img id="viewerImage" src="" alt="Full Image">
-
-</div>
-
-<!-- ================= FLOATING WHATSAPP ================= -->
-
-<a
-class="floating-wa"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20your%20service."
 target="_blank"
-title="WhatsApp">
-
-💬
-
-</a>
-
-<!-- ================= MOBILE BAR ================= -->
-
-<div class="mobile-bar">
-
-<a href="tel:7001689925">
-📞<br>Call
-</a>
-
-<a href="https://wa.me/917001689925" target="_blank">
-💬<br>WhatsApp
-</a>
-
-<a href="#appointment">
-📅<br>Book
-</a>
-
-<a href="#contact">
-📍<br>Contact
+class="btn btn-success"
+>
+WhatsApp
 </a>
 
 </div>
 
-<!-- ================= FOOTER ================= -->
+<div class="contact-card">
+
+<h3>📧 Email</h3>
+
+<p>sumitpatra936@gmail.com</p>
+
+<br>
+
+<a
+href="mailto:sumitpatra936@gmail.com"
+class="btn btn-dark"
+>
+Email
+</a>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="info-card">
+
+<h3>📍 Address</h3>
+
+<p>
+Swarup Beria, PO Iswaripur, PS Bhangar,
+South 24 Parganas, West Bengal
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
 
 <div class="container">
 
-<h2>
-SUMIT PATRA
-</h2>
+<h2>SUMIT PATRA</h2>
 
 <p>
 Online Services • Digital Solutions • Government Services
@@ -2462,11 +2466,100 @@ Online Services • Digital Solutions • Government Services
 © 2026 SUMIT PATRA. All Rights Reserved.
 </p>
 
+<p>
+Privacy • Terms • Disclaimer
+</p>
+
 </div>
 
 </footer>
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+<button
+class="popup-close"
+onclick="closePopup()"
+>
+×
+</button>
+
+<h3>📢 Welcome!</h3>
+
+<p>
+Need online service assistance?
+Contact SUMIT PATRA through WhatsApp.
+</p>
+
+<br>
+
+<a
+href="https://wa.me/917001689925"
+target="_blank"
+class="btn btn-success"
+>
+💬 WhatsApp Now
+</a>
+
+</div>
+
+<!-- IMAGE VIEWER -->
+
+<div
+class="image-viewer"
+id="imageViewer"
+onclick="closeViewer()"
+>
+
+<span class="viewer-close">×</span>
+
+<img
+id="viewerImage"
+src=""
+alt="Full Image"
+>
+
+</div>
+
+<!-- WHATSAPP -->
+
+<a
+href="https://wa.me/917001689925"
+target="_blank"
+class="whatsapp-float"
+title="WhatsApp"
+>
+💬
+</a>
+
+<!-- BACK TOP -->
+
+<button
+class="back-top"
+onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
+↑
+</button>
+
+<!-- MOBILE BAR -->
+
+<div class="mobile-bar">
+
+<a
+href="tel:7001689925"
+>
+📞 Call
+</a>
+
+<a
+href="https://wa.me/917001689925"
+target="_blank"
+>
+💬 WhatsApp
+</a>
+
+</div>
 
 <script>
 
@@ -2488,7 +2581,7 @@ function toggleMenu(){
 
 document
 .getElementById("navLinks")
-.classList.toggle("active");
+.classList.toggle("show");
 
 }
 
@@ -2534,15 +2627,8 @@ cards.forEach(function(card){
 
 let text=card.innerText.toLowerCase();
 
-if(text.includes(input)){
-
-card.style.display="block";
-
-}else{
-
-card.style.display="none";
-
-}
+card.style.display=
+text.includes(input) ? "flex" : "none";
 
 });
 
@@ -2552,14 +2638,15 @@ card.style.display="none";
 
 function calculateFee(){
 
-let value=
+let fee=
 document
-.getElementById("calcService")
+.getElementById("feeService")
 .value;
 
 document
-.getElementById("fee")
-.innerText=value;
+.getElementById("feeResult")
+.innerText=
+"Estimated Fee: ₹"+fee;
 
 }
 
@@ -2568,10 +2655,10 @@ document
 function bookAppointment(){
 
 let name=
-document.getElementById("appName").value.trim();
+document.getElementById("appName").value;
 
-let mobile=
-document.getElementById("appMobile").value.trim();
+let phone=
+document.getElementById("appPhone").value;
 
 let service=
 document.getElementById("appService").value;
@@ -2579,12 +2666,9 @@ document.getElementById("appService").value;
 let date=
 document.getElementById("appDate").value;
 
-let time=
-document.getElementById("appTime").value;
+if(!name || !phone || !date){
 
-if(!name || !mobile || !date || !time){
-
-alert("Please fill all appointment details.");
+alert("Please fill all required fields.");
 
 return;
 
@@ -2593,11 +2677,10 @@ return;
 let message=
 "Hello Sumit,%0A%0A"+
 "I want to book an appointment.%0A%0A"+
-"Name: "+encodeURIComponent(name)+
-"%0AMobile: "+encodeURIComponent(mobile)+
-"%0AService: "+encodeURIComponent(service)+
-"%0ADate: "+encodeURIComponent(date)+
-"%0ATime: "+encodeURIComponent(time);
+"Name: "+encodeURIComponent(name)+"%0A"+
+"Mobile: "+encodeURIComponent(phone)+"%0A"+
+"Service: "+encodeURIComponent(service)+"%0A"+
+"Date: "+encodeURIComponent(date);
 
 window.open(
 "https://wa.me/917001689925?text="+message,
@@ -2606,172 +2689,132 @@ window.open(
 
 }
 
-/* AUTOMATIC ENQUIRY NUMBER */
+/* ENQUIRY NUMBER */
 
 function generateEnquiryNumber(){
 
-let count=
+let number=
 parseInt(
-localStorage.getItem("enquiryCount") || "0"
+localStorage.getItem("enquiryNumber") || "1000"
 );
 
-count++;
+let newNumber=number+1;
 
 localStorage.setItem(
-"enquiryCount",
-count
+"enquiryNumber",
+newNumber
 );
 
-let year=
-new Date().getFullYear();
-
-return "SP"+year+
-String(count).padStart(4,"0");
-
-}
-
-/* SEND ENQUIRY */
-
-function sendEnquiry(){
-
-let name=
-document.getElementById("eqName").value.trim();
-
-let mobile=
-document.getElementById("eqMobile").value.trim();
-
-let service=
-document.getElementById("eqService").value;
-
-let messageText=
-document.getElementById("eqMessage").value.trim();
-
-if(!name || !mobile){
-
-alert("Please enter your name and mobile number.");
-
-return;
+return "SP-"+newNumber;
 
 }
 
 let enquiryNo=
 generateEnquiryNumber();
 
-localStorage.setItem(
-"lastEnquiry",
-enquiryNo
-);
+document
+.getElementById("enquiryNumber")
+.innerText=
+"Your Enquiry No: "+enquiryNo;
 
-localStorage.setItem(
-"enquiryStatus_"+enquiryNo,
-"Received"
-);
+/* ENQUIRY */
 
-document.getElementById("enquiryNumber").innerText=
-"Your Enquiry Number: "+enquiryNo;
+function sendEnquiry(){
+
+let name=
+document.getElementById("enqName").value;
+
+let phone=
+document.getElementById("enqPhone").value;
+
+let service=
+document.getElementById("enqService").value;
 
 let message=
-"Hello Sumit,%0A%0A"+
-"New Service Enquiry%0A%0A"+
-"Enquiry No: "+enquiryNo+
-"%0AName: "+encodeURIComponent(name)+
-"%0AMobile: "+encodeURIComponent(mobile)+
-"%0AService: "+encodeURIComponent(service)+
-"%0AMessage: "+encodeURIComponent(messageText);
+document.getElementById("enqMessage").value;
 
-window.open(
-"https://wa.me/917001689925?text="+message,
-"_blank"
-);
+if(!name || !phone || !message){
 
-}
-
-/* TRACK ENQUIRY */
-
-function trackEnquiry(){
-
-let number=
-document.getElementById("trackNumber").value.trim();
-
-let result=
-document.getElementById("trackResult");
-
-if(!number){
-
-result.innerText=
-"Please enter an enquiry number.";
-
-result.style.color="#dc2626";
+alert("Please fill all required fields.");
 
 return;
 
 }
 
-let status=
-localStorage.getItem(
-"enquiryStatus_"+number
+let text=
+"Hello Sumit,%0A%0A"+
+"Online Enquiry%0A"+
+"Enquiry No: "+enquiryNo+"%0A%0A"+
+"Name: "+encodeURIComponent(name)+"%0A"+
+"Mobile: "+encodeURIComponent(phone)+"%0A"+
+"Service: "+encodeURIComponent(service)+"%0A"+
+"Message: "+encodeURIComponent(message);
+
+window.open(
+"https://wa.me/917001689925?text="+text,
+"_blank"
 );
 
-if(status){
+}
 
-result.innerText=
-"Enquiry "+number+
-" Status: "+status;
+/* IMAGE VIEWER */
 
-result.style.color="#16a34a";
+function openViewer(src){
 
-}else{
+document
+.getElementById("viewerImage")
+.src=src;
 
-result.innerText=
-"No enquiry found on this browser.";
-
-result.style.color="#dc2626";
+document
+.getElementById("imageViewer")
+.classList.add("show");
 
 }
 
-}
+function closeViewer(){
 
-/* FAQ */
-
-function toggleFAQ(button){
-
-let answer=
-button.nextElementSibling;
-
-if(answer.style.display==="block"){
-
-answer.style.display="none";
-
-}else{
-
-answer.style.display="block";
+document
+.getElementById("imageViewer")
+.classList.remove("show");
 
 }
 
+/* POPUP */
+
+function closePopup(){
+
+document
+.getElementById("popup")
+.classList.remove("show");
+
 }
 
-/* LIVE OPEN CLOSED */
+setTimeout(function(){
+
+document
+.getElementById("popup")
+.classList.add("show");
+
+},3500);
+
+/* BUSINESS STATUS */
 
 function updateBusinessStatus(){
 
-let now=
-new Date();
+let now=new Date();
 
-let day=
-now.getDay();
+let day=now.getDay();
 
-let hour=
-now.getHours();
+let hour=now.getHours();
 
 let status=
-document.getElementById(
-"businessStatus"
-);
+document.getElementById("businessStatus");
 
 if(day===0){
 
-status.innerHTML=
-'<span class="closed">🔴 CLOSED</span>';
+status.innerText="🔴 Closed Today";
+
+status.style.color="#dc2626";
 
 return;
 
@@ -2779,74 +2822,21 @@ return;
 
 if(hour>=9 && hour<20){
 
-status.innerHTML=
-'<span class="open">🟢 OPEN NOW</span>';
+status.innerText="🟢 Open Now";
+
+status.style.color="#16a34a";
 
 }else{
 
-status.innerHTML=
-'<span class="closed">🔴 CLOSED NOW</span>';
+status.innerText="🔴 Closed Now";
+
+status.style.color="#dc2626";
 
 }
 
 }
 
 updateBusinessStatus();
-
-setInterval(
-updateBusinessStatus,
-60000
-);
-
-/* POPUP */
-
-window.addEventListener("load",function(){
-
-setTimeout(function(){
-
-document.getElementById("popup").style.display="flex";
-
-},2500);
-
-});
-
-function closePopup(){
-
-document.getElementById("popup").style.display="none";
-
-}
-
-/* FULLSCREEN IMAGE */
-
-function openViewer(src){
-
-document.getElementById("viewerImage").src=src;
-
-document.getElementById("viewer").style.display="flex";
-
-}
-
-function closeViewer(){
-
-document.getElementById("viewer").style.display="none";
-
-}
-
-/* ESC TO CLOSE IMAGE */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-if(event.key==="Escape"){
-
-closeViewer();
-
-closePopup();
-
-}
-
-});
 
 </script>
 
