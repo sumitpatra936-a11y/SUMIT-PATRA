@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SUMIT PATRA - Online Services, Digital Solutions and Government Services.">
+  <title>SUMIT PATRA | Online Services</title>
+
+  <style>
+    :root {
+      --primary: #0757d9;
+      --secondary: #6d28d9;
+      --dark: #111827;
+      --text: #1f2937;
+      --muted: #64748b;
+      --light: #f5f7fb;
+      --white: #ffffff;
+      --green: #25D366;
+      --border: #e2e8f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      padding: 28px 20px 70px;
+      overflow: hidden;
+    }
+
+    .topbar {
+      max-width: 1100px;
+      margin: 0 auto 55px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .topbar a {
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      opacity: .95;
+    }
+
+    .hero-content {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .hero-text h1 span {
+      color: #dbeafe;
+    }
+
+    .hero-text p {
+      font-size: 19px;
+      max-width: 650px;
+      opacity: .95;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 800;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .btn-whatsapp {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .92;
+    }
+
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo {
+      width: min(330px, 80vw);
+      height: 390px;
+      object-fit: cover;
+      object-position: center 25%;
+      border-radius: 28px;
+      border: 6px solid rgba(255,255,255,.9);
+      box-shadow: 0 20px 50px rgba(0,0,0,.28);
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--text);
+      margin: 0 13px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    nav a:hover { color: var(--primary); }
+
+    /* MAIN */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    section {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 34px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 30px rgba(15,23,42,.07);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      color: var(--primary);
+      font-size: 30px;
+      margin-bottom: 7px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    /* ABOUT */
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 12px;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 12px;
+    }
+
+    .point {
+      background: #f1f5ff;
+      border: 1px solid #dbe7ff;
+      border-radius: 12px;
+      padding: 15px;
+      font-weight: 700;
+    }
+
+    /* SERVICES */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .service {
+      border: 1px solid var(--border);
+      background: #fbfdff;
+      border-radius: 16px;
+      padding: 22px 17px;
+      text-align: center;
+      transition: .2s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(7,87,217,.12);
+      border-color: #c7d9ff;
+    }
+
+    .service-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .service h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .service-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* PAN */
+    .pan-box {
+      margin-top: 24px;
+      background: #f1f5ff;
+      border: 1px solid #dbe7ff;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .pan-box h3 {
+      margin-bottom: 14px;
+      color: var(--primary);
+    }
+
+    .pan-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .pan-buttons a {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 11px 8px;
+      border-radius: 9px;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .pan-buttons a:hover { opacity: .88; }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .contact-info p {
+      margin: 12px 0;
+    }
+
+    .label { font-weight: 800; }
+
+    .contact-info a {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, #eef5ff, #f7f1ff);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .contact-buttons a {
+      color: white;
+      padding: 12px 18px;
+      border-radius: 9px;
+      font-weight: 800;
+    }
+
+    .call-btn { background: var(--primary); }
+    .whatsapp-btn { background: var(--green); }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 25px 15px 70px;
+    }
+
+    footer p {
+      opacity: .8;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    /* FLOATING WHATSAPP */
+    .floating-whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+      z-index: 100;
+    }
+
+    @media (max-width: 800px) {
+      .hero-content,
+      .about-box,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-photo {
+        width: min(300px, 85vw);
+        height: 350px;
+      }
+
+      .pan-buttons {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        margin-bottom: 35px;
+      }
+
+      .topbar a {
+        display: none;
+      }
+
+      nav {
+        white-space: nowrap;
+        overflow-x: auto;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      section {
+        padding: 24px 18px;
+      }
+
+      .hero {
+        padding-bottom: 50px;
+      }
+
+      .hero-text h1 {
+        font-size: 44px;
+      }
+
+      .hero-text p {
+        font-size: 16px;
+      }
+
+      .pan-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-buttons a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  
+/* Extra Functions */
+.function-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
+.function-card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:22px;text-align:center;box-shadow:0 8px 25px rgba(15,23,42,.06)}
+.function-card .icon{font-size:32px;margin-bottom:10px}
+.function-card h3{margin:8px 0;font-size:18px}
+.function-card p{margin:0;color:#64748b;font-size:14px;line-height:1.6}
+.notice{background:linear-gradient(135deg,#eef6ff,#f5f3ff);border:1px solid #dbeafe;border-radius:18px;padding:20px;margin-top:20px}
+.notice strong{color:#0757d9}
+.search-wrap{margin:0 0 25px}
+.search-box{width:100%;padding:15px 18px;border:1px solid #dbe3ef;border-radius:14px;font-size:16px;outline:none}
+.search-box:focus{border-color:#0757d9;box-shadow:0 0 0 3px rgba(7,87,217,.1)}
+#noResults{text-align:center;color:#64748b;display:none;padding:20px}
+.enquiry-form{display:grid;gap:14px;margin-top:18px}
+.enquiry-form input,.enquiry-form textarea{width:100%;padding:14px 16px;border:1px solid #dbe3ef;border-radius:12px;font:inherit;box-sizing:border-box}
+.enquiry-form textarea{min-height:120px;resize:vertical}
+.map-wrap{overflow:hidden;border-radius:18px;border:1px solid #e5e7eb;margin-top:20px}
+.map-wrap iframe{width:100%;height:300px;border:0;display:block}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+.gallery img{width:100%;height:260px;object-fit:cover;border-radius:18px;box-shadow:0 8px 25px rgba(15,23,42,.08)}
+.social-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.social-buttons a{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;background:#f1f5f9;color:#0f172a}
+@media(max-width:900px){.function-grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.function-grid,.gallery{grid-template-columns:1fr}.gallery img{height:300px}}
+
+</style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="topbar">
+      <div class="brand">SUMIT PATRA</div>
+      <a href="#contact">Contact Me →</a>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>SUMIT <span>PATRA</span></h1>
+        <p>
+          Online Services • Digital Solutions • Government Services
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">View Services</a>
+          <a href="https://wa.me/917001689925"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-whatsapp">💬 WhatsApp Me</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <img src="sumit-photo.jpeg"
+             alt="Sumit Patra"
+             class="hero-photo">
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main class="container">
+
+    <section id="about">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>Simple and convenient online service support</p>
+      </div>
+
+      <div class="about-box">
+        <div class="about-text">
+          <p>
+            Welcome to <strong>SUMIT PATRA</strong>. We provide convenient
+            online and digital services to help with various government and
+            online applications in a simple and reliable way.
+          </p>
+          <p>
+            For assistance, contact us by phone or WhatsApp.
+          </p>
+        </div>
+
+        <div class="about-points">
+          <div class="point">✅ Online Application Assistance</div>
+          <div class="point">✅ Digital Service Support</div>
+          <div class="point">✅ Government Form Assistance</div>
+        </div>
+      </div>
+    </section>
+
+    
+<section id="updates" class="section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">LATEST UPDATE</span>
+      <h2>Notice & Quick Services</h2>
+    </div>
+    <div class="notice">
+      <strong>📢 Important:</strong> Online service support is available for PAN, Aadhaar, Voter Card, Ration Card, Certificates, Government Forms and other digital services.
+    </div>
+    <div class="function-grid">
+      <div class="function-card"><div class="icon">📱</div><h3>WhatsApp</h3><p>Send your enquiry directly on WhatsApp.</p><a class="btn btn-whatsapp" href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20online%20service%20help." target="_blank">Chat Now</a></div>
+      <div class="function-card"><div class="icon">📞</div><h3>Direct Call</h3><p>Call directly for service information.</p><a class="btn btn-primary" href="tel:7001689925">Call Now</a></div>
+      <div class="function-card"><div class="icon">📧</div><h3>Email</h3><p>Send your details by email.</p><a class="btn btn-primary" href="mailto:sumitpatra936@gmail.com">Email Me</a></div>
+      <div class="function-card"><div class="icon">📍</div><h3>Location</h3><p>Find the service location on Google Maps.</p><a class="btn btn-primary" href="#map">View Map</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Services available through online assistance</p>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <div class="service-icon">🪪</div>
+          <h3>PAN Card</h3>
+          <p>New PAN, correction, reprint and e-PAN.</p>
+          <a href="#pan" class="service-btn">View Options</a>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">🆔</div>
+          <h3>Aadhaar Services</h3>
+          <p>Assistance with available Aadhaar services.</p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">🗳️</div>
+          <h3>Voter Card</h3>
+          <p>Online voter service assistance.</p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">🍚</div>
+          <h3>Ration Card</h3>
+          <p>Ration card application assistance.</p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">📜</div>
+          <h3>Caste Certificate</h3>
+          <p>Online application assistance.</p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">📋</div>
+          <h3>Government Forms</h3>
+          <p>Help with online government forms.</p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">💻</div>
+          <h3>Online Applications</h3>
+          <p>Support for online applications.</p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">🌐</div>
+          <h3>Digital Services</h3>
+          <p>General digital service assistance.</p>
+        </div>
+      </div>
+
+      <div class="pan-box" id="pan">
+        <h3>🪪 PAN Card Services</h3>
+
+        <div class="pan-buttons">
+          <a href="https://www.pan.utiitsl.com/"
+             target="_blank" rel="noopener noreferrer">New PAN</a>
+
+          <a href="https://www.pan.utiitsl.com/"
+             target="_blank" rel="noopener noreferrer">PAN Correction</a>
+
+          <a href="https://www.pan.utiitsl.com/PAN_ONLINE/regenPANHomereprint"
+             target="_blank" rel="noopener noreferrer">PAN Reprint</a>
+
+          <a href="https://www.pan.utiitsl.com/PAN_ONLINE/ePANCardHome"
+             target="_blank" rel="noopener noreferrer">e-PAN Download</a>
+        </div>
+      </div>
+    <div id="noResults">No matching service found.</div>
+</section>
+
+    
+<section id="enquiry" class="section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">ONLINE ENQUIRY</span>
+      <h2>Send Your Enquiry</h2>
+      <p>Fill in the form and WhatsApp will open with your enquiry ready to send.</p>
+    </div>
+    <form class="enquiry-form" id="enquiryForm">
+      <input id="enqName" type="text" placeholder="Your Name" required>
+      <input id="enqPhone" type="tel" placeholder="Mobile Number" required>
+      <textarea id="enqMessage" placeholder="Which service do you need?" required></textarea>
+      <button class="btn btn-whatsapp" type="submit">💬 Send Enquiry on WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<section id="gallery" class="section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">GALLERY</span>
+      <h2>Photo Gallery</h2>
+    </div>
+    <div class="gallery">
+      <img src="sumit-photo.jpeg" alt="Sumit Patra">
+      <img src="sumit-photo.jpeg" alt="Sumit Patra">
+      <img src="sumit-photo.jpeg" alt="Sumit Patra">
+    </div>
+  </div>
+</section>
+
+<section id="map" class="section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">LOCATION</span>
+      <h2>Find Us on Google Maps</h2>
+    </div>
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps?q=Swarup%20Beria%2C%20PO%20Iswaripur%2C%20PS%20Bhangar%2C%20South%2024%20Parganas%2C%20West%20Bengal&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Sumit Patra location map"></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+        <p>Get in touch for online service assistance</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p><span class="label">Name:</span> Sumit Patra</p>
+
+          <p>
+            <span class="label">Location:</span>
+            Swarup Beria, PO Iswaripur, PS Bhangar,
+            South 24 Parganas, West Bengal
+          </p>
+
+          <p>
+            <span class="label">Email:</span>
+            <a href="mailto:sumitpatra936@gmail.com">
+              sumitpatra936@gmail.com
+            </a>
+          </p>
+
+          <p>
+            <span class="label">Mobile:</span>
+            <a href="tel:7001689925">7001689925</a>
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Need Help?</h3>
+          <p>Call or send a WhatsApp message for assistance.</p>
+
+          <div class="contact-buttons">
+            <a href="tel:7001689925" class="call-btn">📞 Call Now</a>
+
+            <a href="https://wa.me/917001689925"
+               class="whatsapp-btn"
+               target="_blank"
+               rel="noopener noreferrer">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    
+<div class="social-buttons">
+  <a href="https://wa.me/917001689925" target="_blank">💬 WhatsApp</a>
+  <a href="mailto:sumitpatra936@gmail.com">📧 Email</a>
+  <a href="tel:7001689925">📞 Call</a>
+</div>
+</section>
+
+  </main>
+
+  <footer>
+    <strong>© 2026 SUMIT PATRA</strong>
+    <p>All Rights Reserved.</p>
+  </footer>
+
+  <a href="https://wa.me/917001689925"
+     class="floating-whatsapp"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="WhatsApp">💬</a>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const search = document.getElementById('serviceSearch');
+  const cards = document.querySelectorAll('.searchable-service');
+  const noResults = document.getElementById('noResults');
+
+  if (search) {
+    search.addEventListener('input', function () {
+      const q = this.value.toLowerCase().trim();
+      let visible = 0;
+      cards.forEach(card => {
+        const match = card.textContent.toLowerCase().includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      if (noResults) noResults.style.display = (visible === 0 && q) ? 'block' : 'none';
+    });
+  }
+
+  const form = document.getElementById('enquiryForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('enqName').value.trim();
+      const phone = document.getElementById('enqPhone').value.trim();
+      const message = document.getElementById('enqMessage').value.trim();
+      const text = `Hello Sumit, I want online service help.%0A%0AName: ${encodeURIComponent(name)}%0AMobile: ${encodeURIComponent(phone)}%0AService: ${encodeURIComponent(message)}`;
+      window.open('https://wa.me/917001689925?text=' + text, '_blank');
+    });
+  }
+});
+</script>
+
+</body>
+</html>
