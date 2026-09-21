@@ -4,13 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description"
-content="SUMIT PATRA - Online Services, Digital Solutions and Government Services.">
-
 <title>SUMIT PATRA | Online Services</title>
 
 <style>
-
 :root{
   --primary:#0757d9;
   --secondary:#6d28d9;
@@ -24,9 +20,9 @@ content="SUMIT PATRA - Online Services, Digital Solutions and Government Service
 }
 
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
 }
 
 html{
@@ -44,62 +40,82 @@ a{
   text-decoration:none;
 }
 
+.container{
+  width:92%;
+  max-width:1150px;
+  margin:auto;
+}
+
+.section{
+  padding:70px 0;
+}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-heading h2{
+  font-size:34px;
+  color:var(--dark);
+  margin:8px 0;
+}
+
+.section-heading p{
+  color:var(--muted);
+}
+
+.eyebrow{
+  color:var(--primary);
+  font-weight:bold;
+  font-size:13px;
+  letter-spacing:2px;
+}
+
 /* HERO */
 
 .hero{
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  background:
+    linear-gradient(135deg,#0757d9,#6d28d9);
   color:white;
-  padding:28px 20px 70px;
+  padding:25px 0 70px;
 }
 
 .topbar{
-  max-width:1100px;
-  margin:0 auto 50px;
+  width:92%;
+  max-width:1150px;
+  margin:auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
 .brand{
-  font-size:20px;
+  font-size:22px;
   font-weight:800;
-  letter-spacing:1px;
 }
 
-.topbar-right{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.topbar-right a{
+.topbar a{
   color:white;
-  font-weight:700;
-}
-
-.language-btn{
-  border:none;
-  background:white;
-  color:var(--primary);
-  padding:9px 14px;
-  border-radius:9px;
-  font-weight:800;
-  cursor:pointer;
+  border:1px solid rgba(255,255,255,.5);
+  padding:9px 18px;
+  border-radius:30px;
 }
 
 .hero-content{
-  max-width:1100px;
-  margin:auto;
+  width:92%;
+  max-width:1150px;
+  margin:65px auto 0;
   display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:50px;
+  grid-template-columns:1.3fr .7fr;
   align-items:center;
+  gap:50px;
 }
 
 .hero-text h1{
-  font-size:clamp(42px,7vw,72px);
-  line-height:1.05;
-  margin-bottom:16px;
+  font-size:64px;
+  line-height:1;
+  margin-bottom:20px;
 }
 
 .hero-text h1 span{
@@ -108,7 +124,8 @@ a{
 
 .hero-text p{
   font-size:19px;
-  margin-bottom:28px;
+  margin-bottom:30px;
+  color:#eef2ff;
 }
 
 .hero-buttons{
@@ -119,11 +136,16 @@ a{
 
 .btn{
   display:inline-block;
-  padding:13px 20px;
+  padding:12px 22px;
   border-radius:10px;
-  font-weight:800;
+  font-weight:bold;
   border:none;
   cursor:pointer;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
 }
 
 .btn-primary{
@@ -136,33 +158,23 @@ a{
   color:white;
 }
 
+.btn-blue{
+  background:var(--primary);
+  color:white;
+}
+
 .hero-photo-wrap{
-  display:flex;
-  justify-content:center;
+  text-align:center;
 }
 
 .hero-photo{
-  width:min(330px,80vw);
-  height:390px;
+  width:100%;
+  max-width:350px;
+  height:380px;
   object-fit:cover;
-  object-position:center 25%;
-  border-radius:28px;
-  border:6px solid white;
-  box-shadow:0 20px 50px rgba(0,0,0,.28);
-}
-
-/* LANGUAGE */
-
-.bn{
-  display:none;
-}
-
-.bengali .en{
-  display:none;
-}
-
-.bengali .bn{
-  display:inline;
+  border-radius:30px;
+  border:6px solid rgba(255,255,255,.35);
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
 /* NAV */
@@ -170,107 +182,79 @@ a{
 nav{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(255,255,255,.97);
-  border-bottom:1px solid var(--border);
-  padding:14px 20px;
+  z-index:1000;
+  background:white;
+  box-shadow:0 3px 15px rgba(0,0,0,.08);
   text-align:center;
+  padding:15px;
 }
 
 nav a{
-  color:var(--text);
-  margin:0 10px;
-  font-size:14px;
-  font-weight:800;
+  color:var(--dark);
+  font-weight:bold;
+  margin:0 13px;
 }
 
 nav a:hover{
   color:var(--primary);
 }
 
-/* MAIN */
-
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:45px 20px;
-}
-
-section{
-  background:white;
-  border-radius:20px;
-  padding:34px;
-  margin-bottom:28px;
-  box-shadow:0 8px 30px rgba(15,23,42,.07);
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:28px;
-}
-
-.section-title h2{
-  color:var(--primary);
-  font-size:30px;
-  margin-bottom:7px;
-}
-
-.section-title p{
-  color:var(--muted);
-}
-
 /* ABOUT */
 
 .about-box{
+  background:white;
+  border-radius:22px;
+  padding:35px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:25px;
-  align-items:center;
+  gap:35px;
+  box-shadow:0 10px 30px rgba(15,23,42,.07);
 }
 
 .about-text p{
-  margin-bottom:12px;
+  margin-bottom:15px;
+}
+
+.about-points{
+  display:grid;
+  gap:12px;
 }
 
 .point{
-  background:#f1f5ff;
-  border:1px solid #dbe7ff;
+  background:#eff6ff;
+  padding:16px;
   border-radius:12px;
-  padding:15px;
-  margin-bottom:12px;
-  font-weight:700;
+  font-weight:bold;
+}
+
+/* NOTICE */
+
+.notice{
+  background:#fff7ed;
+  border-left:5px solid #f97316;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:30px;
 }
 
 /* QUICK SERVICES */
 
-.notice{
-  background:linear-gradient(135deg,#eef6ff,#f5f3ff);
-  border:1px solid #dbeafe;
-  border-radius:18px;
-  padding:20px;
-  margin-bottom:25px;
-}
-
-.notice strong{
-  color:var(--primary);
-}
-
 .function-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px;
+  gap:20px;
 }
 
 .function-card{
   background:white;
-  border:1px solid var(--border);
+  padding:25px;
   border-radius:18px;
-  padding:22px;
   text-align:center;
+  box-shadow:0 8px 25px rgba(15,23,42,.07);
 }
 
 .function-card .icon{
-  font-size:32px;
+  font-size:35px;
   margin-bottom:10px;
 }
 
@@ -278,138 +262,154 @@ section{
   margin-bottom:8px;
 }
 
-.function-card p{
+/* SERVICES */
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.service-card{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 8px 25px rgba(15,23,42,.07);
+  transition:.25s;
+}
+
+.service-card:hover{
+  transform:translateY(-5px);
+}
+
+.service-card h3{
+  margin-bottom:10px;
+  color:var(--dark);
+}
+
+.service-card p{
   color:var(--muted);
-  font-size:14px;
   margin-bottom:15px;
+}
+
+.service-card .btn{
+  font-size:14px;
+  padding:9px 15px;
 }
 
 /* SEARCH */
 
 .search-box{
+  max-width:600px;
+  margin:0 auto 30px;
+}
+
+.search-box input{
   width:100%;
   padding:15px 18px;
-  border:1px solid #dbe3ef;
-  border-radius:14px;
+  border:1px solid var(--border);
+  border-radius:12px;
   font-size:16px;
-  margin-bottom:25px;
   outline:none;
 }
 
-.search-box:focus{
+.search-box input:focus{
   border-color:var(--primary);
-}
-
-#noResults{
-  display:none;
-  text-align:center;
-  color:var(--muted);
-  padding:20px;
-}
-
-/* SERVICES */
-
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:16px;
-}
-
-.service{
-  border:1px solid var(--border);
-  background:#fbfdff;
-  border-radius:16px;
-  padding:22px 17px;
-  text-align:center;
-  transition:.2s ease;
-}
-
-.service:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(7,87,217,.12);
-}
-
-.service-icon{
-  font-size:30px;
-  margin-bottom:8px;
-}
-
-.service h3{
-  font-size:17px;
-  margin-bottom:7px;
-}
-
-.service p{
-  color:var(--muted);
-  font-size:13px;
-  margin-bottom:14px;
-}
-
-.service-btn{
-  display:inline-block;
-  background:var(--primary);
-  color:white;
-  padding:9px 12px;
-  border-radius:8px;
-  font-size:12px;
-  font-weight:800;
-  margin:3px;
-}
-
-.service-btn.whatsapp{
-  background:var(--green);
 }
 
 /* PAN */
 
 .pan-box{
-  margin-top:24px;
-  background:#f1f5ff;
-  border:1px solid #dbe7ff;
-  border-radius:16px;
-  padding:20px;
-}
-
-.pan-box h3{
-  color:var(--primary);
-  margin-bottom:14px;
-}
-
-.pan-buttons{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
-
-.pan-buttons a{
-  background:var(--primary);
-  color:white;
+  background:linear-gradient(135deg,#eff6ff,#f5f3ff);
+  padding:35px;
+  border-radius:22px;
   text-align:center;
-  padding:11px 8px;
-  border-radius:9px;
-  font-weight:800;
-  font-size:13px;
+}
+
+.pan-box h2{
+  margin-bottom:12px;
+}
+
+.pan-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin-top:25px;
+}
+
+.pan-links a{
+  background:white;
+  padding:12px 18px;
+  border-radius:10px;
+  color:var(--primary);
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(0,0,0,.06);
 }
 
 /* ENQUIRY */
 
-.enquiry-form{
-  display:grid;
-  gap:14px;
+.enquiry-box{
+  max-width:700px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(15,23,42,.08);
 }
 
-.enquiry-form input,
-.enquiry-form textarea{
+.enquiry-box input,
+.enquiry-box textarea,
+.enquiry-box select{
   width:100%;
-  padding:14px 16px;
-  border:1px solid #dbe3ef;
-  border-radius:12px;
-  font:inherit;
+  padding:13px;
+  margin-bottom:15px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  font-size:15px;
 }
 
-.enquiry-form textarea{
-  min-height:130px;
+.enquiry-box textarea{
+  min-height:120px;
   resize:vertical;
+}
+
+/* TEAM */
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.team-card{
+  background:white;
+  padding:15px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(15,23,42,.10);
+  transition:.25s;
+}
+
+.team-card:hover{
+  transform:translateY(-5px);
+}
+
+.team-card img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:15px;
+  display:block;
+}
+
+.team-card h3{
+  margin:15px 0 5px;
+}
+
+.team-card p{
+  color:var(--primary);
+  font-weight:bold;
 }
 
 /* GALLERY */
@@ -422,7 +422,7 @@ section{
 
 .gallery img{
   width:100%;
-  height:270px;
+  height:260px;
   object-fit:cover;
   border-radius:18px;
   box-shadow:0 8px 25px rgba(15,23,42,.08);
@@ -430,121 +430,104 @@ section{
 
 /* MAP */
 
-.map-wrap{
+.map-box{
   overflow:hidden;
-  border-radius:18px;
-  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(15,23,42,.08);
 }
 
-.map-wrap iframe{
+.map-box iframe{
   width:100%;
-  height:320px;
+  height:350px;
   border:0;
-  display:block;
 }
 
 /* CONTACT */
 
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
+.contact-box{
+  background:white;
+  border-radius:22px;
+  padding:35px;
+  box-shadow:0 8px 25px rgba(15,23,42,.08);
 }
 
-.contact-info p{
-  margin:12px 0;
+.contact-item{
+  margin-bottom:15px;
 }
 
-.label{
-  font-weight:800;
-}
-
-.contact-info a{
-  color:var(--primary);
-  font-weight:700;
-}
-
-.contact-card{
-  background:linear-gradient(135deg,#eef5ff,#f7f1ff);
-  border-radius:16px;
-  padding:24px;
+.contact-item strong{
+  display:inline-block;
+  min-width:90px;
 }
 
 .contact-buttons{
   display:flex;
-  gap:10px;
   flex-wrap:wrap;
-  margin-top:20px;
+  gap:12px;
+  margin-top:25px;
 }
 
-.contact-buttons a{
+/* LANGUAGE */
+
+.language-btn{
+  position:fixed;
+  right:20px;
+  top:80px;
+  z-index:1100;
+  background:#111827;
   color:white;
-  padding:12px 18px;
-  border-radius:9px;
-  font-weight:800;
+  border:none;
+  padding:10px 15px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
-.call-btn{
-  background:var(--primary);
-}
+/* FLOAT WHATSAPP */
 
-.whatsapp-btn{
-  background:var(--green);
-}
-
-/* FOOTER */
-
-footer{
-  background:var(--dark);
-  color:white;
-  text-align:center;
-  padding:25px 15px 70px;
-}
-
-footer p{
-  opacity:.8;
-  font-size:13px;
-  margin-top:5px;
-}
-
-/* FLOATING WHATSAPP */
-
-.floating-whatsapp{
+.float-whatsapp{
   position:fixed;
   right:20px;
   bottom:20px;
   width:58px;
   height:58px;
-  border-radius:50%;
   background:var(--green);
   color:white;
+  border-radius:50%;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   font-size:27px;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
-  z-index:100;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+  z-index:999;
 }
 
-/* MOBILE */
+/* FOOTER */
+
+footer{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+  margin-top:30px;
+}
+
+/* BENGALI */
+
+body.bengali .en{
+  display:none;
+}
+
+body:not(.bengali) .bn{
+  display:none;
+}
+
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
-  .hero-content,
-  .about-box,
-  .contact-grid{
+  .hero-content{
     grid-template-columns:1fr;
-  }
-
-  .function-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .gallery{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .hero-text{
     text-align:center;
   }
 
@@ -552,1035 +535,1038 @@ footer p{
     justify-content:center;
   }
 
-  .pan-buttons{
+  .hero-text h1{
+    font-size:50px;
+  }
+
+  .about-box{
+    grid-template-columns:1fr;
+  }
+
+  .function-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .services-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .team-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .gallery{
     grid-template-columns:1fr 1fr;
   }
 }
 
 @media(max-width:600px){
 
-  .topbar{
-    margin-bottom:35px;
+  .section{
+    padding:50px 0;
   }
 
-  .topbar-right > a{
-    display:none;
-  }
-
-  nav{
-    white-space:nowrap;
-    overflow-x:auto;
-  }
-
-  nav a{
-    margin:0 7px;
-  }
-
-  section{
-    padding:24px 18px;
+  .hero{
+    padding-bottom:50px;
   }
 
   .hero-text h1{
-    font-size:44px;
+    font-size:42px;
   }
 
   .hero-text p{
     font-size:16px;
   }
 
+  .hero-photo{
+    height:320px;
+  }
+
+  nav{
+    padding:12px 5px;
+  }
+
+  nav a{
+    margin:0 5px;
+    font-size:13px;
+  }
+
   .function-grid,
+  .services-grid,
+  .team-grid,
   .gallery{
     grid-template-columns:1fr;
   }
 
-  .pan-buttons{
-    grid-template-columns:1fr;
+  .team-card img{
+    height:330px;
   }
 
   .gallery img{
     height:300px;
   }
 
-  .contact-buttons a{
-    width:100%;
-    text-align:center;
+  .section-heading h2{
+    font-size:28px;
+  }
+
+  .topbar{
+    flex-direction:column;
+    gap:12px;
   }
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- LANGUAGE BUTTON -->
+
+<button class="language-btn" onclick="toggleLanguage()">
+  বাংলা / English
+</button>
+
 <!-- HERO -->
 
 <header class="hero">
 
-<div class="topbar">
+  <div class="topbar">
 
-<div class="brand">
-SUMIT PATRA
-</div>
+    <div class="brand">
+      SUMIT PATRA
+    </div>
 
-<div class="topbar-right">
+    <a href="#contact">
+      Contact Me →
+    </a>
 
-<button
-class="language-btn"
-onclick="toggleLanguage()">
-বাংলা / English
-</button>
+  </div>
 
-<a href="#contact">
-<span class="en">Contact Me →</span>
-<span class="bn">যোগাযোগ করুন →</span>
-</a>
+  <div class="hero-content">
 
-</div>
+    <div class="hero-text">
 
-</div>
+      <h1>
+        SUMIT <span>PATRA</span>
+      </h1>
 
+      <p class="en">
+        Online Services • Digital Solutions • Government Services
+      </p>
 
-<div class="hero-content">
+      <p class="bn">
+        অনলাইন পরিষেবা • ডিজিটাল সমাধান • সরকারি পরিষেবা
+      </p>
 
-<div class="hero-text">
+      <div class="hero-buttons">
 
-<h1>
-SUMIT <span>PATRA</span>
-</h1>
+        <a href="#services" class="btn btn-primary">
+          View Services
+        </a>
 
-<p>
+        <a
+          href="https://wa.me/917001689925"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp">
+          💬 WhatsApp Me
+        </a>
 
-<span class="en">
-Online Services • Digital Solutions • Government Services
-</span>
+      </div>
 
-<span class="bn">
-অনলাইন সার্ভিস • ডিজিটাল সলিউশন • সরকারি পরিষেবা
-</span>
+    </div>
 
-</p>
+    <div class="hero-photo-wrap">
 
+      <img
+        src="sumit-photo.jpeg"
+        alt="Sumit Patra"
+        class="hero-photo">
 
-<div class="hero-buttons">
+    </div>
 
-<a
-href="#services"
-class="btn btn-primary">
-
-<span class="en">View Services</span>
-<span class="bn">সার্ভিস দেখুন</span>
-
-</a>
-
-
-<a
-href="https://wa.me/917001689925"
-target="_blank"
-rel="noopener noreferrer"
-class="btn btn-whatsapp">
-
-💬 WhatsApp Me
-
-</a>
-
-</div>
-
-</div>
-
-
-<div class="hero-photo-wrap">
-
-<img
-src="sumit-photo.jpeg"
-alt="Sumit Patra"
-class="hero-photo">
-
-</div>
-
-</div>
+  </div>
 
 </header>
-
 
 <!-- NAV -->
 
 <nav>
 
-<a href="#about">
-<span class="en">About</span>
-<span class="bn">পরিচিতি</span>
-</a>
-
-<a href="#services">
-<span class="en">Services</span>
-<span class="bn">সার্ভিস</span>
-</a>
-
-<a href="#enquiry">
-<span class="en">Enquiry</span>
-<span class="bn">জিজ্ঞাসা</span>
-</a>
-
-<a href="#gallery">
-<span class="en">Gallery</span>
-<span class="bn">গ্যালারি</span>
-</a>
-
-<a href="#map">
-<span class="en">Map</span>
-<span class="bn">ম্যাপ</span>
-</a>
-
-<a href="#contact">
-<span class="en">Contact</span>
-<span class="bn">যোগাযোগ</span>
-</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#team">Team</a>
+  <a href="#pan">PAN</a>
+  <a href="#enquiry">Enquiry</a>
+  <a href="#contact">Contact</a>
 
 </nav>
 
-
-<main class="container">
-
+<main>
 
 <!-- ABOUT -->
 
-<section id="about">
+<section id="about" class="section">
 
-<div class="section-title">
+  <div class="container">
 
-<h2>
+    <div class="section-heading">
 
-<span class="en">About Me</span>
-<span class="bn">আমার সম্পর্কে</span>
+      <span class="eyebrow">ABOUT US</span>
 
-</h2>
+      <h2>
+        <span class="en">About Me</span>
+        <span class="bn">আমাদের সম্পর্কে</span>
+      </h2>
 
-<p>
+      <p>
+        Simple and convenient online service support
+      </p>
 
-<span class="en">
-Simple and convenient online service support
-</span>
+    </div>
 
-<span class="bn">
-সহজ ও সুবিধাজনক অনলাইন সার্ভিস সহায়তা
-</span>
+    <div class="about-box">
 
-</p>
+      <div class="about-text">
 
-</div>
+        <p class="en">
+          Welcome to <strong>SUMIT PATRA</strong>.
+          We provide convenient online and digital services
+          to help with various government and online applications
+          in a simple and reliable way.
+        </p>
 
+        <p class="bn">
+          <strong>SUMIT PATRA</strong>-এ আপনাকে স্বাগতম।
+          বিভিন্ন সরকারি ও অনলাইন আবেদন সহজভাবে করার জন্য
+          আমরা অনলাইন ও ডিজিটাল পরিষেবা প্রদান করি।
+        </p>
 
-<div class="about-box">
+        <p>
+          For assistance, contact us by phone or WhatsApp.
+        </p>
 
-<div class="about-text">
+      </div>
 
-<p>
+      <div class="about-points">
 
-<span class="en">
+        <div class="point">
+          ✅ Online Application Assistance
+        </div>
 
-Welcome to <strong>SUMIT PATRA</strong>.
-We provide convenient online and digital services
-to help with various government and online applications
-in a simple and reliable way.
+        <div class="point">
+          ✅ Digital Service Support
+        </div>
 
-</span>
+        <div class="point">
+          ✅ Government Form Assistance
+        </div>
 
-<span class="bn">
+      </div>
 
-<strong>SUMIT PATRA</strong>-এ স্বাগতম।
-বিভিন্ন সরকারি ও অনলাইন আবেদনের জন্য
-সহজ ও সুবিধাজনক ডিজিটাল সার্ভিস সহায়তা প্রদান করা হয়।
+    </div>
 
-</span>
-
-</p>
-
-</div>
-
-
-<div>
-
-<div class="point">
-✅ Online Application Assistance
-</div>
-
-<div class="point">
-✅ Digital Service Support
-</div>
-
-<div class="point">
-✅ Government Form Assistance
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
+<!-- UPDATES -->
 
-<!-- QUICK SERVICES -->
+<section id="updates" class="section">
 
-<section>
+  <div class="container">
 
-<div class="section-title">
+    <div class="section-heading">
 
-<h2>
+      <span class="eyebrow">
+        LATEST UPDATE
+      </span>
 
-<span class="en">Quick Services</span>
-<span class="bn">দ্রুত সার্ভিস</span>
+      <h2>
+        Notice & Quick Services
+      </h2>
 
-</h2>
+    </div>
 
-<p>
+    <div class="notice">
 
-<span class="en">
-Contact us quickly for online service assistance
-</span>
+      <strong>📢 Important:</strong>
 
-<span class="bn">
-অনলাইন সার্ভিসের জন্য দ্রুত যোগাযোগ করুন
-</span>
+      Online service support is available for
+      PAN, Aadhaar, Voter Card, Ration Card,
+      Certificates, Government Forms and other
+      digital services.
 
-</p>
+    </div>
 
-</div>
+    <div class="function-grid">
 
+      <div class="function-card">
 
-<div class="notice">
+        <div class="icon">📱</div>
 
-<strong>📢
+        <h3>WhatsApp</h3>
 
-<span class="en">Important:</span>
-<span class="bn">গুরুত্বপূর্ণ:</span>
+        <p>
+          Send your enquiry directly on WhatsApp.
+        </p>
 
-</strong>
+        <a
+          class="btn btn-whatsapp"
+          href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20online%20service%20help."
+          target="_blank">
+          WhatsApp
+        </a>
 
-<span class="en">
-Online service support is available.
-</span>
+      </div>
 
-<span class="bn">
-অনলাইন সার্ভিসের জন্য যোগাযোগ করুন।
-</span>
+      <div class="function-card">
 
-</div>
+        <div class="icon">📞</div>
 
+        <h3>Direct Call</h3>
 
-<div class="function-grid">
+        <p>
+          Call directly for service assistance.
+        </p>
 
+        <a
+          class="btn btn-blue"
+          href="tel:7001689925">
+          Call Now
+        </a>
 
-<div class="function-card">
+      </div>
 
-<div class="icon">📱</div>
+      <div class="function-card">
 
-<h3>WhatsApp</h3>
+        <div class="icon">✉️</div>
 
-<p>Direct WhatsApp support</p>
+        <h3>Email</h3>
 
-<a
-class="btn btn-whatsapp"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20online%20service%20help."
-target="_blank">
+        <p>
+          Send us your enquiry by email.
+        </p>
 
-Chat Now
+        <a
+          class="btn btn-blue"
+          href="mailto:sumitpatra936@gmail.com">
+          Email
+        </a>
 
-</a>
+      </div>
 
-</div>
+      <div class="function-card">
 
+        <div class="icon">📝</div>
 
-<div class="function-card">
+        <h3>Online Enquiry</h3>
 
-<div class="icon">📞</div>
+        <p>
+          Send your service enquiry quickly.
+        </p>
 
-<h3>Direct Call</h3>
+        <a
+          class="btn btn-primary"
+          href="#enquiry">
+          Enquiry
+        </a>
 
-<p>Call for service information</p>
+      </div>
 
-<a
-class="btn"
-style="background:var(--primary);color:white"
-href="tel:7001689925">
+    </div>
 
-Call Now
-
-</a>
-
-</div>
-
-
-<div class="function-card">
-
-<div class="icon">📧</div>
-
-<h3>Email</h3>
-
-<p>Send your enquiry by email</p>
-
-<a
-class="btn"
-style="background:var(--primary);color:white"
-href="mailto:sumitpatra936@gmail.com">
-
-Email Me
-
-</a>
-
-</div>
-
-
-<div class="function-card">
-
-<div class="icon">📍</div>
-
-<h3>Location</h3>
-
-<p>Find us on Google Maps</p>
-
-<a
-class="btn"
-style="background:var(--primary);color:white"
-href="#map">
-
-View Map
-
-</a>
-
-</div>
-
-
-</div>
+  </div>
 
 </section>
-
 
 <!-- SERVICES -->
 
-<section id="services">
+<section id="services" class="section">
 
-<div class="section-title">
+  <div class="container">
 
-<h2>
+    <div class="section-heading">
 
-<span class="en">Our Services</span>
-<span class="bn">আমাদের সার্ভিস</span>
+      <span class="eyebrow">
+        SERVICES
+      </span>
 
-</h2>
+      <h2>
+        Our Services
+      </h2>
 
-<p>
+      <p>
+        Choose a service and contact us directly.
+      </p>
 
-<span class="en">
-Choose a service and contact us directly
-</span>
+    </div>
 
-<span class="bn">
-সার্ভিস বেছে নিয়ে সরাসরি যোগাযোগ করুন
-</span>
+    <!-- SEARCH -->
 
-</p>
+    <div class="search-box">
 
-</div>
+      <input
+        type="text"
+        id="serviceSearch"
+        placeholder="🔍 Search service..."
+        onkeyup="searchServices()">
 
+    </div>
 
-<input
-type="search"
-id="serviceSearch"
-class="search-box"
-placeholder="🔍 Search services...">
+    <div class="services-grid" id="serviceList">
 
+      <!-- PAN -->
 
-<div
-class="services"
-id="serviceList">
+      <div class="service-card">
 
+        <h3>🪪 PAN Card Services</h3>
+
+        <p>
+          New PAN, correction, reprint and e-PAN assistance.
+        </p>
+
+        <a
+          class="btn btn-whatsapp"
+          target="_blank"
+          href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20PAN%20Card%20service.">
+          WhatsApp
+        </a>
+
+      </div>
+
+      <!-- AADHAAR -->
+
+      <div class="service-card">
+
+        <h3>🆔 Aadhaar Services</h3>
+
+        <p>
+          Aadhaar related online service assistance.
+        </p>
+
+        <a
+          class="btn btn-whatsapp"
+          target="_blank"
+          href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Aadhaar%20service.">
+          WhatsApp
+        </a>
+
+      </div>
+
+      <!-- VOTER -->
+
+      <div class="service-card">
+
+        <h3>🗳️ Voter Card Services</h3>
+
+        <p>
+          Voter card related online application support.
+        </p>
+
+        <a
+          class="btn btn-whatsapp"
+          target="_blank"
+          href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Voter%20Card%20service.">
+          WhatsApp
+        </a>
+
+      </div>
+
+      <!-- RATION -->
+
+      <div class="service-card">
+
+        <h3>🍚 Ration Card Services</h3>
+
+        <p>
+          Ration card related online service assistance.
+        </p>
+
+        <a
+          class="btn btn-whatsapp"
+          target="_blank"
+          href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Ration%20Card%20service.">
+          WhatsApp
+        </a>
+
+      </div>
+
+      <!-- CASTE -->
+
+      <div class="service-card">
+
+        <h3>📄 Caste Certificate</h3>
+
+        <p>
+          Certificate application assistance.
+        </p>
+
+        <a
+          class="btn btn-whatsapp"
+          target="_blank"
+          href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Caste%20Certificate%20service.">
+          WhatsApp
+        </a>
+
+      </div>
+
+      <!-- GOVERNMENT -->
+
+      <div class="service-card">
+
+        <h3>🏛️ Government Forms</h3>
+
+        <p>
+          Government form filling and online assistance.
+        </p>
+
+        <a
+          class="btn btn-whatsapp"
+          target="_blank"
+          href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Government%20Forms.">
+          WhatsApp
+        </a>
+
+      </div>
+
+      <!-- ONLINE APPLICATION -->
+
+      <div class="service-card">
+
+        <h3>💻 Online Applications</h3>
+
+        <p>
+          Various online application assistance.
+        </p>
+
+        <a
+          class="btn btn-whatsapp"
+          target="_blank"
+          href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20an%20Online%20Application.">
+          WhatsApp
+        </a>
+
+      </div>
+
+      <!-- DIGITAL -->
+
+      <div class="service-card">
+
+        <h3>🌐 Digital Services</h3>
+
+        <p>
+          General digital service and online support.
+        </p>
+
+        <a
+          class="btn btn-whatsapp"
+          target="_blank"
+          href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Services.">
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!-- PAN -->
 
-<div class="service searchable-service">
+<section id="pan" class="section">
 
-<div class="service-icon">🪪</div>
+  <div class="container">
 
-<h3>PAN Card Services</h3>
+    <div class="pan-box">
 
-<p>
-New PAN, correction, reprint and e-PAN.
-</p>
+      <span class="eyebrow">
+        PAN SERVICES
+      </span>
 
+      <h2>
+        PAN Card Online Services
+      </h2>
 
-<a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20PAN%20Card%20service."
-target="_blank"
-class="service-btn whatsapp">
+      <p>
+        Use the following official service links.
+      </p>
 
-💬 WhatsApp for PAN
+      <div class="pan-links">
 
-</a>
+        <a
+          href="https://www.pan.utiitsl.com/"
+          target="_blank">
+          New PAN
+        </a>
 
+        <a
+          href="https://www.pan.utiitsl.com/"
+          target="_blank">
+          PAN Correction
+        </a>
 
-<a
-href="#pan"
-class="service-btn">
+        <a
+          href="https://www.pan.utiitsl.com/PAN_ONLINE/regenPANHomereprint"
+          target="_blank">
+          PAN Reprint
+        </a>
 
-View PAN Options
+        <a
+          href="https://www.pan.utiitsl.com/PAN_ONLINE/ePANCardHome"
+          target="_blank">
+          e-PAN Download
+        </a>
 
-</a>
+      </div>
 
-</div>
+    </div>
 
-
-<!-- AADHAAR -->
-
-<div class="service searchable-service">
-
-<div class="service-icon">🆔</div>
-
-<h3>Aadhaar Services</h3>
-
-<p>
-Aadhaar service assistance.
-</p>
-
-
-<a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Aadhaar%20service."
-target="_blank"
-class="service-btn whatsapp">
-
-💬 WhatsApp for Aadhaar
-
-</a>
-
-</div>
-
-
-<!-- VOTER -->
-
-<div class="service searchable-service">
-
-<div class="service-icon">🗳️</div>
-
-<h3>Voter Card Services</h3>
-
-<p>
-Online voter service assistance.
-</p>
-
-
-<a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Voter%20Card%20service."
-target="_blank"
-class="service-btn whatsapp">
-
-💬 WhatsApp for Voter
-
-</a>
-
-</div>
-
-
-<!-- RATION -->
-
-<div class="service searchable-service">
-
-<div class="service-icon">🍚</div>
-
-<h3>Ration Card Services</h3>
-
-<p>
-Ration card application assistance.
-</p>
-
-
-<a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Ration%20Card%20service."
-target="_blank"
-class="service-btn whatsapp">
-
-💬 WhatsApp for Ration
-
-</a>
-
-</div>
-
-
-<!-- CASTE -->
-
-<div class="service searchable-service">
-
-<div class="service-icon">📜</div>
-
-<h3>Caste Certificate</h3>
-
-<p>
-Certificate application assistance.
-</p>
-
-
-<a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Caste%20Certificate%20service."
-target="_blank"
-class="service-btn whatsapp">
-
-💬 WhatsApp for Certificate
-
-</a>
-
-</div>
-
-
-<!-- GOVERNMENT FORMS -->
-
-<div class="service searchable-service">
-
-<div class="service-icon">📋</div>
-
-<h3>Government Forms</h3>
-
-<p>
-Government form assistance.
-</p>
-
-
-<a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Government%20Forms."
-target="_blank"
-class="service-btn whatsapp">
-
-💬 WhatsApp for Forms
-
-</a>
-
-</div>
-
-
-<!-- ONLINE APPLICATION -->
-
-<div class="service searchable-service">
-
-<div class="service-icon">💻</div>
-
-<h3>Online Applications</h3>
-
-<p>
-Support for online applications.
-</p>
-
-
-<a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20an%20Online%20Application."
-target="_blank"
-class="service-btn whatsapp">
-
-💬 WhatsApp for Application
-
-</a>
-
-</div>
-
-
-<!-- DIGITAL SERVICES -->
-
-<div class="service searchable-service">
-
-<div class="service-icon">🌐</div>
-
-<h3>Digital Services</h3>
-
-<p>
-General digital service assistance.
-</p>
-
-
-<a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Services."
-target="_blank"
-class="service-btn whatsapp">
-
-💬 WhatsApp for Digital Service
-
-</a>
-
-</div>
-
-
-</div>
-
-
-<div id="noResults">
-No matching service found.
-</div>
-
-
-<!-- PAN LINKS -->
-
-<div
-class="pan-box"
-id="pan">
-
-<h3>
-🪪 PAN Card Services
-</h3>
-
-
-<div class="pan-buttons">
-
-<a
-href="https://www.pan.utiitsl.com/"
-target="_blank"
-rel="noopener noreferrer">
-
-New PAN
-
-</a>
-
-
-<a
-href="https://www.pan.utiitsl.com/"
-target="_blank"
-rel="noopener noreferrer">
-
-PAN Correction
-
-</a>
-
-
-<a
-href="https://www.pan.utiitsl.com/PAN_ONLINE/regenPANHomereprint"
-target="_blank"
-rel="noopener noreferrer">
-
-PAN Reprint
-
-</a>
-
-
-<a
-href="https://www.pan.utiitsl.com/PAN_ONLINE/ePANCardHome"
-target="_blank"
-rel="noopener noreferrer">
-
-e-PAN Download
-
-</a>
-
-</div>
-
-</div>
+  </div>
 
 </section>
-
 
 <!-- ENQUIRY -->
 
-<section id="enquiry">
+<section id="enquiry" class="section">
 
-<div class="section-title">
+  <div class="container">
 
-<h2>
+    <div class="section-heading">
 
-<span class="en">Online Enquiry</span>
-<span class="bn">অনলাইন জিজ্ঞাসা</span>
+      <span class="eyebrow">
+        ONLINE ENQUIRY
+      </span>
 
-</h2>
+      <h2>
+        Send Your Enquiry
+      </h2>
 
-<p>
+      <p>
+        Fill the form and send your enquiry directly to WhatsApp.
+      </p>
 
-<span class="en">
-Fill the form and send your enquiry directly to WhatsApp.
-</span>
+    </div>
 
-<span class="bn">
-ফর্ম পূরণ করে সরাসরি WhatsApp-এ পাঠান।
-</span>
+    <div class="enquiry-box">
 
-</p>
+      <input
+        type="text"
+        id="name"
+        placeholder="Your Name">
 
-</div>
+      <input
+        type="tel"
+        id="mobile"
+        placeholder="Mobile Number">
 
+      <select id="service">
 
-<form
-class="enquiry-form"
-id="enquiryForm">
+        <option value="">
+          Select Service
+        </option>
 
+        <option>PAN Card Services</option>
+        <option>Aadhaar Services</option>
+        <option>Voter Card Services</option>
+        <option>Ration Card Services</option>
+        <option>Caste Certificate</option>
+        <option>Government Forms</option>
+        <option>Online Applications</option>
+        <option>Digital Services</option>
 
-<input
-id="enqName"
-type="text"
-placeholder="Your Name / আপনার নাম"
-required>
+      </select>
 
+      <textarea
+        id="message"
+        placeholder="Write your enquiry..."></textarea>
 
-<input
-id="enqPhone"
-type="tel"
-placeholder="Mobile Number / মোবাইল নম্বর"
-required>
+      <button
+        class="btn btn-whatsapp"
+        onclick="sendEnquiry()">
+        💬 Send Enquiry on WhatsApp
+      </button>
 
+    </div>
 
-<textarea
-id="enqMessage"
-placeholder="Which service do you need? / কোন সার্ভিস দরকার?"
-required>
-</textarea>
-
-
-<button
-class="btn btn-whatsapp"
-type="submit">
-
-💬 Send Enquiry on WhatsApp
-
-</button>
-
-</form>
+  </div>
 
 </section>
 
+<!-- TEAM -->
+
+<section id="team" class="section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="eyebrow">
+        OUR TEAM
+      </span>
+
+      <h2>
+        Meet Our Team
+      </h2>
+
+      <p>
+        Our dedicated team members
+      </p>
+
+    </div>
+
+    <div class="team-grid">
+
+      <!-- 1 -->
+
+      <div class="team-card">
+
+        <img
+          src="owner.jpeg"
+          alt="Sumit Patra">
+
+        <h3>
+          Sumit Patra
+        </h3>
+
+        <p>
+          Owner
+        </p>
+
+      </div>
+
+      <!-- 2 -->
+
+      <div class="team-card">
+
+        <img
+          src="ceo-manager.jpeg"
+          alt="Avijit Patra">
+
+        <h3>
+          Avijit Patra
+        </h3>
+
+        <p>
+          CEO / Manager
+        </p>
+
+      </div>
+
+      <!-- 3 -->
+
+      <div class="team-card">
+
+        <img
+          src="team-manager.jpeg"
+          alt="Godadhar Jana">
+
+        <h3>
+          Godadhar Jana
+        </h3>
+
+        <p>
+          Team Manager
+        </p>
+
+      </div>
+
+      <!-- 4 -->
+
+      <div class="team-card">
+
+        <img
+          src="team-leader.jpeg"
+          alt="Manotosh Dalui">
+
+        <h3>
+          Manotosh Dalui
+        </h3>
+
+        <p>
+          Team Leader
+        </p>
+
+      </div>
+
+      <!-- 5 -->
+
+      <div class="team-card">
+
+        <img
+          src="team-member.jpeg"
+          alt="Santanu Patra">
+
+        <h3>
+          Santanu Patra
+        </h3>
+
+        <p>
+          Team Member
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!-- GALLERY -->
 
-<section id="gallery">
+<section id="gallery" class="section">
 
-<div class="section-title">
+  <div class="container">
 
-<h2>
+    <div class="section-heading">
 
-<span class="en">Photo Gallery</span>
-<span class="bn">ফটো গ্যালারি</span>
+      <span class="eyebrow">
+        GALLERY
+      </span>
 
-</h2>
+      <h2>
+        Photo Gallery
+      </h2>
 
-</div>
+    </div>
 
+    <div class="gallery">
 
-<div class="gallery">
+      <img
+        src="sumit-photo.jpeg"
+        alt="Sumit Patra">
 
-<img
-src="sumit-photo.jpeg"
-alt="Sumit Patra">
+      <img
+        src="owner.jpeg"
+        alt="Team">
 
+      <img
+        src="ceo-manager.jpeg"
+        alt="Team">
 
-<img
-src="sumit-photo.jpeg"
-alt="Sumit Patra">
+    </div>
 
-
-<img
-src="sumit-photo.jpeg"
-alt="Sumit Patra">
-
-</div>
+  </div>
 
 </section>
-
 
 <!-- MAP -->
 
-<section id="map">
+<section id="map" class="section">
 
-<div class="section-title">
+  <div class="container">
 
-<h2>
+    <div class="section-heading">
 
-<span class="en">Find Us on Google Maps</span>
-<span class="bn">Google Maps-এ আমাদের অবস্থান</span>
+      <span class="eyebrow">
+        LOCATION
+      </span>
 
-</h2>
+      <h2>
+        Find Us
+      </h2>
 
-<p>
+    </div>
 
-Swarup Beria, PO Iswaripur, PS Bhangar,
-South 24 Parganas, West Bengal
+    <div class="map-box">
 
-</p>
+      <iframe
+        src="https://www.google.com/maps?q=Swarup%20Beria%2C%20Iswaripur%2C%20Bhangar%2C%20South%2024%20Parganas%2C%20West%20Bengal&output=embed"
+        loading="lazy">
+      </iframe>
 
-</div>
+    </div>
 
-
-<div class="map-wrap">
-
-<iframe
-src="https://www.google.com/maps?q=Swarup%20Beria%2C%20PO%20Iswaripur%2C%20PS%20Bhangar%2C%20South%2024%20Parganas%2C%20West%20Bengal&output=embed"
-loading="lazy"
-title="Sumit Patra Location">
-</iframe>
-
-</div>
+  </div>
 
 </section>
 
-
 <!-- CONTACT -->
 
-<section id="contact">
+<section id="contact" class="section">
 
-<div class="section-title">
+  <div class="container">
 
-<h2>
+    <div class="section-heading">
 
-<span class="en">Contact Me</span>
-<span class="bn">যোগাযোগ করুন</span>
+      <span class="eyebrow">
+        CONTACT
+      </span>
 
-</h2>
+      <h2>
+        Contact Us
+      </h2>
 
-<p>
+    </div>
 
-<span class="en">
-Get in touch for online service assistance
-</span>
+    <div class="contact-box">
 
-<span class="bn">
-অনলাইন সার্ভিসের জন্য যোগাযোগ করুন
-</span>
+      <div class="contact-item">
+        <strong>Name:</strong>
+        Sumit Patra
+      </div>
 
-</p>
+      <div class="contact-item">
+        <strong>Location:</strong>
+        Swarup Beria, PO Iswaripur,
+        PS Bhangar, South 24 Parganas,
+        West Bengal
+      </div>
 
-</div>
+      <div class="contact-item">
+        <strong>Email:</strong>
+        <a href="mailto:sumitpatra936@gmail.com">
+          sumitpatra936@gmail.com
+        </a>
+      </div>
 
+      <div class="contact-item">
+        <strong>Mobile:</strong>
+        <a href="tel:7001689925">
+          7001689925
+        </a>
+      </div>
 
-<div class="contact-grid">
+      <div class="contact-buttons">
 
+        <a
+          class="btn btn-blue"
+          href="tel:7001689925">
+          📞 Call Now
+        </a>
 
-<div class="contact-info">
+        <a
+          class="btn btn-whatsapp"
+          href="https://wa.me/917001689925"
+          target="_blank">
+          💬 WhatsApp
+        </a>
 
-<p>
-<span class="label">Name:</span>
-Sumit Patra
-</p>
+        <a
+          class="btn btn-blue"
+          href="mailto:sumitpatra936@gmail.com">
+          ✉️ Email
+        </a>
 
+      </div>
 
-<p>
-<span class="label">Location:</span>
+    </div>
 
-Swarup Beria, PO Iswaripur,
-PS Bhangar, South 24 Parganas,
-West Bengal
-
-</p>
-
-
-<p>
-
-<span class="label">Email:</span>
-
-<a href="mailto:sumitpatra936@gmail.com">
-sumitpatra936@gmail.com
-</a>
-
-</p>
-
-
-<p>
-
-<span class="label">Mobile:</span>
-
-<a href="tel:7001689925">
-7001689925
-</a>
-
-</p>
-
-</div>
-
-
-<div class="contact-card">
-
-<h3>
-Need Help?
-</h3>
-
-<p>
-Call or send a WhatsApp message for assistance.
-</p>
-
-
-<div class="contact-buttons">
-
-<a
-href="tel:7001689925"
-class="call-btn">
-
-📞 Call Now
-
-</a>
-
-
-<a
-href="https://wa.me/917001689925"
-class="whatsapp-btn"
-target="_blank">
-
-💬 WhatsApp
-
-</a>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 </main>
 
-
 <!-- FOOTER -->
 
 <footer>
 
-<strong>
-© 2026 SUMIT PATRA
-</strong>
-
-<p>
-All Rights Reserved.
-</p>
+  © 2026 SUMIT PATRA. All Rights Reserved.
 
 </footer>
-
 
 <!-- FLOATING WHATSAPP -->
 
 <a
-href="https://wa.me/917001689925"
-class="floating-whatsapp"
-target="_blank"
-aria-label="WhatsApp">
-
-💬
-
+  class="float-whatsapp"
+  href="https://wa.me/917001689925"
+  target="_blank"
+  aria-label="WhatsApp">
+  💬
 </a>
-
-
-<!-- JAVASCRIPT -->
 
 <script>
 
-/* LANGUAGE SWITCHER */
+/* SERVICE SEARCH */
+
+function searchServices(){
+
+  const input =
+    document.getElementById("serviceSearch")
+      .value.toLowerCase();
+
+  const cards =
+    document.querySelectorAll(".service-card");
+
+  cards.forEach(function(card){
+
+    const text =
+      card.innerText.toLowerCase();
+
+    if(text.includes(input)){
+      card.style.display = "";
+    }else{
+      card.style.display = "none";
+    }
+
+  });
+
+}
+
+
+/* WHATSAPP ENQUIRY */
+
+function sendEnquiry(){
+
+  const name =
+    document.getElementById("name").value.trim();
+
+  const mobile =
+    document.getElementById("mobile").value.trim();
+
+  const service =
+    document.getElementById("service").value;
+
+  const message =
+    document.getElementById("message").value.trim();
+
+  if(!name || !mobile || !service){
+
+    alert("Please enter Name, Mobile Number and Service.");
+
+    return;
+
+  }
+
+  const text =
+    "Hello Sumit,%0A%0A" +
+    "Name: " + encodeURIComponent(name) +
+    "%0A" +
+    "Mobile: " + encodeURIComponent(mobile) +
+    "%0A" +
+    "Service: " + encodeURIComponent(service) +
+    "%0A" +
+    "Message: " + encodeURIComponent(message);
+
+  window.open(
+    "https://wa.me/917001689925?text=" + text,
+    "_blank"
+  );
+
+}
+
+
+/* LANGUAGE */
 
 function toggleLanguage(){
 
-document.body.classList.toggle("bengali");
+  document.body.classList.toggle("bengali");
 
-if(
-document.body.classList.contains("bengali")
-){
+  if(
+    document.body.classList.contains("bengali")
+  ){
 
-localStorage.setItem(
-"language",
-"bn"
-);
+    localStorage.setItem("language","bn");
 
-}else{
+  }else{
 
-localStorage.setItem(
-"language",
-"en"
-);
+    localStorage.setItem("language","en");
 
-}
+  }
 
 }
 
@@ -1588,140 +1574,12 @@ localStorage.setItem(
 /* REMEMBER LANGUAGE */
 
 if(
-localStorage.getItem("language")==="bn"
+  localStorage.getItem("language") === "bn"
 ){
 
-document.body.classList.add("bengali");
+  document.body.classList.add("bengali");
 
 }
-
-
-/* SERVICE SEARCH */
-
-const searchBox =
-document.getElementById("serviceSearch");
-
-const services =
-document.querySelectorAll(
-".searchable-service"
-);
-
-const noResults =
-document.getElementById("noResults");
-
-
-searchBox.addEventListener(
-"input",
-function(){
-
-const searchText =
-this.value.toLowerCase().trim();
-
-let found = 0;
-
-
-services.forEach(
-function(service){
-
-const text =
-service.textContent.toLowerCase();
-
-if(
-text.includes(searchText)
-){
-
-service.style.display="";
-found++;
-
-}else{
-
-service.style.display="none";
-
-}
-
-});
-
-
-if(
-found===0 &&
-searchText!==""
-){
-
-noResults.style.display="block";
-
-}else{
-
-noResults.style.display="none";
-
-}
-
-});
-
-
-/* WHATSAPP ENQUIRY */
-
-const enquiryForm =
-document.getElementById(
-"enquiryForm"
-);
-
-
-enquiryForm.addEventListener(
-"submit",
-function(event){
-
-event.preventDefault();
-
-
-const name =
-document.getElementById(
-"enqName"
-).value.trim();
-
-
-const phone =
-document.getElementById(
-"enqPhone"
-).value.trim();
-
-
-const message =
-document.getElementById(
-"enqMessage"
-).value.trim();
-
-
-const whatsappMessage =
-
-"Hello Sumit, I need online service help.%0A%0A" +
-
-"Name: " +
-encodeURIComponent(name) +
-
-"%0A" +
-
-"Mobile: " +
-encodeURIComponent(phone) +
-
-"%0A" +
-
-"Service: " +
-encodeURIComponent(message);
-
-
-const whatsappURL =
-
-"https://wa.me/917001689925?text=" +
-
-whatsappMessage;
-
-
-window.open(
-whatsappURL,
-"_blank"
-);
-
-});
 
 </script>
 
