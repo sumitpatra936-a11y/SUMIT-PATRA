@@ -3,22 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#2563eb">
+<meta name="description" content="SUMIT PATRA Online Services — Digital and Government Services, PAN, Aadhaar, Voter, Ration, Forms and Online Applications.">
 <title>SUMIT PATRA | Online Services</title>
 
 <style>
 :root{
   --primary:#2563eb;
+  --primary-dark:#1d4ed8;
   --secondary:#7c3aed;
-  --dark:#0f172a;
-  --text:#1e293b;
-  --muted:#64748b;
-  --light:#f8fafc;
-  --white:#fff;
-  --border:#e2e8f0;
   --success:#16a34a;
   --danger:#dc2626;
-  --shadow:0 10px 30px rgba(15,23,42,.10);
+  --dark:#0f172a;
+  --text:#172033;
+  --muted:#64748b;
+  --light:#f7f9fc;
+  --white:#fff;
+  --border:#e2e8f0;
+  --shadow:0 15px 45px rgba(15,23,42,.10);
+  --shadow-lg:0 25px 70px rgba(15,23,42,.16);
+  --radius:22px;
 }
 
 *{
@@ -29,7 +33,7 @@
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   background:var(--light);
   color:var(--text);
   line-height:1.6;
@@ -39,10 +43,39 @@ body{
 body.dark{
   --light:#020617;
   --white:#0f172a;
-  --text:#e2e8f0;
+  --text:#e5e7eb;
   --muted:#94a3b8;
   --border:#1e293b;
+  --shadow:0 15px 45px rgba(0,0,0,.25);
   background:#020617;
+}
+
+body.dark .navbar{
+  background:rgba(15,23,42,.94);
+}
+
+body.dark .hero{
+  background:
+    radial-gradient(circle at 85% 15%,rgba(124,58,237,.22),transparent 35%),
+    linear-gradient(135deg,#020617,#111827);
+}
+
+body.dark .btn-light{
+  background:#111827;
+  color:#e5e7eb;
+}
+
+body.dark .price-table th{
+  background:#172554;
+}
+
+body.dark .appointment{
+  background:#0b1729;
+}
+
+body.dark .mobile-bar{
+  background:#0f172a;
+  border-color:#1e293b;
 }
 
 a{
@@ -55,25 +88,28 @@ img{
   display:block;
 }
 
-.container{
-  width:92%;
-  max-width:1200px;
-  margin:auto;
-}
-
-section{
-  padding:80px 0;
-}
-
-h1,h2,h3{
-  line-height:1.2;
-}
-
 button,
 input,
 select,
 textarea{
   font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.container{
+  width:min(92%,1200px);
+  margin:auto;
+}
+
+section{
+  padding:90px 0;
+}
+
+h1,h2,h3{
+  line-height:1.2;
 }
 
 /* LOADER */
@@ -88,27 +124,42 @@ textarea{
   align-items:center;
 }
 
+.loader-wrap{
+  text-align:center;
+}
+
 .loader-circle{
-  width:55px;
-  height:55px;
-  border:6px solid #ddd;
+  width:58px;
+  height:58px;
+  border:6px solid #e5e7eb;
   border-top-color:var(--primary);
+  border-right-color:var(--secondary);
   border-radius:50%;
   animation:spin 1s linear infinite;
+  margin:auto;
+}
+
+.loader-wrap p{
+  margin-top:12px;
+  color:#64748b;
+  font-weight:700;
 }
 
 @keyframes spin{
-  to{transform:rotate(360deg);}
+  to{
+    transform:rotate(360deg);
+  }
 }
 
 /* TOP BAR */
 
 .topbar{
-  background:var(--dark);
-  color:white;
+  background:linear-gradient(90deg,#0f172a,#1e1b4b,#0f172a);
+  color:#fff;
   text-align:center;
-  padding:8px;
-  font-size:14px;
+  padding:9px 12px;
+  font-size:13px;
+  font-weight:700;
 }
 
 /* NAVBAR */
@@ -117,65 +168,78 @@ textarea{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
 }
 
-body.dark .navbar{
-  background:rgba(15,23,42,.95);
-}
-
 .nav-inner{
-  min-height:72px;
+  min-height:74px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
+  gap:18px;
 }
 
 .logo{
   display:flex;
   align-items:center;
   gap:10px;
-  font-weight:800;
-  font-size:18px;
+  font-weight:900;
 }
 
 .logo-mark{
-  width:42px;
-  height:42px;
-  border-radius:12px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
   color:#fff;
   background:linear-gradient(135deg,var(--primary),var(--secondary));
+  box-shadow:0 8px 25px rgba(37,99,235,.25);
 }
 
 .nav-links{
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:17px;
 }
 
 .nav-links a{
   font-size:14px;
-  font-weight:600;
+  font-weight:750;
+  position:relative;
 }
 
-.nav-links a:hover{
-  color:var(--primary);
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-7px;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  transition:.25s;
 }
 
-.menu-btn,
-.theme-btn{
-  border:0;
-  cursor:pointer;
+.nav-links a:hover::after{
+  width:100%;
+}
+
+.nav-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.theme-btn,
+.menu-btn{
+  border:1px solid var(--border);
   background:#eef2ff;
   color:#1e3a8a;
-  border-radius:10px;
-  padding:9px 12px;
+  border-radius:11px;
+  padding:9px 11px;
+  font-weight:800;
 }
 
 .menu-btn{
@@ -185,76 +249,105 @@ body.dark .navbar{
 /* HERO */
 
 .hero{
-  padding:90px 0;
+  padding:105px 0 90px;
   background:
-  radial-gradient(circle at top right,rgba(124,58,237,.25),transparent 35%),
-  linear-gradient(135deg,#eff6ff,#f8fafc);
-}
-
-body.dark .hero{
-  background:linear-gradient(135deg,#020617,#111827);
+    radial-gradient(circle at 82% 18%,rgba(124,58,237,.22),transparent 32%),
+    radial-gradient(circle at 12% 90%,rgba(37,99,235,.12),transparent 30%),
+    linear-gradient(135deg,#eff6ff,#fff);
+  overflow:hidden;
 }
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:50px;
+  grid-template-columns:1.08fr .92fr;
+  gap:65px;
   align-items:center;
 }
 
 .badge{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
   background:#dbeafe;
   color:#1d4ed8;
   padding:8px 14px;
   border-radius:999px;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:18px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.7px;
+  margin-bottom:20px;
+}
+
+.badge::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#16a34a;
+  box-shadow:0 0 0 5px rgba(22,163,74,.12);
 }
 
 .hero h1{
-  font-size:clamp(42px,6vw,72px);
-  margin-bottom:15px;
+  font-size:clamp(45px,7vw,78px);
+  letter-spacing:-3px;
+  margin-bottom:18px;
 }
 
 .hero h1 span{
   background:linear-gradient(135deg,var(--primary),var(--secondary));
   -webkit-background-clip:text;
+  background-clip:text;
   color:transparent;
 }
 
 .hero p{
   color:var(--muted);
-  font-size:18px;
+  font-size:19px;
   max-width:650px;
+}
+
+.hero-note{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.hero-note span{
+  background:var(--white);
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
 }
 
 .hero-buttons{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin-top:25px;
+  margin-top:28px;
 }
 
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  gap:7px;
   padding:13px 20px;
-  border-radius:12px;
-  border:0;
-  cursor:pointer;
-  font-weight:700;
+  border-radius:13px;
+  border:1px solid transparent;
+  font-weight:800;
   transition:.2s;
 }
 
 .btn:hover{
   transform:translateY(-2px);
+  box-shadow:0 10px 25px rgba(15,23,42,.12);
 }
 
 .btn-primary{
-  background:var(--primary);
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
   color:#fff;
 }
 
@@ -271,40 +364,43 @@ body.dark .hero{
 .btn-light{
   background:#fff;
   color:#0f172a;
-  border:1px solid var(--border);
+  border-color:var(--border);
 }
 
 .hero-photo{
-  background:#fff;
+  position:relative;
+  background:linear-gradient(145deg,#fff,#f8fafc);
   padding:12px;
-  border-radius:25px;
-  box-shadow:var(--shadow);
+  border-radius:30px;
+  box-shadow:var(--shadow-lg);
+  transform:rotate(1deg);
 }
 
 .hero-photo img{
   width:100%;
-  height:430px;
+  height:500px;
   object-fit:cover;
-  border-radius:18px;
+  border-radius:22px;
 }
 
-/* SECTION */
+/* SECTION HEADINGS */
 
 .section-heading{
   text-align:center;
-  margin-bottom:40px;
+  max-width:760px;
+  margin:0 auto 45px;
 }
 
 .eyebrow{
   color:var(--primary);
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:2px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2.5px;
 }
 
 .section-heading h2{
-  font-size:38px;
-  margin-top:8px;
+  font-size:clamp(30px,4vw,43px);
+  margin-top:9px;
 }
 
 .section-heading p{
@@ -317,19 +413,19 @@ body.dark .hero{
 .about-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:30px;
+  gap:25px;
 }
 
 .info-card{
   background:var(--white);
   border:1px solid var(--border);
-  border-radius:20px;
+  border-radius:var(--radius);
   padding:30px;
   box-shadow:var(--shadow);
 }
 
 .info-card h3{
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 
 .info-card p{
@@ -341,32 +437,45 @@ body.dark .hero{
 .feature-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:20px;
+  gap:18px;
 }
 
 .feature{
   background:var(--white);
-  padding:25px;
-  border-radius:18px;
+  padding:27px 20px;
+  border-radius:20px;
   text-align:center;
   border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  transition:.25s;
+}
+
+.feature:hover,
+.service-card:hover,
+.team-card:hover,
+.review:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow-lg);
 }
 
 .feature-icon{
   font-size:35px;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
 .feature p{
   color:var(--muted);
   font-size:14px;
+  margin-top:7px;
 }
 
 /* STATS */
 
 .stats{
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  background:linear-gradient(135deg,#1d4ed8,#4f46e5 55%,#7c3aed);
   color:#fff;
+  position:relative;
+  overflow:hidden;
 }
 
 .stats-grid{
@@ -377,6 +486,7 @@ body.dark .hero{
 
 .stat{
   text-align:center;
+  padding:10px;
 }
 
 .stat h3{
@@ -385,19 +495,18 @@ body.dark .hero{
 
 .stat p{
   opacity:.9;
+  font-weight:700;
 }
 
 /* NOTICE */
 
 .notice{
   background:#fff7ed;
+  border:1px solid #fed7aa;
   border-left:5px solid #f97316;
   padding:20px;
-  border-radius:12px;
-}
-
-body.dark .notice{
-  background:#1c1917;
+  border-radius:15px;
+  color:#7c2d12;
 }
 
 .notice strong{
@@ -407,18 +516,29 @@ body.dark .notice{
 /* SERVICES */
 
 .service-search{
-  max-width:600px;
+  max-width:650px;
   margin:0 auto 35px;
+  position:relative;
 }
 
 .service-search input{
   width:100%;
-  padding:15px 18px;
+  padding:16px 18px 16px 45px;
   border:1px solid var(--border);
-  border-radius:14px;
+  border-radius:15px;
   background:var(--white);
   color:var(--text);
   outline:none;
+  box-shadow:0 8px 25px rgba(15,23,42,.05);
+}
+
+.service-search::before{
+  content:"🔎";
+  position:absolute;
+  left:16px;
+  top:13px;
+  font-size:18px;
+  z-index:1;
 }
 
 .services-grid{
@@ -430,61 +550,75 @@ body.dark .notice{
 .service-card{
   background:var(--white);
   border:1px solid var(--border);
-  border-radius:20px;
+  border-radius:21px;
   padding:24px;
   box-shadow:var(--shadow);
   display:flex;
   flex-direction:column;
+  transition:.25s;
 }
 
 .service-icon{
-  font-size:35px;
-  margin-bottom:12px;
+  width:55px;
+  height:55px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:linear-gradient(135deg,#eff6ff,#f5f3ff);
+  font-size:29px;
+  margin-bottom:15px;
 }
 
 .service-card p{
   color:var(--muted);
   font-size:14px;
-  margin:10px 0 18px;
+  margin:10px 0 20px;
 }
 
 .service-card .btn{
   margin-top:auto;
+  width:100%;
 }
 
 /* PAN */
 
 .pan-box{
   background:linear-gradient(135deg,#dbeafe,#ede9fe);
-  padding:35px;
-  border-radius:25px;
+  padding:40px;
+  border-radius:28px;
+  border:1px solid #dbeafe;
 }
 
-body.dark .pan-box{
-  background:linear-gradient(135deg,#172554,#2e1065);
+.pan-box p{
+  color:var(--muted);
+  margin-top:8px;
 }
 
 .pan-links{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin-top:20px;
+  margin-top:22px;
 }
 
 /* PRICE */
 
+.table-wrap{
+  overflow-x:auto;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+}
+
 .price-table{
   width:100%;
+  min-width:500px;
   border-collapse:collapse;
   background:var(--white);
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
 }
 
 .price-table th,
 .price-table td{
-  padding:16px;
+  padding:17px;
   border-bottom:1px solid var(--border);
   text-align:left;
 }
@@ -492,10 +626,15 @@ body.dark .pan-box{
 .price-table th{
   background:#eff6ff;
   color:#1d4ed8;
+  font-size:14px;
 }
 
-body.dark .price-table th{
-  background:#172554;
+.price-table tr:last-child td{
+  border-bottom:0;
+}
+
+.price-table td:last-child{
+  font-weight:900;
 }
 
 /* CALCULATOR */
@@ -505,8 +644,9 @@ body.dark .price-table th{
   margin:auto;
   background:var(--white);
   padding:30px;
-  border-radius:20px;
+  border-radius:22px;
   box-shadow:var(--shadow);
+  border:1px solid var(--border);
 }
 
 .form-group{
@@ -516,28 +656,37 @@ body.dark .price-table th{
 .form-group label{
   display:block;
   margin-bottom:7px;
-  font-weight:700;
+  font-weight:800;
+  font-size:14px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
   width:100%;
-  padding:13px;
+  padding:13px 14px;
   border:1px solid var(--border);
-  border-radius:10px;
+  border-radius:11px;
   background:var(--white);
   color:var(--text);
+  outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px rgba(37,99,235,.10);
 }
 
 .result{
   margin-top:20px;
   padding:20px;
   background:#ecfdf5;
-  border-radius:12px;
+  border-radius:13px;
   color:#166534;
   font-size:22px;
-  font-weight:bold;
+  font-weight:900;
   text-align:center;
 }
 
@@ -547,16 +696,31 @@ body.dark .price-table th{
   background:#eef6ff;
 }
 
-body.dark .appointment{
-  background:#0c1a2e;
-}
-
-/* ENQUIRY */
-
 .enquiry-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:30px;
+  gap:25px;
+}
+
+/* FORMS */
+
+.forms-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.form-download{
+  background:var(--white);
+  padding:26px;
+  border-radius:20px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.form-download p{
+  color:var(--muted);
+  margin:10px 0 18px;
 }
 
 /* TEAM */
@@ -564,32 +728,33 @@ body.dark .appointment{
 .team-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:25px;
+  gap:22px;
 }
 
 .team-card{
   background:var(--white);
-  padding:15px;
-  border-radius:20px;
+  padding:14px;
+  border-radius:22px;
   text-align:center;
   box-shadow:var(--shadow);
   border:1px solid var(--border);
+  transition:.25s;
 }
 
 .team-card img{
   width:100%;
-  height:280px;
+  height:285px;
   object-fit:cover;
-  border-radius:15px;
+  border-radius:16px;
 }
 
 .team-card h3{
-  margin:15px 0 5px;
+  margin:15px 0 4px;
 }
 
 .team-card p{
   color:var(--primary);
-  font-weight:bold;
+  font-weight:900;
 }
 
 /* REVIEWS */
@@ -602,20 +767,22 @@ body.dark .appointment{
 
 .review{
   background:var(--white);
-  padding:25px;
-  border-radius:18px;
+  padding:26px;
+  border-radius:20px;
   border:1px solid var(--border);
   box-shadow:var(--shadow);
+  transition:.25s;
 }
 
 .stars{
   color:#f59e0b;
   font-size:20px;
+  letter-spacing:2px;
 }
 
 .review p{
   color:var(--muted);
-  margin-top:10px;
+  margin:10px 0 14px;
 }
 
 /* FAQ */
@@ -628,14 +795,20 @@ body.dark .appointment{
 details{
   background:var(--white);
   border:1px solid var(--border);
-  border-radius:14px;
+  border-radius:15px;
   margin-bottom:12px;
-  padding:18px;
+  padding:18px 20px;
+  box-shadow:0 5px 20px rgba(15,23,42,.04);
 }
 
 summary{
   cursor:pointer;
-  font-weight:bold;
+  font-weight:800;
+}
+
+details p{
+  color:var(--muted);
+  padding-top:12px;
 }
 
 /* GALLERY */
@@ -643,29 +816,48 @@ summary{
 .gallery{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:18px;
 }
 
 .gallery img{
   width:100%;
-  height:260px;
+  height:270px;
   object-fit:cover;
   border-radius:18px;
   cursor:pointer;
   box-shadow:var(--shadow);
-  transition:.2s;
+  transition:.25s;
 }
 
 .gallery img:hover{
   transform:scale(1.02);
 }
 
+/* QR */
+
+.qr-box{
+  text-align:center;
+  background:var(--white);
+  padding:32px;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+
+.qr-box img{
+  width:200px;
+  height:200px;
+  margin:20px auto;
+  border-radius:10px;
+}
+
 /* MAP */
 
 .map-box{
-  border-radius:20px;
+  border-radius:22px;
   overflow:hidden;
   box-shadow:var(--shadow);
+  border:1px solid var(--border);
 }
 
 .map-box iframe{
@@ -684,48 +876,19 @@ summary{
 
 .contact-card{
   background:var(--white);
-  padding:25px;
-  border-radius:18px;
+  padding:26px;
+  border-radius:20px;
   border:1px solid var(--border);
   box-shadow:var(--shadow);
 }
 
 .contact-card h3{
-  margin-bottom:8px;
+  margin-bottom:7px;
 }
 
 .contact-card p{
   color:var(--muted);
-}
-
-/* FORMS */
-
-.forms-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.form-download{
-  background:var(--white);
-  padding:25px;
-  border-radius:18px;
-  border:1px solid var(--border);
-}
-
-/* QR */
-
-.qr-box{
-  text-align:center;
-  background:var(--white);
-  padding:30px;
-  border-radius:20px;
-  box-shadow:var(--shadow);
-}
-
-.qr-box img{
-  width:200px;
-  margin:20px auto;
+  word-break:break-word;
 }
 
 /* POPUP */
@@ -734,12 +897,12 @@ summary{
   position:fixed;
   right:20px;
   bottom:90px;
-  width:320px;
+  width:min(340px,calc(100% - 40px));
   background:var(--white);
   border:1px solid var(--border);
-  box-shadow:0 15px 50px rgba(0,0,0,.2);
-  border-radius:18px;
-  padding:22px;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  border-radius:20px;
+  padding:24px;
   z-index:5000;
   display:none;
 }
@@ -748,27 +911,32 @@ summary{
   display:block;
 }
 
+.popup p{
+  color:var(--muted);
+  margin-top:8px;
+}
+
 .popup-close{
   position:absolute;
   right:12px;
   top:8px;
   border:0;
   background:none;
-  font-size:20px;
-  cursor:pointer;
+  color:var(--muted);
+  font-size:24px;
 }
 
-/* FULLSCREEN IMAGE */
+/* IMAGE VIEWER */
 
 .image-viewer{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.92);
+  background:rgba(0,0,0,.94);
   display:none;
   justify-content:center;
   align-items:center;
   z-index:9999;
-  padding:30px;
+  padding:25px;
 }
 
 .image-viewer.show{
@@ -779,34 +947,59 @@ summary{
   max-width:95%;
   max-height:90%;
   object-fit:contain;
+  border-radius:10px;
 }
 
 .viewer-close{
   position:absolute;
-  top:20px;
+  top:15px;
   right:25px;
   color:#fff;
-  font-size:35px;
+  font-size:38px;
   cursor:pointer;
 }
 
-/* FLOAT WHATSAPP */
+/* WHATSAPP */
 
 .whatsapp-float{
   position:fixed;
   right:20px;
   bottom:20px;
-  width:58px;
-  height:58px;
+  width:59px;
+  height:59px;
   background:#25d366;
   color:#fff;
   border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display:grid;
+  place-items:center;
   font-size:28px;
   z-index:3000;
-  box-shadow:0 8px 25px rgba(0,0,0,.2);
+  box-shadow:0 10px 30px rgba(37,211,102,.35);
+  transition:.2s;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.07);
+}
+
+/* BACK TOP */
+
+.back-top{
+  position:fixed;
+  right:20px;
+  bottom:92px;
+  width:43px;
+  height:43px;
+  border:0;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  z-index:2000;
+  display:none;
+}
+
+.back-top.show{
+  display:block;
 }
 
 /* MOBILE BAR */
@@ -815,33 +1008,21 @@ summary{
   display:none;
 }
 
-/* BACK TOP */
-
-.back-top{
-  position:fixed;
-  right:20px;
-  bottom:90px;
-  width:42px;
-  height:42px;
-  border:0;
-  border-radius:50%;
-  background:var(--primary);
-  color:#fff;
-  cursor:pointer;
-  z-index:2000;
-}
-
 /* FOOTER */
 
 footer{
   background:#020617;
   color:#cbd5e1;
-  padding:45px 0;
+  padding:48px 0 90px;
   text-align:center;
 }
 
+footer h2{
+  color:#fff;
+}
+
 footer p{
-  margin:6px 0;
+  margin:7px 0;
 }
 
 .footer-links{
@@ -849,12 +1030,16 @@ footer p{
   justify-content:center;
   gap:18px;
   flex-wrap:wrap;
-  margin:15px 0;
+  margin:17px 0;
+}
+
+.footer-links a:hover{
+  color:#fff;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:1000px){
+@media(max-width:1050px){
 
   .services-grid{
     grid-template-columns:repeat(2,1fr);
@@ -872,17 +1057,20 @@ footer p{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .review-grid{
-    grid-template-columns:1fr;
-  }
-
   .forms-grid{
     grid-template-columns:1fr;
   }
-
 }
 
 @media(max-width:800px){
+
+  section{
+    padding:72px 0;
+  }
+
+  .hero{
+    padding:75px 0;
+  }
 
   .hero-grid,
   .about-grid,
@@ -894,15 +1082,25 @@ footer p{
     grid-template-columns:1fr;
   }
 
+  .hero-photo{
+    max-width:620px;
+    margin:auto;
+  }
+
+  .hero-photo img{
+    height:430px;
+  }
+
   .nav-links{
     display:none;
     position:absolute;
-    top:72px;
+    top:74px;
     left:0;
     right:0;
     background:var(--white);
     padding:20px;
     flex-direction:column;
+    align-items:stretch;
     border-bottom:1px solid var(--border);
   }
 
@@ -910,14 +1108,13 @@ footer p{
     display:flex;
   }
 
+  .nav-links a{
+    padding:8px 5px;
+  }
+
   .menu-btn{
     display:block;
   }
-
-  .hero-photo img{
-    height:350px;
-  }
-
 }
 
 @media(max-width:600px){
@@ -927,23 +1124,54 @@ footer p{
   }
 
   .hero{
-    padding:65px 0;
+    padding:60px 0;
   }
 
   .hero h1{
-    font-size:43px;
+    font-size:45px;
+    letter-spacing:-2px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .hero-buttons .btn{
+    width:100%;
+  }
+
+  .hero-photo img{
+    height:370px;
   }
 
   .services-grid,
   .feature-grid,
   .stats-grid,
   .team-grid,
-  .gallery{
+  .gallery,
+  .review-grid,
+  .contact-grid{
     grid-template-columns:1fr;
   }
 
   .gallery img{
     height:300px;
+  }
+
+  .stats-grid{
+    gap:5px;
+  }
+
+  .stat h3{
+    font-size:31px;
+  }
+
+  .pan-box{
+    padding:27px;
+  }
+
+  .pan-links .btn{
+    width:100%;
   }
 
   .mobile-bar{
@@ -955,11 +1183,7 @@ footer p{
     background:#fff;
     z-index:2500;
     border-top:1px solid #ddd;
-  }
-
-  body.dark .mobile-bar{
-    background:#0f172a;
-    border-color:#1e293b;
+    box-shadow:0 -5px 20px rgba(0,0,0,.08);
   }
 
   .mobile-bar a{
@@ -967,25 +1191,33 @@ footer p{
     text-align:center;
     padding:10px 5px;
     font-size:12px;
-    font-weight:bold;
+    font-weight:900;
   }
 
-  .mobile-bar a:first-child{
+  .mobile-call{
     color:#16a34a;
   }
 
-  .mobile-bar a:last-child{
-    color:var(--primary);
+  .mobile-whatsapp{
+    color:#128c7e;
   }
 
   .whatsapp-float{
-    bottom:70px;
+    bottom:68px;
   }
 
   .back-top{
-    bottom:135px;
+    bottom:132px;
+    right:15px;
   }
 
+  footer{
+    padding-bottom:75px;
+  }
+
+  .popup{
+    bottom:78px;
+  }
 }
 </style>
 </head>
@@ -995,13 +1227,16 @@ footer p{
 <!-- LOADER -->
 
 <div id="loader">
-  <div class="loader-circle"></div>
+  <div class="loader-wrap">
+    <div class="loader-circle"></div>
+    <p>SUMIT PATRA</p>
+  </div>
 </div>
 
 <!-- TOP BAR -->
 
 <div class="topbar">
-  📢 SUMIT PATRA Online Services — Digital & Government Services
+  📢 SUMIT PATRA Online Services — Digital &amp; Government Services
 </div>
 
 <!-- NAVBAR -->
@@ -1016,18 +1251,18 @@ footer p{
 </a>
 
 <div class="nav-links" id="navLinks">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#price">Price</a>
-  <a href="#team">Team</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#faq">FAQ</a>
-  <a href="#contact">Contact</a>
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#price" onclick="closeMenu()">Price</a>
+  <a href="#team" onclick="closeMenu()">Team</a>
+  <a href="#reviews" onclick="closeMenu()">Reviews</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
-<div style="display:flex;gap:8px;align-items:center;">
-  <button class="theme-btn" onclick="toggleDark()">🌙</button>
+<div class="nav-actions">
+  <button class="theme-btn" id="themeBtn" onclick="toggleDark()">🌙</button>
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
 </div>
 
@@ -1053,6 +1288,13 @@ footer p{
 Digital Solutions • Government Services • Online Applications
 </p>
 
+<div class="hero-note">
+  <span>🪪 PAN Services</span>
+  <span>🆔 Aadhaar Assistance</span>
+  <span>🗳️ Voter Services</span>
+  <span>💻 Digital Support</span>
+</div>
+
 <div class="hero-buttons">
 
 <a href="#services" class="btn btn-primary">
@@ -1060,8 +1302,9 @@ Digital Solutions • Government Services • Online Applications
 </a>
 
 <a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20your%20online%20service."
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20your%20online%20service"
 target="_blank"
+rel="noopener"
 class="btn btn-success">
   💬 WhatsApp
 </a>
@@ -1188,13 +1431,13 @@ West Bengal
 </div>
 
 <div class="stat">
-<h3>24/7</h3>
-<p>WhatsApp Enquiry</p>
+<h3>WhatsApp</h3>
+<p>Enquiry Support</p>
 </div>
 
 <div class="stat">
-<h3>100%</h3>
-<p>Digital Support</p>
+<h3>Digital</h3>
+<p>Service Support</p>
 </div>
 
 </div>
@@ -1244,8 +1487,8 @@ Choose a service and contact us directly on WhatsApp.
 <input
 type="text"
 id="serviceSearch"
-placeholder="🔎 Search service..."
-onkeyup="searchServices()"
+placeholder="Search service..."
+oninput="searchServices()"
 >
 
 </div>
@@ -1267,7 +1510,8 @@ New PAN, correction, reprint and e-PAN assistance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20PAN%20Card%20service."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20PAN%20Card%20service"
 >
 💬 WhatsApp
 </a>
@@ -1289,7 +1533,8 @@ Aadhaar related online assistance and guidance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Aadhaar%20service."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Aadhaar%20service"
 >
 💬 WhatsApp
 </a>
@@ -1311,7 +1556,8 @@ Voter registration and online application assistance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Voter%20Card%20service."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Voter%20Card%20service"
 >
 💬 WhatsApp
 </a>
@@ -1333,7 +1579,8 @@ Ration card related online assistance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Ration%20Card%20service."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Ration%20Card%20service"
 >
 💬 WhatsApp
 </a>
@@ -1355,7 +1602,8 @@ Online caste certificate application assistance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Caste%20Certificate%20service."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Caste%20Certificate%20service"
 >
 💬 WhatsApp
 </a>
@@ -1377,7 +1625,8 @@ Government form filling and online assistance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Government%20Forms."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Government%20Forms"
 >
 💬 WhatsApp
 </a>
@@ -1399,7 +1648,8 @@ Online application submission assistance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20an%20Online%20Application."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20an%20Online%20Application"
 >
 💬 WhatsApp
 </a>
@@ -1421,7 +1671,8 @@ Various digital service assistance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Services."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Services"
 >
 💬 WhatsApp
 </a>
@@ -1434,7 +1685,7 @@ href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%
 
 <div class="service-icon">🖨️</div>
 
-<h3>Print & Scan</h3>
+<h3>Print &amp; Scan</h3>
 
 <p>
 Printing, scanning and document support.
@@ -1443,7 +1694,8 @@ Printing, scanning and document support.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Print%20and%20Scan."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Print%20and%20Scan"
 >
 💬 WhatsApp
 </a>
@@ -1456,7 +1708,7 @@ href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%
 
 <div class="service-icon">📷</div>
 
-<h3>Photo & Document Resize</h3>
+<h3>Photo &amp; Document Resize</h3>
 
 <p>
 Photo resize and document formatting assistance.
@@ -1465,7 +1717,8 @@ Photo resize and document formatting assistance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Photo%20and%20Document%20Resize."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Photo%20and%20Document%20Resize"
 >
 💬 WhatsApp
 </a>
@@ -1487,7 +1740,8 @@ Passport application assistance and guidance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Passport%20Assistance."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Passport%20Assistance"
 >
 💬 WhatsApp
 </a>
@@ -1509,7 +1763,8 @@ Digital payment and online transaction assistance.
 <a
 class="btn btn-success"
 target="_blank"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Payment%20Assistance."
+rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Payment%20Assistance"
 >
 💬 WhatsApp
 </a>
@@ -1517,6 +1772,10 @@ href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%
 </div>
 
 </div>
+
+<p id="noServices" style="display:none;text-align:center;color:var(--muted);margin-top:25px;font-weight:700">
+No matching service found.
+</p>
 
 </div>
 
@@ -1544,6 +1803,7 @@ Use the official PAN service websites for PAN related applications.
 class="btn btn-primary"
 href="https://www.pan.utiitsl.com/"
 target="_blank"
+rel="noopener"
 >
 New PAN
 </a>
@@ -1552,6 +1812,7 @@ New PAN
 class="btn btn-primary"
 href="https://www.pan.utiitsl.com/"
 target="_blank"
+rel="noopener"
 >
 PAN Correction
 </a>
@@ -1560,6 +1821,7 @@ PAN Correction
 class="btn btn-primary"
 href="https://www.pan.utiitsl.com/PAN_ONLINE/regenPANHomereprint"
 target="_blank"
+rel="noopener"
 >
 PAN Reprint
 </a>
@@ -1568,6 +1830,7 @@ PAN Reprint
 class="btn btn-primary"
 href="https://www.pan.utiitsl.com/PAN_ONLINE/ePANCardHome"
 target="_blank"
+rel="noopener"
 >
 e-PAN Download
 </a>
@@ -1580,7 +1843,7 @@ e-PAN Download
 
 </section>
 
-<!-- PRICE LIST -->
+<!-- PRICE -->
 
 <section id="price">
 
@@ -1595,6 +1858,8 @@ e-PAN Download
 <p>Indicative service assistance charges.</p>
 
 </div>
+
+<div style="overflow-x:auto;border-radius:20px;box-shadow:var(--shadow);">
 
 <table class="price-table">
 
@@ -1645,6 +1910,8 @@ e-PAN Download
 
 </div>
 
+</div>
+
 </section>
 
 <!-- FEE CALCULATOR -->
@@ -1669,37 +1936,14 @@ e-PAN Download
 
 <select id="feeService" onchange="calculateFee()">
 
-<option value="200">
-PAN Card - ₹200
-</option>
-
-<option value="200">
-Aadhaar Assistance - ₹200
-</option>
-
-<option value="100">
-Voter Card - ₹100
-</option>
-
-<option value="100">
-Ration Card - ₹100
-</option>
-
-<option value="150">
-Caste Certificate - ₹150
-</option>
-
-<option value="150">
-Government Forms - ₹150
-</option>
-
-<option value="100">
-Online Application - ₹100
-</option>
-
-<option value="50">
-Digital Services - ₹50
-</option>
+<option value="200">PAN Card - ₹200</option>
+<option value="200">Aadhaar Assistance - ₹200</option>
+<option value="100">Voter Card - ₹100</option>
+<option value="100">Ration Card - ₹100</option>
+<option value="150">Caste Certificate - ₹150</option>
+<option value="150">Government Forms - ₹150</option>
+<option value="100">Online Application - ₹100</option>
+<option value="50">Digital Services - ₹50</option>
 
 </select>
 
@@ -1752,7 +1996,9 @@ placeholder="Enter your name"
 <input
 type="tel"
 id="appPhone"
-placeholder="Enter mobile number"
+maxlength="10"
+inputmode="numeric"
+placeholder="Enter 10-digit mobile number"
 >
 
 </div>
@@ -1850,7 +2096,9 @@ placeholder="Your name"
 <input
 type="tel"
 id="enqPhone"
-placeholder="Mobile number"
+maxlength="10"
+inputmode="numeric"
+placeholder="10-digit mobile number"
 >
 
 </div>
@@ -1928,6 +2176,7 @@ onclick="sendEnquiry()"
 <a
 href="https://www.pan.utiitsl.com/"
 target="_blank"
+rel="noopener"
 class="btn btn-primary"
 >
 Open PAN Website
@@ -1942,8 +2191,9 @@ Open PAN Website
 <p>Contact us for the required government form.</p>
 
 <a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20a%20Government%20Form."
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20a%20Government%20Form"
 target="_blank"
+rel="noopener"
 class="btn btn-success"
 >
 Request Form
@@ -1958,8 +2208,9 @@ Request Form
 <p>Contact us for application assistance.</p>
 
 <a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20Online%20Application%20assistance."
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20Online%20Application%20assistance"
 target="_blank"
+rel="noopener"
 class="btn btn-success"
 >
 Request Assistance
@@ -1996,6 +2247,7 @@ Request Assistance
 <img
 src="owner.jpeg"
 alt="Sumit Patra"
+loading="lazy"
 >
 
 <h3>Sumit Patra</h3>
@@ -2009,6 +2261,7 @@ alt="Sumit Patra"
 <img
 src="ceo-manager.jpeg"
 alt="Avijit Patra"
+loading="lazy"
 >
 
 <h3>Avijit Patra</h3>
@@ -2022,6 +2275,7 @@ alt="Avijit Patra"
 <img
 src="team-manager.jpeg"
 alt="Godadhar Jana"
+loading="lazy"
 >
 
 <h3>Godadhar Jana</h3>
@@ -2035,6 +2289,7 @@ alt="Godadhar Jana"
 <img
 src="team-leader.jpeg"
 alt="Manotosh Dalui"
+loading="lazy"
 >
 
 <h3>Manotosh Dalui</h3>
@@ -2048,6 +2303,7 @@ alt="Manotosh Dalui"
 <img
 src="team-member.jpeg"
 alt="Santanu Patra"
+loading="lazy"
 >
 
 <h3>Santanu Patra</h3>
@@ -2073,6 +2329,8 @@ alt="Santanu Patra"
 <span class="eyebrow">REVIEWS</span>
 
 <h2>Customer Reviews</h2>
+
+<p>Sample review text — replace with real customer reviews when available.</p>
 
 </div>
 
@@ -2205,36 +2463,42 @@ on application requirements.
 <img
 src="sumit-photo.jpeg"
 alt="Sumit Patra"
+loading="lazy"
 onclick="openViewer(this.src)"
 >
 
 <img
 src="owner.jpeg"
 alt="Owner"
+loading="lazy"
 onclick="openViewer(this.src)"
 >
 
 <img
 src="ceo-manager.jpeg"
 alt="CEO Manager"
+loading="lazy"
 onclick="openViewer(this.src)"
 >
 
 <img
 src="team-manager.jpeg"
 alt="Team Manager"
+loading="lazy"
 onclick="openViewer(this.src)"
 >
 
 <img
 src="team-leader.jpeg"
 alt="Team Leader"
+loading="lazy"
 onclick="openViewer(this.src)"
 >
 
 <img
 src="team-member.jpeg"
 alt="Team Member"
+loading="lazy"
 onclick="openViewer(this.src)"
 >
 
@@ -2263,13 +2527,15 @@ onclick="openViewer(this.src)"
 <p>Scan this QR code to open the website.</p>
 
 <img
-src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://sumitpatra936-a11y.github.io/SUMIT-PATRA/"
+src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Fsumitpatra936-a11y.github.io%2FSUMIT-PATRA%2F"
 alt="Website QR Code"
+loading="lazy"
 >
 
 <a
 href="https://sumitpatra936-a11y.github.io/SUMIT-PATRA/"
 target="_blank"
+rel="noopener"
 class="btn btn-primary"
 >
 Open Website
@@ -2331,7 +2597,9 @@ Sunday: Closed
 
 <iframe
 src="https://www.google.com/maps?q=Swarup%20Beria%2C%20Iswaripur%2C%20Bhangar%2C%20South%2024%20Parganas%2C%20West%20Bengal&output=embed"
-loading="lazy">
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade"
+title="SUMIT PATRA Location">
 </iframe>
 
 </div>
@@ -2343,6 +2611,7 @@ loading="lazy">
 <a
 href="https://www.google.com/maps/search/?api=1&query=Swarup%20Beria%2C%20Iswaripur%2C%20Bhangar%2C%20South%2024%20Parganas%2C%20West%20Bengal"
 target="_blank"
+rel="noopener"
 class="btn btn-primary"
 >
 📍 Get Directions
@@ -2398,6 +2667,7 @@ Call Now
 <a
 href="https://wa.me/917001689925"
 target="_blank"
+rel="noopener"
 class="btn btn-success"
 >
 WhatsApp
@@ -2497,6 +2767,7 @@ Contact SUMIT PATRA through WhatsApp.
 <a
 href="https://wa.me/917001689925"
 target="_blank"
+rel="noopener"
 class="btn btn-success"
 >
 💬 WhatsApp Now
@@ -2518,17 +2789,20 @@ onclick="closeViewer()"
 id="viewerImage"
 src=""
 alt="Full Image"
+onclick="event.stopPropagation()"
 >
 
 </div>
 
-<!-- WHATSAPP -->
+<!-- FLOATING WHATSAPP -->
 
 <a
 href="https://wa.me/917001689925"
 target="_blank"
+rel="noopener"
 class="whatsapp-float"
 title="WhatsApp"
+aria-label="WhatsApp"
 >
 💬
 </a>
@@ -2537,7 +2811,9 @@ title="WhatsApp"
 
 <button
 class="back-top"
+id="backTop"
 onclick="window.scrollTo({top:0,behavior:'smooth'})"
+aria-label="Back to top"
 >
 ↑
 </button>
@@ -2548,6 +2824,7 @@ onclick="window.scrollTo({top:0,behavior:'smooth'})"
 
 <a
 href="tel:7001689925"
+class="mobile-call"
 >
 📞 Call
 </a>
@@ -2555,6 +2832,8 @@ href="tel:7001689925"
 <a
 href="https://wa.me/917001689925"
 target="_blank"
+rel="noopener"
+class="mobile-whatsapp"
 >
 💬 WhatsApp
 </a>
@@ -2569,11 +2848,16 @@ window.addEventListener("load",function(){
 
 setTimeout(function(){
 
-document.getElementById("loader").style.display="none";
+const loader=document.getElementById("loader");
 
-},700);
+if(loader){
+  loader.style.display="none";
+}
+
+},600);
 
 });
+
 
 /* MOBILE MENU */
 
@@ -2585,21 +2869,42 @@ document
 
 }
 
+function closeMenu(){
+
+document
+.getElementById("navLinks")
+.classList.remove("show");
+
+}
+
+
 /* DARK MODE */
+
+function updateThemeButton(){
+
+const btn=document.getElementById("themeBtn");
+
+if(!btn)return;
+
+btn.textContent=
+document.body.classList.contains("dark")
+?"☀️"
+:"🌙";
+
+}
 
 function toggleDark(){
 
 document.body.classList.toggle("dark");
 
-if(document.body.classList.contains("dark")){
+localStorage.setItem(
+"darkMode",
+document.body.classList.contains("dark")
+?"on"
+:"off"
+);
 
-localStorage.setItem("darkMode","on");
-
-}else{
-
-localStorage.setItem("darkMode","off");
-
-}
+updateThemeButton();
 
 }
 
@@ -2609,36 +2914,58 @@ document.body.classList.add("dark");
 
 }
 
+updateThemeButton();
+
+
 /* SERVICE SEARCH */
 
 function searchServices(){
 
-let input=
+const input=
 document
 .getElementById("serviceSearch")
 .value
-.toLowerCase();
+.toLowerCase()
+.trim();
 
-let cards=
-document
-.querySelectorAll(".service-card");
+const cards=
+document.querySelectorAll(
+"#serviceGrid .service-card"
+);
+
+let visible=0;
 
 cards.forEach(function(card){
 
-let text=card.innerText.toLowerCase();
+const match=
+card.innerText
+.toLowerCase()
+.includes(input);
 
 card.style.display=
-text.includes(input) ? "flex" : "none";
+match
+?"flex"
+:"none";
+
+if(match){
+visible++;
+}
 
 });
 
+document.getElementById("noServices").style.display=
+visible
+?"none"
+:"block";
+
 }
+
 
 /* FEE CALCULATOR */
 
 function calculateFee(){
 
-let fee=
+const fee=
 document
 .getElementById("feeService")
 .value;
@@ -2650,44 +2977,80 @@ document
 
 }
 
+
+/* MOBILE VALIDATION */
+
+function validIndianMobile(phone){
+
+return /^[6-9]\d{9}$/.test(
+phone.trim()
+);
+
+}
+
+
 /* APPOINTMENT */
 
 function bookAppointment(){
 
-let name=
-document.getElementById("appName").value;
+const name=
+document
+.getElementById("appName")
+.value
+.trim();
 
-let phone=
-document.getElementById("appPhone").value;
+const phone=
+document
+.getElementById("appPhone")
+.value
+.trim();
 
-let service=
-document.getElementById("appService").value;
+const service=
+document
+.getElementById("appService")
+.value;
 
-let date=
-document.getElementById("appDate").value;
+const date=
+document
+.getElementById("appDate")
+.value;
 
 if(!name || !phone || !date){
 
-alert("Please fill all required fields.");
+alert(
+"Please fill all required fields."
+);
 
 return;
 
 }
 
-let message=
-"Hello Sumit,%0A%0A"+
-"I want to book an appointment.%0A%0A"+
-"Name: "+encodeURIComponent(name)+"%0A"+
-"Mobile: "+encodeURIComponent(phone)+"%0A"+
-"Service: "+encodeURIComponent(service)+"%0A"+
-"Date: "+encodeURIComponent(date);
+if(!validIndianMobile(phone)){
+
+alert(
+"Please enter a valid 10-digit Indian mobile number."
+);
+
+return;
+
+}
+
+const message=
+"Hello Sumit,\n\n"+
+"I want to book an appointment.\n\n"+
+"Name: "+name+"\n"+
+"Mobile: "+phone+"\n"+
+"Service: "+service+"\n"+
+"Date: "+date;
 
 window.open(
-"https://wa.me/917001689925?text="+message,
+"https://wa.me/917001689925?text="+
+encodeURIComponent(message),
 "_blank"
 );
 
 }
+
 
 /* ENQUIRY NUMBER */
 
@@ -2695,21 +3058,24 @@ function generateEnquiryNumber(){
 
 let number=
 parseInt(
-localStorage.getItem("enquiryNumber") || "1000"
+localStorage.getItem("enquiryNumber") ||
+"1000",
+10
 );
 
-let newNumber=number+1;
+const newNumber=
+number+1;
 
 localStorage.setItem(
 "enquiryNumber",
-newNumber
+String(newNumber)
 );
 
 return "SP-"+newNumber;
 
 }
 
-let enquiryNo=
+const enquiryNo=
 generateEnquiryNumber();
 
 document
@@ -2717,45 +3083,71 @@ document
 .innerText=
 "Your Enquiry No: "+enquiryNo;
 
+
 /* ENQUIRY */
 
 function sendEnquiry(){
 
-let name=
-document.getElementById("enqName").value;
+const name=
+document
+.getElementById("enqName")
+.value
+.trim();
 
-let phone=
-document.getElementById("enqPhone").value;
+const phone=
+document
+.getElementById("enqPhone")
+.value
+.trim();
 
-let service=
-document.getElementById("enqService").value;
+const service=
+document
+.getElementById("enqService")
+.value;
 
-let message=
-document.getElementById("enqMessage").value;
+const message=
+document
+.getElementById("enqMessage")
+.value
+.trim();
 
 if(!name || !phone || !message){
 
-alert("Please fill all required fields.");
+alert(
+"Please fill all required fields."
+);
 
 return;
 
 }
 
-let text=
-"Hello Sumit,%0A%0A"+
-"Online Enquiry%0A"+
-"Enquiry No: "+enquiryNo+"%0A%0A"+
-"Name: "+encodeURIComponent(name)+"%0A"+
-"Mobile: "+encodeURIComponent(phone)+"%0A"+
-"Service: "+encodeURIComponent(service)+"%0A"+
-"Message: "+encodeURIComponent(message);
+if(!validIndianMobile(phone)){
+
+alert(
+"Please enter a valid 10-digit Indian mobile number."
+);
+
+return;
+
+}
+
+const text=
+"Hello Sumit,\n\n"+
+"Online Enquiry\n"+
+"Enquiry No: "+enquiryNo+"\n\n"+
+"Name: "+name+"\n"+
+"Mobile: "+phone+"\n"+
+"Service: "+service+"\n"+
+"Message: "+message;
 
 window.open(
-"https://wa.me/917001689925?text="+text,
+"https://wa.me/917001689925?text="+
+encodeURIComponent(text),
 "_blank"
 );
 
 }
+
 
 /* IMAGE VIEWER */
 
@@ -2769,6 +3161,8 @@ document
 .getElementById("imageViewer")
 .classList.add("show");
 
+document.body.style.overflow="hidden";
+
 }
 
 function closeViewer(){
@@ -2777,7 +3171,10 @@ document
 .getElementById("imageViewer")
 .classList.remove("show");
 
+document.body.style.overflow="";
+
 }
+
 
 /* POPUP */
 
@@ -2791,30 +3188,57 @@ document
 
 setTimeout(function(){
 
-document
-.getElementById("popup")
-.classList.add("show");
+const popup=
+document.getElementById("popup");
 
-},3500);
+if(popup){
+
+popup.classList.add("show");
+
+}
+
+},4000);
+
 
 /* BUSINESS STATUS */
 
 function updateBusinessStatus(){
 
-let now=new Date();
-
-let day=now.getDay();
-
-let hour=now.getHours();
-
-let status=
+const status=
 document.getElementById("businessStatus");
 
-if(day===0){
+if(!status)return;
 
-status.innerText="🔴 Closed Today";
+const parts=
+new Intl.DateTimeFormat(
+"en-US",
+{
+timeZone:"Asia/Kolkata",
+weekday:"short",
+hour:"numeric",
+hour12:false
+}
+.formatToParts(new Date());
 
-status.style.color="#dc2626";
+const weekday=
+parts.find(
+p=>p.type==="weekday"
+).value;
+
+const hour=
+Number(
+parts.find(
+p=>p.type==="hour"
+).value
+);
+
+if(weekday==="Sun"){
+
+status.innerText=
+"🔴 Closed Today";
+
+status.style.color=
+"#dc2626";
 
 return;
 
@@ -2822,21 +3246,100 @@ return;
 
 if(hour>=9 && hour<20){
 
-status.innerText="🟢 Open Now";
+status.innerText=
+"🟢 Open Now";
 
-status.style.color="#16a34a";
+status.style.color=
+"#16a34a";
 
 }else{
 
-status.innerText="🔴 Closed Now";
+status.innerText=
+"🔴 Closed Now";
 
-status.style.color="#dc2626";
+status.style.color=
+"#dc2626";
 
 }
 
 }
 
 updateBusinessStatus();
+
+setInterval(
+updateBusinessStatus,
+60000
+);
+
+
+/* BACK TO TOP */
+
+window.addEventListener(
+"scroll",
+function(){
+
+const btn=
+document.getElementById("backTop");
+
+if(window.scrollY>500){
+
+btn.classList.add("show");
+
+}else{
+
+btn.classList.remove("show");
+
+}
+
+}
+);
+
+
+/* CLOSE MOBILE MENU */
+
+document.addEventListener(
+"click",
+function(event){
+
+const nav=
+document.getElementById("navLinks");
+
+const menu=
+document.querySelector(".menu-btn");
+
+if(
+window.innerWidth<=800 &&
+nav.classList.contains("show") &&
+!nav.contains(event.target) &&
+!menu.contains(event.target)
+){
+
+nav.classList.remove("show");
+
+}
+
+}
+);
+
+
+/* ESCAPE KEY */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(event.key==="Escape"){
+
+closeViewer();
+
+closePopup();
+
+closeMenu();
+
+}
+
+}
+);
 
 </script>
 
