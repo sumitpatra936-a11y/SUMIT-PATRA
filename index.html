@@ -3,26 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#2563eb">
-<meta name="description" content="SUMIT PATRA Online Services — Digital and Government Services, PAN, Aadhaar, Voter, Ration, Forms and Online Applications.">
+
 <title>SUMIT PATRA | Online Services</title>
 
 <style>
 :root{
   --primary:#2563eb;
-  --primary-dark:#1d4ed8;
   --secondary:#7c3aed;
-  --success:#16a34a;
-  --danger:#dc2626;
   --dark:#0f172a;
-  --text:#172033;
+  --text:#1e293b;
   --muted:#64748b;
-  --light:#f7f9fc;
+  --light:#f8fafc;
   --white:#fff;
   --border:#e2e8f0;
-  --shadow:0 15px 45px rgba(15,23,42,.10);
-  --shadow-lg:0 25px 70px rgba(15,23,42,.16);
-  --radius:22px;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --shadow:0 10px 30px rgba(15,23,42,.10);
 }
 
 *{
@@ -33,49 +29,21 @@
 }
 
 body{
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   background:var(--light);
   color:var(--text);
   line-height:1.6;
   transition:.3s;
+  padding-bottom:0;
 }
 
 body.dark{
   --light:#020617;
   --white:#0f172a;
-  --text:#e5e7eb;
+  --text:#e2e8f0;
   --muted:#94a3b8;
   --border:#1e293b;
-  --shadow:0 15px 45px rgba(0,0,0,.25);
   background:#020617;
-}
-
-body.dark .navbar{
-  background:rgba(15,23,42,.94);
-}
-
-body.dark .hero{
-  background:
-    radial-gradient(circle at 85% 15%,rgba(124,58,237,.22),transparent 35%),
-    linear-gradient(135deg,#020617,#111827);
-}
-
-body.dark .btn-light{
-  background:#111827;
-  color:#e5e7eb;
-}
-
-body.dark .price-table th{
-  background:#172554;
-}
-
-body.dark .appointment{
-  background:#0b1729;
-}
-
-body.dark .mobile-bar{
-  background:#0f172a;
-  border-color:#1e293b;
 }
 
 a{
@@ -88,6 +56,20 @@ img{
   display:block;
 }
 
+.container{
+  width:92%;
+  max-width:1200px;
+  margin:auto;
+}
+
+section{
+  padding:80px 0;
+}
+
+h1,h2,h3{
+  line-height:1.2;
+}
+
 button,
 input,
 select,
@@ -95,54 +77,62 @@ textarea{
   font:inherit;
 }
 
-button{
-  cursor:pointer;
-}
-
-.container{
-  width:min(92%,1200px);
-  margin:auto;
-}
-
-section{
-  padding:90px 0;
-}
-
-h1,h2,h3{
-  line-height:1.2;
-}
-
-/* LOADER */
+/* ================= LOADER ================= */
 
 #loader{
   position:fixed;
   inset:0;
-  background:#fff;
-  z-index:99999;
+  background:#ffffff;
+  z-index:999999;
   display:flex;
   justify-content:center;
   align-items:center;
+  transition:opacity .3s ease,visibility .3s ease;
 }
 
-.loader-wrap{
+body.dark #loader{
+  background:#020617;
+}
+
+#loader.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.loader-content{
   text-align:center;
 }
 
-.loader-circle{
-  width:58px;
-  height:58px;
-  border:6px solid #e5e7eb;
-  border-top-color:var(--primary);
-  border-right-color:var(--secondary);
-  border-radius:50%;
-  animation:spin 1s linear infinite;
+.loader-logo{
+  width:70px;
+  height:70px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   margin:auto;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+  font-size:22px;
+  font-weight:900;
+  box-shadow:0 15px 40px rgba(37,99,235,.25);
 }
 
-.loader-wrap p{
-  margin-top:12px;
+.loader-circle{
+  width:42px;
+  height:42px;
+  border:4px solid #e5e7eb;
+  border-top-color:var(--primary);
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+  margin:20px auto 10px;
+}
+
+.loader-text{
+  font-size:13px;
   color:#64748b;
-  font-weight:700;
+  font-weight:600;
 }
 
 @keyframes spin{
@@ -151,146 +141,122 @@ h1,h2,h3{
   }
 }
 
-/* TOP BAR */
+/* ================= TOP BAR ================= */
 
 .topbar{
-  background:linear-gradient(90deg,#0f172a,#1e1b4b,#0f172a);
+  background:var(--dark);
   color:#fff;
   text-align:center;
-  padding:9px 12px;
-  font-size:13px;
-  font-weight:700;
+  padding:8px;
+  font-size:14px;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 .navbar{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.94);
-  backdrop-filter:blur(16px);
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
 }
 
+body.dark .navbar{
+  background:rgba(15,23,42,.96);
+}
+
 .nav-inner{
-  min-height:74px;
+  min-height:72px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
+  gap:20px;
+  position:relative;
 }
 
 .logo{
   display:flex;
   align-items:center;
   gap:10px;
-  font-weight:900;
+  font-weight:800;
+  font-size:18px;
 }
 
 .logo-mark{
-  width:44px;
-  height:44px;
-  border-radius:14px;
-  display:grid;
-  place-items:center;
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   color:#fff;
   background:linear-gradient(135deg,var(--primary),var(--secondary));
-  box-shadow:0 8px 25px rgba(37,99,235,.25);
 }
 
 .nav-links{
   display:flex;
   align-items:center;
-  gap:17px;
+  gap:18px;
 }
 
 .nav-links a{
   font-size:14px;
-  font-weight:750;
-  position:relative;
+  font-weight:600;
 }
 
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-7px;
-  width:0;
-  height:2px;
-  background:linear-gradient(90deg,var(--primary),var(--secondary));
-  transition:.25s;
+.nav-links a:hover{
+  color:var(--primary);
 }
 
-.nav-links a:hover::after{
-  width:100%;
-}
-
-.nav-actions{
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-
-.theme-btn,
-.menu-btn{
-  border:1px solid var(--border);
+.menu-btn,
+.theme-btn{
+  border:0;
+  cursor:pointer;
   background:#eef2ff;
   color:#1e3a8a;
-  border-radius:11px;
-  padding:9px 11px;
-  font-weight:800;
+  border-radius:10px;
+  padding:9px 12px;
 }
 
 .menu-btn{
   display:none;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
-  padding:105px 0 90px;
+  padding:90px 0;
   background:
-    radial-gradient(circle at 82% 18%,rgba(124,58,237,.22),transparent 32%),
-    radial-gradient(circle at 12% 90%,rgba(37,99,235,.12),transparent 30%),
-    linear-gradient(135deg,#eff6ff,#fff);
-  overflow:hidden;
+  radial-gradient(circle at top right,rgba(124,58,237,.25),transparent 35%),
+  linear-gradient(135deg,#eff6ff,#f8fafc);
+}
+
+body.dark .hero{
+  background:linear-gradient(135deg,#020617,#111827);
 }
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1.08fr .92fr;
-  gap:65px;
+  grid-template-columns:1.1fr .9fr;
+  gap:50px;
   align-items:center;
 }
 
 .badge{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
+  display:inline-block;
   background:#dbeafe;
   color:#1d4ed8;
   padding:8px 14px;
   border-radius:999px;
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.7px;
-  margin-bottom:20px;
-}
-
-.badge::before{
-  content:"";
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#16a34a;
-  box-shadow:0 0 0 5px rgba(22,163,74,.12);
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:18px;
 }
 
 .hero h1{
-  font-size:clamp(45px,7vw,78px);
-  letter-spacing:-3px;
-  margin-bottom:18px;
+  font-size:clamp(42px,6vw,72px);
+  margin-bottom:15px;
 }
 
 .hero h1 span{
@@ -302,52 +268,35 @@ h1,h2,h3{
 
 .hero p{
   color:var(--muted);
-  font-size:19px;
+  font-size:18px;
   max-width:650px;
-}
-
-.hero-note{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:20px;
-}
-
-.hero-note span{
-  background:var(--white);
-  border:1px solid var(--border);
-  padding:8px 12px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:700;
 }
 
 .hero-buttons{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin-top:28px;
+  margin-top:25px;
 }
 
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:7px;
   padding:13px 20px;
-  border-radius:13px;
-  border:1px solid transparent;
-  font-weight:800;
+  border-radius:12px;
+  border:0;
+  cursor:pointer;
+  font-weight:700;
   transition:.2s;
 }
 
 .btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 10px 25px rgba(15,23,42,.12);
 }
 
 .btn-primary{
-  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  background:var(--primary);
   color:#fff;
 }
 
@@ -364,43 +313,40 @@ h1,h2,h3{
 .btn-light{
   background:#fff;
   color:#0f172a;
-  border-color:var(--border);
+  border:1px solid var(--border);
 }
 
 .hero-photo{
-  position:relative;
-  background:linear-gradient(145deg,#fff,#f8fafc);
+  background:#fff;
   padding:12px;
-  border-radius:30px;
-  box-shadow:var(--shadow-lg);
-  transform:rotate(1deg);
+  border-radius:25px;
+  box-shadow:var(--shadow);
 }
 
 .hero-photo img{
   width:100%;
-  height:500px;
+  height:430px;
   object-fit:cover;
-  border-radius:22px;
+  border-radius:18px;
 }
 
-/* SECTION HEADINGS */
+/* ================= SECTION ================= */
 
 .section-heading{
   text-align:center;
-  max-width:760px;
-  margin:0 auto 45px;
+  margin-bottom:40px;
 }
 
 .eyebrow{
   color:var(--primary);
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:2.5px;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:2px;
 }
 
 .section-heading h2{
-  font-size:clamp(30px,4vw,43px);
-  margin-top:9px;
+  font-size:38px;
+  margin-top:8px;
 }
 
 .section-heading p{
@@ -408,74 +354,61 @@ h1,h2,h3{
   margin-top:10px;
 }
 
-/* ABOUT */
+/* ================= ABOUT ================= */
 
 .about-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:25px;
+  gap:30px;
 }
 
 .info-card{
   background:var(--white);
   border:1px solid var(--border);
-  border-radius:var(--radius);
+  border-radius:20px;
   padding:30px;
   box-shadow:var(--shadow);
 }
 
 .info-card h3{
-  margin-bottom:12px;
+  margin-bottom:15px;
 }
 
 .info-card p{
   color:var(--muted);
 }
 
-/* WHY */
+/* ================= WHY ================= */
 
 .feature-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px;
+  gap:20px;
 }
 
 .feature{
   background:var(--white);
-  padding:27px 20px;
-  border-radius:20px;
+  padding:25px;
+  border-radius:18px;
   text-align:center;
   border:1px solid var(--border);
-  box-shadow:var(--shadow);
-  transition:.25s;
-}
-
-.feature:hover,
-.service-card:hover,
-.team-card:hover,
-.review:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--shadow-lg);
 }
 
 .feature-icon{
   font-size:35px;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .feature p{
   color:var(--muted);
   font-size:14px;
-  margin-top:7px;
 }
 
-/* STATS */
+/* ================= STATS ================= */
 
 .stats{
-  background:linear-gradient(135deg,#1d4ed8,#4f46e5 55%,#7c3aed);
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
   color:#fff;
-  position:relative;
-  overflow:hidden;
 }
 
 .stats-grid{
@@ -486,7 +419,6 @@ h1,h2,h3{
 
 .stat{
   text-align:center;
-  padding:10px;
 }
 
 .stat h3{
@@ -495,50 +427,40 @@ h1,h2,h3{
 
 .stat p{
   opacity:.9;
-  font-weight:700;
 }
 
-/* NOTICE */
+/* ================= NOTICE ================= */
 
 .notice{
   background:#fff7ed;
-  border:1px solid #fed7aa;
   border-left:5px solid #f97316;
   padding:20px;
-  border-radius:15px;
-  color:#7c2d12;
+  border-radius:12px;
+}
+
+body.dark .notice{
+  background:#1c1917;
 }
 
 .notice strong{
   color:#ea580c;
 }
 
-/* SERVICES */
+/* ================= SERVICES ================= */
 
 .service-search{
-  max-width:650px;
+  max-width:600px;
   margin:0 auto 35px;
-  position:relative;
 }
 
 .service-search input{
   width:100%;
-  padding:16px 18px 16px 45px;
+  padding:15px 18px;
   border:1px solid var(--border);
-  border-radius:15px;
+  border-radius:14px;
   background:var(--white);
   color:var(--text);
   outline:none;
-  box-shadow:0 8px 25px rgba(15,23,42,.05);
-}
-
-.service-search::before{
-  content:"🔎";
-  position:absolute;
-  left:16px;
-  top:13px;
-  font-size:18px;
-  z-index:1;
 }
 
 .services-grid{
@@ -550,75 +472,61 @@ h1,h2,h3{
 .service-card{
   background:var(--white);
   border:1px solid var(--border);
-  border-radius:21px;
+  border-radius:20px;
   padding:24px;
   box-shadow:var(--shadow);
   display:flex;
   flex-direction:column;
-  transition:.25s;
 }
 
 .service-icon{
-  width:55px;
-  height:55px;
-  display:grid;
-  place-items:center;
-  border-radius:16px;
-  background:linear-gradient(135deg,#eff6ff,#f5f3ff);
-  font-size:29px;
-  margin-bottom:15px;
+  font-size:35px;
+  margin-bottom:12px;
 }
 
 .service-card p{
   color:var(--muted);
   font-size:14px;
-  margin:10px 0 20px;
+  margin:10px 0 18px;
 }
 
 .service-card .btn{
   margin-top:auto;
-  width:100%;
 }
 
-/* PAN */
+/* ================= PAN ================= */
 
 .pan-box{
   background:linear-gradient(135deg,#dbeafe,#ede9fe);
-  padding:40px;
-  border-radius:28px;
-  border:1px solid #dbeafe;
+  padding:35px;
+  border-radius:25px;
 }
 
-.pan-box p{
-  color:var(--muted);
-  margin-top:8px;
+body.dark .pan-box{
+  background:linear-gradient(135deg,#172554,#2e1065);
 }
 
 .pan-links{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin-top:22px;
+  margin-top:20px;
 }
 
-/* PRICE */
-
-.table-wrap{
-  overflow-x:auto;
-  border-radius:20px;
-  box-shadow:var(--shadow);
-}
+/* ================= PRICE ================= */
 
 .price-table{
   width:100%;
-  min-width:500px;
   border-collapse:collapse;
   background:var(--white);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
 }
 
 .price-table th,
 .price-table td{
-  padding:17px;
+  padding:16px;
   border-bottom:1px solid var(--border);
   text-align:left;
 }
@@ -626,27 +534,21 @@ h1,h2,h3{
 .price-table th{
   background:#eff6ff;
   color:#1d4ed8;
-  font-size:14px;
 }
 
-.price-table tr:last-child td{
-  border-bottom:0;
+body.dark .price-table th{
+  background:#172554;
 }
 
-.price-table td:last-child{
-  font-weight:900;
-}
-
-/* CALCULATOR */
+/* ================= CALCULATOR ================= */
 
 .calc-box{
   max-width:650px;
   margin:auto;
   background:var(--white);
   padding:30px;
-  border-radius:22px;
+  border-radius:20px;
   box-shadow:var(--shadow);
-  border:1px solid var(--border);
 }
 
 .form-group{
@@ -656,17 +558,16 @@ h1,h2,h3{
 .form-group label{
   display:block;
   margin-bottom:7px;
-  font-weight:800;
-  font-size:14px;
+  font-weight:700;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
   width:100%;
-  padding:13px 14px;
+  padding:13px;
   border:1px solid var(--border);
-  border-radius:11px;
+  border-radius:10px;
   background:var(--white);
   color:var(--text);
   outline:none;
@@ -676,88 +577,71 @@ h1,h2,h3{
 .form-group select:focus,
 .form-group textarea:focus{
   border-color:var(--primary);
-  box-shadow:0 0 0 4px rgba(37,99,235,.10);
 }
 
 .result{
   margin-top:20px;
   padding:20px;
   background:#ecfdf5;
-  border-radius:13px;
+  border-radius:12px;
   color:#166534;
   font-size:22px;
-  font-weight:900;
+  font-weight:bold;
   text-align:center;
 }
 
-/* APPOINTMENT */
+/* ================= APPOINTMENT ================= */
 
 .appointment{
   background:#eef6ff;
 }
 
+body.dark .appointment{
+  background:#0c1a2e;
+}
+
+/* ================= ENQUIRY ================= */
+
 .enquiry-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:25px;
+  gap:30px;
 }
 
-/* FORMS */
-
-.forms-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.form-download{
-  background:var(--white);
-  padding:26px;
-  border-radius:20px;
-  border:1px solid var(--border);
-  box-shadow:var(--shadow);
-}
-
-.form-download p{
-  color:var(--muted);
-  margin:10px 0 18px;
-}
-
-/* TEAM */
+/* ================= TEAM ================= */
 
 .team-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:22px;
+  gap:25px;
 }
 
 .team-card{
   background:var(--white);
-  padding:14px;
-  border-radius:22px;
+  padding:15px;
+  border-radius:20px;
   text-align:center;
   box-shadow:var(--shadow);
   border:1px solid var(--border);
-  transition:.25s;
 }
 
 .team-card img{
   width:100%;
-  height:285px;
+  height:280px;
   object-fit:cover;
-  border-radius:16px;
+  border-radius:15px;
 }
 
 .team-card h3{
-  margin:15px 0 4px;
+  margin:15px 0 5px;
 }
 
 .team-card p{
   color:var(--primary);
-  font-weight:900;
+  font-weight:bold;
 }
 
-/* REVIEWS */
+/* ================= REVIEWS ================= */
 
 .review-grid{
   display:grid;
@@ -767,25 +651,23 @@ h1,h2,h3{
 
 .review{
   background:var(--white);
-  padding:26px;
-  border-radius:20px;
+  padding:25px;
+  border-radius:18px;
   border:1px solid var(--border);
   box-shadow:var(--shadow);
-  transition:.25s;
 }
 
 .stars{
   color:#f59e0b;
   font-size:20px;
-  letter-spacing:2px;
 }
 
 .review p{
   color:var(--muted);
-  margin:10px 0 14px;
+  margin-top:10px;
 }
 
-/* FAQ */
+/* ================= FAQ ================= */
 
 .faq{
   max-width:850px;
@@ -795,69 +677,49 @@ h1,h2,h3{
 details{
   background:var(--white);
   border:1px solid var(--border);
-  border-radius:15px;
+  border-radius:14px;
   margin-bottom:12px;
-  padding:18px 20px;
-  box-shadow:0 5px 20px rgba(15,23,42,.04);
+  padding:18px;
 }
 
 summary{
   cursor:pointer;
-  font-weight:800;
+  font-weight:bold;
 }
 
 details p{
   color:var(--muted);
-  padding-top:12px;
+  margin-top:10px;
 }
 
-/* GALLERY */
+/* ================= GALLERY ================= */
 
 .gallery{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:20px;
 }
 
 .gallery img{
   width:100%;
-  height:270px;
+  height:260px;
   object-fit:cover;
   border-radius:18px;
   cursor:pointer;
   box-shadow:var(--shadow);
-  transition:.25s;
+  transition:.2s;
 }
 
 .gallery img:hover{
   transform:scale(1.02);
 }
 
-/* QR */
-
-.qr-box{
-  text-align:center;
-  background:var(--white);
-  padding:32px;
-  border-radius:22px;
-  box-shadow:var(--shadow);
-  border:1px solid var(--border);
-}
-
-.qr-box img{
-  width:200px;
-  height:200px;
-  margin:20px auto;
-  border-radius:10px;
-}
-
-/* MAP */
+/* ================= MAP ================= */
 
 .map-box{
-  border-radius:22px;
+  border-radius:20px;
   overflow:hidden;
   box-shadow:var(--shadow);
-  border:1px solid var(--border);
 }
 
 .map-box iframe{
@@ -866,7 +728,7 @@ details p{
   border:0;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
 
 .contact-grid{
   display:grid;
@@ -876,33 +738,67 @@ details p{
 
 .contact-card{
   background:var(--white);
-  padding:26px;
-  border-radius:20px;
+  padding:25px;
+  border-radius:18px;
   border:1px solid var(--border);
   box-shadow:var(--shadow);
 }
 
 .contact-card h3{
-  margin-bottom:7px;
+  margin-bottom:8px;
 }
 
 .contact-card p{
   color:var(--muted);
-  word-break:break-word;
 }
 
-/* POPUP */
+/* ================= FORMS ================= */
+
+.forms-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.form-download{
+  background:var(--white);
+  padding:25px;
+  border-radius:18px;
+  border:1px solid var(--border);
+}
+
+.form-download p{
+  color:var(--muted);
+  margin:10px 0 18px;
+}
+
+/* ================= QR ================= */
+
+.qr-box{
+  text-align:center;
+  background:var(--white);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+}
+
+.qr-box img{
+  width:200px;
+  margin:20px auto;
+}
+
+/* ================= POPUP ================= */
 
 .popup{
   position:fixed;
   right:20px;
   bottom:90px;
-  width:min(340px,calc(100% - 40px));
+  width:320px;
   background:var(--white);
   border:1px solid var(--border);
-  box-shadow:0 20px 60px rgba(0,0,0,.2);
-  border-radius:20px;
-  padding:24px;
+  box-shadow:0 15px 50px rgba(0,0,0,.2);
+  border-radius:18px;
+  padding:22px;
   z-index:5000;
   display:none;
 }
@@ -911,32 +807,28 @@ details p{
   display:block;
 }
 
-.popup p{
-  color:var(--muted);
-  margin-top:8px;
-}
-
 .popup-close{
   position:absolute;
   right:12px;
   top:8px;
   border:0;
   background:none;
-  color:var(--muted);
-  font-size:24px;
+  font-size:20px;
+  cursor:pointer;
+  color:var(--text);
 }
 
-/* IMAGE VIEWER */
+/* ================= IMAGE VIEWER ================= */
 
 .image-viewer{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.94);
+  background:rgba(0,0,0,.92);
   display:none;
   justify-content:center;
   align-items:center;
   z-index:9999;
-  padding:25px;
+  padding:30px;
 }
 
 .image-viewer.show{
@@ -947,82 +839,69 @@ details p{
   max-width:95%;
   max-height:90%;
   object-fit:contain;
-  border-radius:10px;
 }
 
 .viewer-close{
   position:absolute;
-  top:15px;
+  top:20px;
   right:25px;
   color:#fff;
-  font-size:38px;
+  font-size:35px;
   cursor:pointer;
 }
 
-/* WHATSAPP */
+/* ================= FLOAT WHATSAPP ================= */
 
 .whatsapp-float{
   position:fixed;
   right:20px;
   bottom:20px;
-  width:59px;
-  height:59px;
+  width:58px;
+  height:58px;
   background:#25d366;
   color:#fff;
   border-radius:50%;
-  display:grid;
-  place-items:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   font-size:28px;
   z-index:3000;
-  box-shadow:0 10px 30px rgba(37,211,102,.35);
-  transition:.2s;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
 
-.whatsapp-float:hover{
-  transform:scale(1.07);
-}
-
-/* BACK TOP */
+/* ================= BACK TOP ================= */
 
 .back-top{
   position:fixed;
   right:20px;
-  bottom:92px;
-  width:43px;
-  height:43px;
+  bottom:90px;
+  width:42px;
+  height:42px;
   border:0;
   border-radius:50%;
   background:var(--primary);
   color:#fff;
+  cursor:pointer;
   z-index:2000;
-  display:none;
 }
 
-.back-top.show{
-  display:block;
-}
-
-/* MOBILE BAR */
+/* ================= MOBILE BAR ================= */
 
 .mobile-bar{
   display:none;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
   background:#020617;
   color:#cbd5e1;
-  padding:48px 0 90px;
+  padding:45px 0;
   text-align:center;
 }
 
-footer h2{
-  color:#fff;
-}
-
 footer p{
-  margin:7px 0;
+  margin:6px 0;
 }
 
 .footer-links{
@@ -1030,16 +909,12 @@ footer p{
   justify-content:center;
   gap:18px;
   flex-wrap:wrap;
-  margin:17px 0;
+  margin:15px 0;
 }
 
-.footer-links a:hover{
-  color:#fff;
-}
+/* ================= RESPONSIVE ================= */
 
-/* RESPONSIVE */
-
-@media(max-width:1050px){
+@media(max-width:1000px){
 
   .services-grid{
     grid-template-columns:repeat(2,1fr);
@@ -1057,20 +932,16 @@ footer p{
     grid-template-columns:repeat(2,1fr);
   }
 
+  .review-grid{
+    grid-template-columns:1fr;
+  }
+
   .forms-grid{
     grid-template-columns:1fr;
   }
 }
 
 @media(max-width:800px){
-
-  section{
-    padding:72px 0;
-  }
-
-  .hero{
-    padding:75px 0;
-  }
 
   .hero-grid,
   .about-grid,
@@ -1082,96 +953,68 @@ footer p{
     grid-template-columns:1fr;
   }
 
-  .hero-photo{
-    max-width:620px;
-    margin:auto;
-  }
-
-  .hero-photo img{
-    height:430px;
-  }
-
   .nav-links{
     display:none;
     position:absolute;
-    top:74px;
+    top:72px;
     left:0;
     right:0;
     background:var(--white);
     padding:20px;
     flex-direction:column;
-    align-items:stretch;
     border-bottom:1px solid var(--border);
+    box-shadow:var(--shadow);
   }
 
   .nav-links.show{
     display:flex;
   }
 
-  .nav-links a{
-    padding:8px 5px;
-  }
-
   .menu-btn{
     display:block;
+  }
+
+  .hero-photo img{
+    height:350px;
   }
 }
 
 @media(max-width:600px){
+
+  body{
+    padding-bottom:55px;
+  }
 
   section{
     padding:60px 0;
   }
 
   .hero{
-    padding:60px 0;
+    padding:65px 0;
   }
 
   .hero h1{
-    font-size:45px;
-    letter-spacing:-2px;
+    font-size:43px;
   }
 
-  .hero p{
-    font-size:16px;
+  .hero-buttons{
+    flex-direction:column;
   }
 
   .hero-buttons .btn{
     width:100%;
   }
 
-  .hero-photo img{
-    height:370px;
-  }
-
   .services-grid,
   .feature-grid,
   .stats-grid,
   .team-grid,
-  .gallery,
-  .review-grid,
-  .contact-grid{
+  .gallery{
     grid-template-columns:1fr;
   }
 
   .gallery img{
     height:300px;
-  }
-
-  .stats-grid{
-    gap:5px;
-  }
-
-  .stat h3{
-    font-size:31px;
-  }
-
-  .pan-box{
-    padding:27px;
-  }
-
-  .pan-links .btn{
-    width:100%;
   }
 
   .mobile-bar{
@@ -1183,7 +1026,11 @@ footer p{
     background:#fff;
     z-index:2500;
     border-top:1px solid #ddd;
-    box-shadow:0 -5px 20px rgba(0,0,0,.08);
+  }
+
+  body.dark .mobile-bar{
+    background:#0f172a;
+    border-color:#1e293b;
   }
 
   .mobile-bar a{
@@ -1191,32 +1038,30 @@ footer p{
     text-align:center;
     padding:10px 5px;
     font-size:12px;
-    font-weight:900;
+    font-weight:bold;
   }
 
-  .mobile-call{
+  .mobile-bar a:first-child{
     color:#16a34a;
   }
 
-  .mobile-whatsapp{
-    color:#128c7e;
+  .mobile-bar a:last-child{
+    color:var(--primary);
   }
 
   .whatsapp-float{
-    bottom:68px;
+    bottom:70px;
   }
 
   .back-top{
-    bottom:132px;
-    right:15px;
-  }
-
-  footer{
-    padding-bottom:75px;
+    bottom:135px;
   }
 
   .popup{
-    bottom:78px;
+    left:15px;
+    right:15px;
+    bottom:75px;
+    width:auto;
   }
 }
 </style>
@@ -1224,22 +1069,23 @@ footer p{
 
 <body>
 
-<!-- LOADER -->
+<!-- ================= LOADER ================= -->
 
 <div id="loader">
-  <div class="loader-wrap">
+  <div class="loader-content">
+    <div class="loader-logo">SP</div>
     <div class="loader-circle"></div>
-    <p>SUMIT PATRA</p>
+    <div class="loader-text">Loading SUMIT PATRA...</div>
   </div>
 </div>
 
-<!-- TOP BAR -->
+<!-- ================= TOP BAR ================= -->
 
 <div class="topbar">
-  📢 SUMIT PATRA Online Services — Digital &amp; Government Services
+  📢 SUMIT PATRA Online Services — Digital & Government Services
 </div>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 
 <nav class="navbar">
 
@@ -1251,26 +1097,26 @@ footer p{
 </a>
 
 <div class="nav-links" id="navLinks">
-  <a href="#home" onclick="closeMenu()">Home</a>
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#services" onclick="closeMenu()">Services</a>
-  <a href="#price" onclick="closeMenu()">Price</a>
-  <a href="#team" onclick="closeMenu()">Team</a>
-  <a href="#reviews" onclick="closeMenu()">Reviews</a>
-  <a href="#faq" onclick="closeMenu()">FAQ</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#price">Price</a>
+  <a href="#team">Team</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
 </div>
 
-<div class="nav-actions">
-  <button class="theme-btn" id="themeBtn" onclick="toggleDark()">🌙</button>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+<div style="display:flex;gap:8px;align-items:center;">
+  <button class="theme-btn" onclick="toggleDark()" aria-label="Toggle dark mode">🌙</button>
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
 </div>
 
 </div>
 
 </nav>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
@@ -1288,13 +1134,6 @@ footer p{
 Digital Solutions • Government Services • Online Applications
 </p>
 
-<div class="hero-note">
-  <span>🪪 PAN Services</span>
-  <span>🆔 Aadhaar Assistance</span>
-  <span>🗳️ Voter Services</span>
-  <span>💻 Digital Support</span>
-</div>
-
 <div class="hero-buttons">
 
 <a href="#services" class="btn btn-primary">
@@ -1302,7 +1141,7 @@ Digital Solutions • Government Services • Online Applications
 </a>
 
 <a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20your%20online%20service"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20your%20online%20service."
 target="_blank"
 rel="noopener"
 class="btn btn-success">
@@ -1325,7 +1164,7 @@ class="btn btn-success">
 
 </section>
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
@@ -1371,7 +1210,7 @@ West Bengal
 
 </section>
 
-<!-- WHY CHOOSE -->
+<!-- ================= WHY US ================= -->
 
 <section>
 
@@ -1414,7 +1253,7 @@ West Bengal
 
 </section>
 
-<!-- STATS -->
+<!-- ================= STATS ================= -->
 
 <section class="stats">
 
@@ -1437,14 +1276,14 @@ West Bengal
 
 <div class="stat">
 <h3>Digital</h3>
-<p>Service Support</p>
+<p>Support Available</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- NOTICE -->
+<!-- ================= NOTICE ================= -->
 
 <section>
 
@@ -1464,7 +1303,7 @@ the applicable fee before submitting an application.
 
 </section>
 
-<!-- SERVICES -->
+<!-- ================= SERVICES ================= -->
 
 <section id="services">
 
@@ -1487,301 +1326,141 @@ Choose a service and contact us directly on WhatsApp.
 <input
 type="text"
 id="serviceSearch"
-placeholder="Search service..."
-oninput="searchServices()"
+placeholder="🔎 Search service..."
+autocomplete="off"
 >
 
 </div>
 
 <div class="services-grid" id="serviceGrid">
 
-<!-- PAN -->
-
 <div class="service-card">
-
 <div class="service-icon">🪪</div>
-
 <h3>PAN Card Services</h3>
-
-<p>
-New PAN, correction, reprint and e-PAN assistance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20PAN%20Card%20service"
->
+<p>New PAN, correction, reprint and e-PAN assistance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20PAN%20Card%20service.">
 💬 WhatsApp
 </a>
-
 </div>
 
-<!-- AADHAAR -->
-
 <div class="service-card">
-
 <div class="service-icon">🆔</div>
-
 <h3>Aadhaar Services</h3>
-
-<p>
-Aadhaar related online assistance and guidance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Aadhaar%20service"
->
+<p>Aadhaar related online assistance and guidance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Aadhaar%20service.">
 💬 WhatsApp
 </a>
-
 </div>
 
-<!-- VOTER -->
-
 <div class="service-card">
-
 <div class="service-icon">🗳️</div>
-
 <h3>Voter Card Services</h3>
-
-<p>
-Voter registration and online application assistance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Voter%20Card%20service"
->
+<p>Voter registration and online application assistance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Voter%20Card%20service.">
 💬 WhatsApp
 </a>
-
 </div>
 
-<!-- RATION -->
-
 <div class="service-card">
-
 <div class="service-icon">🍚</div>
-
 <h3>Ration Card Services</h3>
-
-<p>
-Ration card related online assistance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Ration%20Card%20service"
->
+<p>Ration card related online assistance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Ration%20Card%20service.">
 💬 WhatsApp
 </a>
-
 </div>
 
-<!-- CASTE -->
-
 <div class="service-card">
-
 <div class="service-icon">📄</div>
-
 <h3>Caste Certificate</h3>
-
-<p>
-Online caste certificate application assistance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Caste%20Certificate%20service"
->
+<p>Online caste certificate application assistance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Caste%20Certificate%20service.">
 💬 WhatsApp
 </a>
-
 </div>
 
-<!-- GOVERNMENT -->
-
 <div class="service-card">
-
 <div class="service-icon">🏛️</div>
-
 <h3>Government Forms</h3>
-
-<p>
-Government form filling and online assistance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Government%20Forms"
->
+<p>Government form filling and online assistance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Government%20Forms.">
 💬 WhatsApp
 </a>
-
 </div>
 
-<!-- ONLINE APPLICATION -->
-
 <div class="service-card">
-
 <div class="service-icon">🌐</div>
-
 <h3>Online Applications</h3>
-
-<p>
-Online application submission assistance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20an%20Online%20Application"
->
+<p>Online application submission assistance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20an%20Online%20Application.">
 💬 WhatsApp
 </a>
-
 </div>
 
-<!-- DIGITAL -->
-
 <div class="service-card">
-
 <div class="service-icon">💻</div>
-
 <h3>Digital Services</h3>
-
-<p>
-Various digital service assistance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Services"
->
+<p>Various digital service assistance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Services.">
 💬 WhatsApp
 </a>
-
 </div>
 
-<!-- PRINT -->
-
 <div class="service-card">
-
 <div class="service-icon">🖨️</div>
-
-<h3>Print &amp; Scan</h3>
-
-<p>
-Printing, scanning and document support.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Print%20and%20Scan"
->
+<h3>Print & Scan</h3>
+<p>Printing, scanning and document support.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Print%20and%20Scan.">
 💬 WhatsApp
 </a>
-
 </div>
 
-<!-- PHOTO -->
-
 <div class="service-card">
-
 <div class="service-icon">📷</div>
-
-<h3>Photo &amp; Document Resize</h3>
-
-<p>
-Photo resize and document formatting assistance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Photo%20and%20Document%20Resize"
->
+<h3>Photo & Document Resize</h3>
+<p>Photo resize and document formatting assistance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Photo%20and%20Document%20Resize.">
 💬 WhatsApp
 </a>
-
 </div>
 
-<!-- PASSPORT -->
-
 <div class="service-card">
-
 <div class="service-icon">🛂</div>
-
 <h3>Passport Assistance</h3>
-
-<p>
-Passport application assistance and guidance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Passport%20Assistance"
->
+<p>Passport application assistance and guidance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Passport%20Assistance.">
 💬 WhatsApp
 </a>
-
 </div>
-
-<!-- PAYMENT -->
 
 <div class="service-card">
-
 <div class="service-icon">💳</div>
-
 <h3>Digital Payment Assistance</h3>
-
-<p>
-Digital payment and online transaction assistance.
-</p>
-
-<a
-class="btn btn-success"
-target="_blank"
-rel="noopener"
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Payment%20Assistance"
->
+<p>Digital payment and online transaction assistance.</p>
+<a class="btn btn-success" target="_blank" rel="noopener"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20help%20with%20Digital%20Payment%20Assistance.">
 💬 WhatsApp
 </a>
-
 </div>
 
 </div>
-
-<p id="noServices" style="display:none;text-align:center;color:var(--muted);margin-top:25px;font-weight:700">
-No matching service found.
-</p>
 
 </div>
 
 </section>
 
-<!-- PAN OFFICIAL -->
+<!-- ================= PAN ================= -->
 
 <section>
 
@@ -1799,39 +1478,31 @@ Use the official PAN service websites for PAN related applications.
 
 <div class="pan-links">
 
-<a
-class="btn btn-primary"
+<a class="btn btn-primary"
 href="https://www.pan.utiitsl.com/"
 target="_blank"
-rel="noopener"
->
+rel="noopener">
 New PAN
 </a>
 
-<a
-class="btn btn-primary"
+<a class="btn btn-primary"
 href="https://www.pan.utiitsl.com/"
 target="_blank"
-rel="noopener"
->
+rel="noopener">
 PAN Correction
 </a>
 
-<a
-class="btn btn-primary"
+<a class="btn btn-primary"
 href="https://www.pan.utiitsl.com/PAN_ONLINE/regenPANHomereprint"
 target="_blank"
-rel="noopener"
->
+rel="noopener">
 PAN Reprint
 </a>
 
-<a
-class="btn btn-primary"
+<a class="btn btn-primary"
 href="https://www.pan.utiitsl.com/PAN_ONLINE/ePANCardHome"
 target="_blank"
-rel="noopener"
->
+rel="noopener">
 e-PAN Download
 </a>
 
@@ -1843,33 +1514,25 @@ e-PAN Download
 
 </section>
 
-<!-- PRICE -->
+<!-- ================= PRICE ================= -->
 
 <section id="price">
 
 <div class="container">
 
 <div class="section-heading">
-
 <span class="eyebrow">PRICE</span>
-
 <h2>Service Price List</h2>
-
 <p>Indicative service assistance charges.</p>
-
 </div>
-
-<div style="overflow-x:auto;border-radius:20px;box-shadow:var(--shadow);">
 
 <table class="price-table">
 
 <thead>
-
 <tr>
 <th>Service</th>
 <th>Fee</th>
 </tr>
-
 </thead>
 
 <tbody>
@@ -1910,31 +1573,26 @@ e-PAN Download
 
 </div>
 
-</div>
-
 </section>
 
-<!-- FEE CALCULATOR -->
+<!-- ================= FEE CALCULATOR ================= -->
 
 <section>
 
 <div class="container">
 
 <div class="section-heading">
-
 <span class="eyebrow">CALCULATOR</span>
-
 <h2>Service Fee Calculator</h2>
-
 </div>
 
 <div class="calc-box">
 
 <div class="form-group">
 
-<label>Select Service</label>
+<label for="feeService">Select Service</label>
 
-<select id="feeService" onchange="calculateFee()">
+<select id="feeService">
 
 <option value="200">PAN Card - ₹200</option>
 <option value="200">Aadhaar Assistance - ₹200</option>
@@ -1959,7 +1617,7 @@ Estimated Fee: ₹200
 
 </section>
 
-<!-- APPOINTMENT -->
+<!-- ================= APPOINTMENT ================= -->
 
 <section class="appointment">
 
@@ -1978,37 +1636,19 @@ Estimated Fee: ₹200
 <div class="calc-box">
 
 <div class="form-group">
-
-<label>Your Name</label>
-
-<input
-type="text"
-id="appName"
-placeholder="Enter your name"
->
-
+<label for="appName">Your Name</label>
+<input type="text" id="appName" placeholder="Enter your name">
 </div>
 
 <div class="form-group">
-
-<label>Mobile Number</label>
-
-<input
-type="tel"
-id="appPhone"
-maxlength="10"
-inputmode="numeric"
-placeholder="Enter 10-digit mobile number"
->
-
+<label for="appPhone">Mobile Number</label>
+<input type="tel" id="appPhone" placeholder="Enter mobile number">
 </div>
 
 <div class="form-group">
-
-<label>Select Service</label>
+<label for="appService">Select Service</label>
 
 <select id="appService">
-
 <option>PAN Card</option>
 <option>Aadhaar Assistance</option>
 <option>Voter Card</option>
@@ -2017,17 +1657,13 @@ placeholder="Enter 10-digit mobile number"
 <option>Government Forms</option>
 <option>Online Application</option>
 <option>Digital Services</option>
-
 </select>
 
 </div>
 
 <div class="form-group">
-
-<label>Preferred Date</label>
-
+<label for="appDate">Preferred Date</label>
 <input type="date" id="appDate">
-
 </div>
 
 <button class="btn btn-success" onclick="bookAppointment()">
@@ -2040,7 +1676,7 @@ placeholder="Enter 10-digit mobile number"
 
 </section>
 
-<!-- ENQUIRY -->
+<!-- ================= ENQUIRY ================= -->
 
 <section>
 
@@ -2078,37 +1714,19 @@ Your Enquiry No: -
 <div class="calc-box">
 
 <div class="form-group">
-
-<label>Name</label>
-
-<input
-type="text"
-id="enqName"
-placeholder="Your name"
->
-
+<label for="enqName">Name</label>
+<input type="text" id="enqName" placeholder="Your name">
 </div>
 
 <div class="form-group">
-
-<label>Mobile</label>
-
-<input
-type="tel"
-id="enqPhone"
-maxlength="10"
-inputmode="numeric"
-placeholder="10-digit mobile number"
->
-
+<label for="enqPhone">Mobile</label>
+<input type="tel" id="enqPhone" placeholder="Mobile number">
 </div>
 
 <div class="form-group">
-
-<label>Service</label>
+<label for="enqService">Service</label>
 
 <select id="enqService">
-
 <option>PAN Card</option>
 <option>Aadhaar Assistance</option>
 <option>Voter Card</option>
@@ -2117,27 +1735,21 @@ placeholder="10-digit mobile number"
 <option>Government Forms</option>
 <option>Online Application</option>
 <option>Digital Services</option>
-
 </select>
 
 </div>
 
 <div class="form-group">
-
-<label>Message</label>
+<label for="enqMessage">Message</label>
 
 <textarea
 id="enqMessage"
 rows="4"
-placeholder="Write your enquiry"
-></textarea>
+placeholder="Write your enquiry"></textarea>
 
 </div>
 
-<button
-class="btn btn-success"
-onclick="sendEnquiry()"
->
+<button class="btn btn-success" onclick="sendEnquiry()">
 💬 Send Enquiry
 </button>
 
@@ -2149,7 +1761,7 @@ onclick="sendEnquiry()"
 
 </section>
 
-<!-- FORMS -->
+<!-- ================= FORMS ================= -->
 
 <section>
 
@@ -2177,8 +1789,7 @@ onclick="sendEnquiry()"
 href="https://www.pan.utiitsl.com/"
 target="_blank"
 rel="noopener"
-class="btn btn-primary"
->
+class="btn btn-primary">
 Open PAN Website
 </a>
 
@@ -2191,11 +1802,10 @@ Open PAN Website
 <p>Contact us for the required government form.</p>
 
 <a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20a%20Government%20Form"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20a%20Government%20Form."
 target="_blank"
 rel="noopener"
-class="btn btn-success"
->
+class="btn btn-success">
 Request Form
 </a>
 
@@ -2208,11 +1818,10 @@ Request Form
 <p>Contact us for application assistance.</p>
 
 <a
-href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20Online%20Application%20assistance"
+href="https://wa.me/917001689925?text=Hello%20Sumit%2C%20I%20need%20Online%20Application%20assistance."
 target="_blank"
 rel="noopener"
-class="btn btn-success"
->
+class="btn btn-success">
 Request Assistance
 </a>
 
@@ -2224,7 +1833,7 @@ Request Assistance
 
 </section>
 
-<!-- TEAM -->
+<!-- ================= TEAM ================= -->
 
 <section id="team">
 
@@ -2243,73 +1852,33 @@ Request Assistance
 <div class="team-grid">
 
 <div class="team-card">
-
-<img
-src="owner.jpeg"
-alt="Sumit Patra"
-loading="lazy"
->
-
+<img src="owner.jpeg" alt="Sumit Patra">
 <h3>Sumit Patra</h3>
-
 <p>Owner</p>
-
 </div>
 
 <div class="team-card">
-
-<img
-src="ceo-manager.jpeg"
-alt="Avijit Patra"
-loading="lazy"
->
-
+<img src="ceo-manager.jpeg" alt="Avijit Patra">
 <h3>Avijit Patra</h3>
-
 <p>CEO / Manager</p>
-
 </div>
 
 <div class="team-card">
-
-<img
-src="team-manager.jpeg"
-alt="Godadhar Jana"
-loading="lazy"
->
-
+<img src="team-manager.jpeg" alt="Godadhar Jana">
 <h3>Godadhar Jana</h3>
-
 <p>Team Manager</p>
-
 </div>
 
 <div class="team-card">
-
-<img
-src="team-leader.jpeg"
-alt="Manotosh Dalui"
-loading="lazy"
->
-
+<img src="team-leader.jpeg" alt="Manotosh Dalui">
 <h3>Manotosh Dalui</h3>
-
 <p>Team Leader</p>
-
 </div>
 
 <div class="team-card">
-
-<img
-src="team-member.jpeg"
-alt="Santanu Patra"
-loading="lazy"
->
-
+<img src="team-member.jpeg" alt="Santanu Patra">
 <h3>Santanu Patra</h3>
-
 <p>Team Member</p>
-
 </div>
 
 </div>
@@ -2318,7 +1887,7 @@ loading="lazy"
 
 </section>
 
-<!-- REVIEWS -->
+<!-- ================= REVIEWS ================= -->
 
 <section id="reviews">
 
@@ -2330,46 +1899,26 @@ loading="lazy"
 
 <h2>Customer Reviews</h2>
 
-<p>Sample review text — replace with real customer reviews when available.</p>
-
 </div>
 
 <div class="review-grid">
 
 <div class="review">
-
 <div class="stars">★★★★★</div>
-
-<p>
-Good service and helpful communication.
-</p>
-
+<p>Good service and helpful communication.</p>
 <strong>— Customer</strong>
-
 </div>
 
 <div class="review">
-
 <div class="stars">★★★★★</div>
-
-<p>
-Online service assistance was easy and convenient.
-</p>
-
+<p>Online service assistance was easy and convenient.</p>
 <strong>— Customer</strong>
-
 </div>
 
 <div class="review">
-
 <div class="stars">★★★★★</div>
-
-<p>
-Quick response through WhatsApp.
-</p>
-
+<p>Quick response through WhatsApp.</p>
 <strong>— Customer</strong>
-
 </div>
 
 </div>
@@ -2378,7 +1927,7 @@ Quick response through WhatsApp.
 
 </section>
 
-<!-- FAQ -->
+<!-- ================= FAQ ================= -->
 
 <section id="faq">
 
@@ -2395,45 +1944,33 @@ Quick response through WhatsApp.
 <div class="faq">
 
 <details>
-
 <summary>What services do you provide?</summary>
-
 <p>
 PAN, Aadhaar assistance, Voter Card, Ration Card,
 Government Forms, Online Applications and other digital services.
 </p>
-
 </details>
 
 <details>
-
 <summary>How can I contact you?</summary>
-
 <p>
 You can call, email or WhatsApp us.
 </p>
-
 </details>
 
 <details>
-
 <summary>Can I book an appointment?</summary>
-
 <p>
 Yes. Use the appointment section and send the details through WhatsApp.
 </p>
-
 </details>
 
 <details>
-
 <summary>Are the fees fixed?</summary>
-
 <p>
 Displayed fees are service assistance charges and may vary depending
 on application requirements.
 </p>
-
 </details>
 
 </div>
@@ -2442,7 +1979,7 @@ on application requirements.
 
 </section>
 
-<!-- GALLERY -->
+<!-- ================= GALLERY ================= -->
 
 <section>
 
@@ -2460,47 +1997,29 @@ on application requirements.
 
 <div class="gallery">
 
-<img
-src="sumit-photo.jpeg"
+<img src="sumit-photo.jpeg"
 alt="Sumit Patra"
-loading="lazy"
-onclick="openViewer(this.src)"
->
+onclick="openViewer(this.src)">
 
-<img
-src="owner.jpeg"
+<img src="owner.jpeg"
 alt="Owner"
-loading="lazy"
-onclick="openViewer(this.src)"
->
+onclick="openViewer(this.src)">
 
-<img
-src="ceo-manager.jpeg"
+<img src="ceo-manager.jpeg"
 alt="CEO Manager"
-loading="lazy"
-onclick="openViewer(this.src)"
->
+onclick="openViewer(this.src)">
 
-<img
-src="team-manager.jpeg"
+<img src="team-manager.jpeg"
 alt="Team Manager"
-loading="lazy"
-onclick="openViewer(this.src)"
->
+onclick="openViewer(this.src)">
 
-<img
-src="team-leader.jpeg"
+<img src="team-leader.jpeg"
 alt="Team Leader"
-loading="lazy"
-onclick="openViewer(this.src)"
->
+onclick="openViewer(this.src)">
 
-<img
-src="team-member.jpeg"
+<img src="team-member.jpeg"
 alt="Team Member"
-loading="lazy"
-onclick="openViewer(this.src)"
->
+onclick="openViewer(this.src)">
 
 </div>
 
@@ -2508,7 +2027,7 @@ onclick="openViewer(this.src)"
 
 </section>
 
-<!-- QR -->
+<!-- ================= QR ================= -->
 
 <section>
 
@@ -2527,17 +2046,14 @@ onclick="openViewer(this.src)"
 <p>Scan this QR code to open the website.</p>
 
 <img
-src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Fsumitpatra936-a11y.github.io%2FSUMIT-PATRA%2F"
-alt="Website QR Code"
-loading="lazy"
->
+src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://sumitpatra936-a11y.github.io/SUMIT-PATRA/"
+alt="Website QR Code">
 
 <a
 href="https://sumitpatra936-a11y.github.io/SUMIT-PATRA/"
 target="_blank"
 rel="noopener"
-class="btn btn-primary"
->
+class="btn btn-primary">
 Open Website
 </a>
 
@@ -2547,7 +2063,7 @@ Open Website
 
 </section>
 
-<!-- BUSINESS HOURS -->
+<!-- ================= BUSINESS STATUS ================= -->
 
 <section>
 
@@ -2579,7 +2095,7 @@ Sunday: Closed
 
 </section>
 
-<!-- MAP -->
+<!-- ================= MAP ================= -->
 
 <section>
 
@@ -2598,7 +2114,6 @@ Sunday: Closed
 <iframe
 src="https://www.google.com/maps?q=Swarup%20Beria%2C%20Iswaripur%2C%20Bhangar%2C%20South%2024%20Parganas%2C%20West%20Bengal&output=embed"
 loading="lazy"
-referrerpolicy="no-referrer-when-downgrade"
 title="SUMIT PATRA Location">
 </iframe>
 
@@ -2612,8 +2127,7 @@ title="SUMIT PATRA Location">
 href="https://www.google.com/maps/search/?api=1&query=Swarup%20Beria%2C%20Iswaripur%2C%20Bhangar%2C%20South%2024%20Parganas%2C%20West%20Bengal"
 target="_blank"
 rel="noopener"
-class="btn btn-primary"
->
+class="btn btn-primary">
 📍 Get Directions
 </a>
 
@@ -2623,7 +2137,7 @@ class="btn btn-primary"
 
 </section>
 
-<!-- CONTACT -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
@@ -2647,10 +2161,7 @@ class="btn btn-primary"
 
 <br>
 
-<a
-href="tel:7001689925"
-class="btn btn-primary"
->
+<a href="tel:7001689925" class="btn btn-primary">
 Call Now
 </a>
 
@@ -2668,8 +2179,7 @@ Call Now
 href="https://wa.me/917001689925"
 target="_blank"
 rel="noopener"
-class="btn btn-success"
->
+class="btn btn-success">
 WhatsApp
 </a>
 
@@ -2685,8 +2195,7 @@ WhatsApp
 
 <a
 href="mailto:sumitpatra936@gmail.com"
-class="btn btn-dark"
->
+class="btn btn-dark">
 Email
 </a>
 
@@ -2711,7 +2220,7 @@ South 24 Parganas, West Bengal
 
 </section>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -2744,14 +2253,14 @@ Privacy • Terms • Disclaimer
 
 </footer>
 
-<!-- POPUP -->
+<!-- ================= POPUP ================= -->
 
 <div class="popup" id="popup">
 
 <button
 class="popup-close"
 onclick="closePopup()"
->
+aria-label="Close">
 ×
 </button>
 
@@ -2768,20 +2277,18 @@ Contact SUMIT PATRA through WhatsApp.
 href="https://wa.me/917001689925"
 target="_blank"
 rel="noopener"
-class="btn btn-success"
->
+class="btn btn-success">
 💬 WhatsApp Now
 </a>
 
 </div>
 
-<!-- IMAGE VIEWER -->
+<!-- ================= IMAGE VIEWER ================= -->
 
 <div
 class="image-viewer"
 id="imageViewer"
-onclick="closeViewer()"
->
+onclick="closeViewer()">
 
 <span class="viewer-close">×</span>
 
@@ -2789,52 +2296,42 @@ onclick="closeViewer()"
 id="viewerImage"
 src=""
 alt="Full Image"
-onclick="event.stopPropagation()"
->
+onclick="event.stopPropagation()">
 
 </div>
 
-<!-- FLOATING WHATSAPP -->
+<!-- ================= WHATSAPP ================= -->
 
 <a
 href="https://wa.me/917001689925"
 target="_blank"
 rel="noopener"
 class="whatsapp-float"
-title="WhatsApp"
-aria-label="WhatsApp"
->
+title="WhatsApp">
 💬
 </a>
 
-<!-- BACK TOP -->
+<!-- ================= BACK TOP ================= -->
 
 <button
 class="back-top"
-id="backTop"
 onclick="window.scrollTo({top:0,behavior:'smooth'})"
-aria-label="Back to top"
->
+aria-label="Back to top">
 ↑
 </button>
 
-<!-- MOBILE BAR -->
+<!-- ================= MOBILE BAR ================= -->
 
 <div class="mobile-bar">
 
-<a
-href="tel:7001689925"
-class="mobile-call"
->
+<a href="tel:7001689925">
 📞 Call
 </a>
 
 <a
 href="https://wa.me/917001689925"
 target="_blank"
-rel="noopener"
-class="mobile-whatsapp"
->
+rel="noopener">
 💬 WhatsApp
 </a>
 
@@ -2842,504 +2339,461 @@ class="mobile-whatsapp"
 
 <script>
 
-/* LOADER */
+/* =====================================================
+   SAFE LOADER
+   ===================================================== */
 
-window.addEventListener("load",function(){
+(function(){
 
-setTimeout(function(){
+  function hideLoader(){
+    var loader = document.getElementById("loader");
 
-const loader=document.getElementById("loader");
+    if(loader){
+      loader.classList.add("hide");
 
-if(loader){
-  loader.style.display="none";
-}
+      setTimeout(function(){
+        if(loader && loader.parentNode){
+          loader.style.display = "none";
+        }
+      },400);
+    }
+  }
 
-},600);
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", hideLoader);
+  }else{
+    hideLoader();
+  }
 
-});
+  window.addEventListener("load", hideLoader);
+
+  /* Emergency fallback:
+     loader will NEVER remain forever. */
+  setTimeout(hideLoader,1500);
+
+})();
 
 
-/* MOBILE MENU */
+/* =====================================================
+   MOBILE MENU
+   ===================================================== */
 
 function toggleMenu(){
 
-document
-.getElementById("navLinks")
-.classList.toggle("show");
+  var nav = document.getElementById("navLinks");
 
-}
-
-function closeMenu(){
-
-document
-.getElementById("navLinks")
-.classList.remove("show");
+  if(nav){
+    nav.classList.toggle("show");
+  }
 
 }
 
 
-/* DARK MODE */
+/* Close mobile menu after clicking a link */
 
-function updateThemeButton(){
+document.querySelectorAll("#navLinks a").forEach(function(link){
 
-const btn=document.getElementById("themeBtn");
+  link.addEventListener("click",function(){
 
-if(!btn)return;
+    var nav = document.getElementById("navLinks");
 
-btn.textContent=
-document.body.classList.contains("dark")
-?"☀️"
-:"🌙";
+    if(nav){
+      nav.classList.remove("show");
+    }
 
-}
-
-function toggleDark(){
-
-document.body.classList.toggle("dark");
-
-localStorage.setItem(
-"darkMode",
-document.body.classList.contains("dark")
-?"on"
-:"off"
-);
-
-updateThemeButton();
-
-}
-
-if(localStorage.getItem("darkMode")==="on"){
-
-document.body.classList.add("dark");
-
-}
-
-updateThemeButton();
-
-
-/* SERVICE SEARCH */
-
-function searchServices(){
-
-const input=
-document
-.getElementById("serviceSearch")
-.value
-.toLowerCase()
-.trim();
-
-const cards=
-document.querySelectorAll(
-"#serviceGrid .service-card"
-);
-
-let visible=0;
-
-cards.forEach(function(card){
-
-const match=
-card.innerText
-.toLowerCase()
-.includes(input);
-
-card.style.display=
-match
-?"flex"
-:"none";
-
-if(match){
-visible++;
-}
+  });
 
 });
 
-document.getElementById("noServices").style.display=
-visible
-?"none"
-:"block";
+
+/* =====================================================
+   DARK MODE
+   ===================================================== */
+
+function toggleDark(){
+
+  document.body.classList.toggle("dark");
+
+  if(document.body.classList.contains("dark")){
+    localStorage.setItem("darkMode","on");
+  }else{
+    localStorage.setItem("darkMode","off");
+  }
 
 }
 
 
-/* FEE CALCULATOR */
+/* Restore dark mode */
+
+try{
+
+  if(localStorage.getItem("darkMode") === "on"){
+    document.body.classList.add("dark");
+  }
+
+}catch(error){
+
+  console.log("Dark mode storage unavailable.");
+
+}
+
+
+/* =====================================================
+   SERVICE SEARCH
+   ===================================================== */
+
+function searchServices(){
+
+  var input = document.getElementById("serviceSearch");
+
+  if(!input){
+    return;
+  }
+
+  var searchText = input.value.toLowerCase().trim();
+
+  var cards = document.querySelectorAll(".service-card");
+
+  cards.forEach(function(card){
+
+    var text = card.innerText.toLowerCase();
+
+    if(text.includes(searchText)){
+      card.style.display = "flex";
+    }else{
+      card.style.display = "none";
+    }
+
+  });
+
+}
+
+
+/* Search event */
+
+var serviceSearch = document.getElementById("serviceSearch");
+
+if(serviceSearch){
+
+  serviceSearch.addEventListener("input",searchServices);
+
+}
+
+
+/* =====================================================
+   FEE CALCULATOR
+   ===================================================== */
 
 function calculateFee(){
 
-const fee=
-document
-.getElementById("feeService")
-.value;
+  var service = document.getElementById("feeService");
+  var result = document.getElementById("feeResult");
 
-document
-.getElementById("feeResult")
-.innerText=
-"Estimated Fee: ₹"+fee;
+  if(!service || !result){
+    return;
+  }
 
-}
+  var fee = service.value;
 
-
-/* MOBILE VALIDATION */
-
-function validIndianMobile(phone){
-
-return /^[6-9]\d{9}$/.test(
-phone.trim()
-);
+  result.innerText = "Estimated Fee: ₹" + fee;
 
 }
 
 
-/* APPOINTMENT */
+var feeService = document.getElementById("feeService");
+
+if(feeService){
+
+  feeService.addEventListener("change",calculateFee);
+
+}
+
+
+/* =====================================================
+   APPOINTMENT
+   ===================================================== */
 
 function bookAppointment(){
 
-const name=
-document
-.getElementById("appName")
-.value
-.trim();
+  var name = document.getElementById("appName").value.trim();
+  var phone = document.getElementById("appPhone").value.trim();
+  var service = document.getElementById("appService").value;
+  var date = document.getElementById("appDate").value;
 
-const phone=
-document
-.getElementById("appPhone")
-.value
-.trim();
+  if(!name || !phone || !date){
 
-const service=
-document
-.getElementById("appService")
-.value;
+    alert("Please fill all required fields.");
 
-const date=
-document
-.getElementById("appDate")
-.value;
+    return;
+  }
 
-if(!name || !phone || !date){
+  var cleanPhone = phone.replace(/\D/g,"");
 
-alert(
-"Please fill all required fields."
-);
+  if(cleanPhone.length < 10){
 
-return;
+    alert("Please enter a valid mobile number.");
 
-}
+    return;
+  }
 
-if(!validIndianMobile(phone)){
+  var message =
+    "Hello Sumit,%0A%0A" +
+    "I want to book an appointment.%0A%0A" +
+    "Name: " + encodeURIComponent(name) + "%0A" +
+    "Mobile: " + encodeURIComponent(phone) + "%0A" +
+    "Service: " + encodeURIComponent(service) + "%0A" +
+    "Date: " + encodeURIComponent(date);
 
-alert(
-"Please enter a valid 10-digit Indian mobile number."
-);
-
-return;
-
-}
-
-const message=
-"Hello Sumit,\n\n"+
-"I want to book an appointment.\n\n"+
-"Name: "+name+"\n"+
-"Mobile: "+phone+"\n"+
-"Service: "+service+"\n"+
-"Date: "+date;
-
-window.open(
-"https://wa.me/917001689925?text="+
-encodeURIComponent(message),
-"_blank"
-);
+  window.open(
+    "https://wa.me/917001689925?text=" + message,
+    "_blank"
+  );
 
 }
 
 
-/* ENQUIRY NUMBER */
+/* =====================================================
+   ENQUIRY NUMBER
+   ===================================================== */
 
 function generateEnquiryNumber(){
 
-let number=
-parseInt(
-localStorage.getItem("enquiryNumber") ||
-"1000",
-10
-);
+  var number = 1000;
 
-const newNumber=
-number+1;
+  try{
 
-localStorage.setItem(
-"enquiryNumber",
-String(newNumber)
-);
+    number = parseInt(
+      localStorage.getItem("enquiryNumber") || "1000",
+      10
+    );
 
-return "SP-"+newNumber;
+  }catch(error){
+
+    number = 1000;
+
+  }
+
+  var newNumber = number + 1;
+
+  try{
+
+    localStorage.setItem(
+      "enquiryNumber",
+      newNumber
+    );
+
+  }catch(error){
+
+    console.log("Local storage unavailable.");
+
+  }
+
+  return "SP-" + newNumber;
 
 }
 
-const enquiryNo=
-generateEnquiryNumber();
 
-document
-.getElementById("enquiryNumber")
-.innerText=
-"Your Enquiry No: "+enquiryNo;
+var enquiryNo = generateEnquiryNumber();
+
+var enquiryNumberElement =
+document.getElementById("enquiryNumber");
+
+if(enquiryNumberElement){
+
+  enquiryNumberElement.innerText =
+    "Your Enquiry No: " + enquiryNo;
+
+}
 
 
-/* ENQUIRY */
+/* =====================================================
+   SEND ENQUIRY
+   ===================================================== */
 
 function sendEnquiry(){
 
-const name=
-document
-.getElementById("enqName")
-.value
-.trim();
+  var name =
+    document.getElementById("enqName").value.trim();
 
-const phone=
-document
-.getElementById("enqPhone")
-.value
-.trim();
+  var phone =
+    document.getElementById("enqPhone").value.trim();
 
-const service=
-document
-.getElementById("enqService")
-.value;
+  var service =
+    document.getElementById("enqService").value;
 
-const message=
-document
-.getElementById("enqMessage")
-.value
-.trim();
+  var message =
+    document.getElementById("enqMessage").value.trim();
 
-if(!name || !phone || !message){
+  if(!name || !phone || !message){
 
-alert(
-"Please fill all required fields."
-);
+    alert("Please fill all required fields.");
 
-return;
+    return;
+  }
 
-}
+  var cleanPhone = phone.replace(/\D/g,"");
 
-if(!validIndianMobile(phone)){
+  if(cleanPhone.length < 10){
 
-alert(
-"Please enter a valid 10-digit Indian mobile number."
-);
+    alert("Please enter a valid mobile number.");
 
-return;
+    return;
+  }
 
-}
+  var text =
+    "Hello Sumit,%0A%0A" +
+    "Online Enquiry%0A" +
+    "Enquiry No: " + encodeURIComponent(enquiryNo) + "%0A%0A" +
+    "Name: " + encodeURIComponent(name) + "%0A" +
+    "Mobile: " + encodeURIComponent(phone) + "%0A" +
+    "Service: " + encodeURIComponent(service) + "%0A" +
+    "Message: " + encodeURIComponent(message);
 
-const text=
-"Hello Sumit,\n\n"+
-"Online Enquiry\n"+
-"Enquiry No: "+enquiryNo+"\n\n"+
-"Name: "+name+"\n"+
-"Mobile: "+phone+"\n"+
-"Service: "+service+"\n"+
-"Message: "+message;
-
-window.open(
-"https://wa.me/917001689925?text="+
-encodeURIComponent(text),
-"_blank"
-);
+  window.open(
+    "https://wa.me/917001689925?text=" + text,
+    "_blank"
+  );
 
 }
 
 
-/* IMAGE VIEWER */
+/* =====================================================
+   IMAGE VIEWER
+   ===================================================== */
 
 function openViewer(src){
 
-document
-.getElementById("viewerImage")
-.src=src;
+  var viewer =
+    document.getElementById("imageViewer");
 
-document
-.getElementById("imageViewer")
-.classList.add("show");
+  var image =
+    document.getElementById("viewerImage");
 
-document.body.style.overflow="hidden";
+  if(!viewer || !image){
+    return;
+  }
+
+  image.src = src;
+
+  viewer.classList.add("show");
+
+  document.body.style.overflow = "hidden";
 
 }
+
 
 function closeViewer(){
 
-document
-.getElementById("imageViewer")
-.classList.remove("show");
+  var viewer =
+    document.getElementById("imageViewer");
 
-document.body.style.overflow="";
+  if(viewer){
+    viewer.classList.remove("show");
+  }
+
+  document.body.style.overflow = "";
 
 }
 
 
-/* POPUP */
+/* ESC key closes image viewer */
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key === "Escape"){
+    closeViewer();
+    closePopup();
+  }
+
+});
+
+
+/* =====================================================
+   POPUP
+   ===================================================== */
 
 function closePopup(){
 
-document
-.getElementById("popup")
-.classList.remove("show");
+  var popup =
+    document.getElementById("popup");
+
+  if(popup){
+    popup.classList.remove("show");
+  }
 
 }
+
+
+/* Show popup after 3.5 seconds */
 
 setTimeout(function(){
 
-const popup=
-document.getElementById("popup");
+  var popup =
+    document.getElementById("popup");
 
-if(popup){
+  if(popup){
 
-popup.classList.add("show");
+    popup.classList.add("show");
 
-}
+  }
 
-},4000);
+},3500);
 
 
-/* BUSINESS STATUS */
+/* =====================================================
+   BUSINESS STATUS
+   ===================================================== */
 
 function updateBusinessStatus(){
 
-const status=
-document.getElementById("businessStatus");
+  var status =
+    document.getElementById("businessStatus");
 
-if(!status)return;
+  if(!status){
+    return;
+  }
 
-const parts=
-new Intl.DateTimeFormat(
-"en-US",
-{
-timeZone:"Asia/Kolkata",
-weekday:"short",
-hour:"numeric",
-hour12:false
-}
-.formatToParts(new Date());
+  var now = new Date();
 
-const weekday=
-parts.find(
-p=>p.type==="weekday"
-).value;
+  var day = now.getDay();
 
-const hour=
-Number(
-parts.find(
-p=>p.type==="hour"
-).value
-);
+  var hour = now.getHours();
 
-if(weekday==="Sun"){
+  if(day === 0){
 
-status.innerText=
-"🔴 Closed Today";
+    status.innerText = "🔴 Closed Today";
 
-status.style.color=
-"#dc2626";
+    status.style.color = "#dc2626";
 
-return;
+    return;
 
-}
+  }
 
-if(hour>=9 && hour<20){
+  if(hour >= 9 && hour < 20){
 
-status.innerText=
-"🟢 Open Now";
+    status.innerText = "🟢 Open Now";
 
-status.style.color=
-"#16a34a";
+    status.style.color = "#16a34a";
 
-}else{
+  }else{
 
-status.innerText=
-"🔴 Closed Now";
+    status.innerText = "🔴 Closed Now";
 
-status.style.color=
-"#dc2626";
+    status.style.color = "#dc2626";
+
+  }
 
 }
 
-}
+
+/* Initial status */
 
 updateBusinessStatus();
 
-setInterval(
-updateBusinessStatus,
-60000
-);
 
+/* Update status every minute */
 
-/* BACK TO TOP */
-
-window.addEventListener(
-"scroll",
-function(){
-
-const btn=
-document.getElementById("backTop");
-
-if(window.scrollY>500){
-
-btn.classList.add("show");
-
-}else{
-
-btn.classList.remove("show");
-
-}
-
-}
-);
-
-
-/* CLOSE MOBILE MENU */
-
-document.addEventListener(
-"click",
-function(event){
-
-const nav=
-document.getElementById("navLinks");
-
-const menu=
-document.querySelector(".menu-btn");
-
-if(
-window.innerWidth<=800 &&
-nav.classList.contains("show") &&
-!nav.contains(event.target) &&
-!menu.contains(event.target)
-){
-
-nav.classList.remove("show");
-
-}
-
-}
-);
-
-
-/* ESCAPE KEY */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-if(event.key==="Escape"){
-
-closeViewer();
-
-closePopup();
-
-closeMenu();
-
-}
-
-}
-);
+setInterval(updateBusinessStatus,60000);
 
 </script>
 
